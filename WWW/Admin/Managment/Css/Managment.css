@@ -1,0 +1,458 @@
+*,*:before,*:after {
+	box-sizing: border-box;
+   margin: 0px;
+}
+
+:after {
+	content: "";
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+  line-height:1.4;
+}
+
+nav {
+  float: left;
+   margin-left: 0px;
+   background-color: #421453;
+   width: 70px;
+}
+
+nav ul {
+	text-align: center;
+   margin-left: -32px;
+}
+
+nav ul li {
+	position: relative;
+  width: 70px;
+  cursor: pointer;
+	background: #421453;
+	text-transform: uppercase;
+	transition:all .4s ease-out;
+}
+
+nav ul li:after {
+	position: absolute;
+	background: white;
+	color: #421453;
+	top:0;
+	left: 70px;
+	width: 70px; height: 100%;
+  opacity:.5;
+  transform: perspective(400px) rotateY(90deg);
+	transform-origin: 0 100%;
+	transition:all .4s ease-out;
+}
+
+nav ul li:nth-child(1):after { 
+	content: "Manage";
+	line-height: 88px;
+}
+nav ul li:nth-child(2):after { 
+	content: "chat";
+	line-height: 88px;
+}
+nav ul li:nth-child(3):after { 
+	content: "request";
+	line-height: 85px;
+}
+nav ul li:nth-child(4):after { 
+	content: "report";
+	line-height: 85px;
+}
+nav ul li:nth-child(5):after { 
+	content: "Log Out";
+	line-height: 70px;
+}
+
+nav ul li:hover {
+	transform: translateX(-70px);
+}
+
+nav ul li:hover:after {
+  opacity: 1;
+	transform: perspective(400px) rotateY(0deg) scale(1) ;
+}
+
+
+nav ul li > div {
+	display: inline-block;
+	padding: 25px 0;
+	background: transparent;
+}
+
+nav ul li div { position: relative; }
+
+/*//report//*/
+
+.paper {
+	position: relative;
+	height:32px;
+	width: 29px;
+	background: white;
+	border:2px solid white;
+}
+
+/*window*/
+.paper:after {
+	position: absolute;
+	top:1px;
+	left: 0;
+	width: 25px;
+	height: 29px;
+	background: white;
+	border-top:4px solid #421453;
+}
+
+.lines {
+	position: absolute;
+	top: 36px;
+	left: 5px;
+	width: 11px;
+	box-shadow: 0 0 0 1px #421453;
+}
+
+.lines:after {
+	position: absolute;
+	top: 4px;
+	left: 3px;
+	width: 14px;
+	box-shadow: 0 0 0 1px #421453;
+}
+
+.lines:nth-child(2) {
+	position: absolute;
+	top: 44px;
+	left: 8px;
+	width: 11px;
+}
+
+.lines:nth-child(2):after {
+	position: absolute;
+	top: 4px;
+	left: -3px;
+	width: 11px;
+}
+
+.lines:nth-child(3) {
+	position: absolute;
+	top: 52px;
+	left: 8px;
+	width: 14px;
+}
+
+.lines:nth-child(3):after {
+	display: none;
+}
+
+/*//logOut //*/
+
+
+.logOut-top {
+	transform: rotate(180deg);
+}
+
+.logOutLi{
+
+   margin-top: 227% !important;
+}
+
+.sideBar{
+   height: 100vh;
+}
+
+.cmsTitle{
+   text-align: center;
+}
+
+.managmentLi{
+   margin-top: 100% !important;
+}
+
+.allPage{
+   display: flex;
+}
+
+.teacherAndStudent{
+   margin-top: 10vh !important;
+   margin-left: 27vw !important;
+}
+
+#studentRuler, #teacherRuler{
+   margin-top: 7px;
+   display: none;
+   z-index: 33;
+}
+
+#studentRuler{
+   display: block;
+   height: 13px;
+   background-color: #421453;
+   border: 1px solid black;
+   border-radius: 7px 7px 7px 7px
+}
+
+#studentHeader, #teacherHeader{
+   font-weight: normal;
+}
+
+#studentHeader{
+   font-weight: bolder;
+   color: #421453;
+}
+
+.tableAndTitle{
+   width: 70vw;
+}
+
+.sideInfo{
+   width: 25vw;
+}
+
+#filterDivId{
+   z-index: 1;
+   margin-top: 5%;
+   margin-left: 20%;
+   
+}
+
+#select{
+   margin-left: 2%;
+   height: 50px !important;
+   width: 7rem !important;
+}
+
+.search{
+ margin-left: 55%;  
+ width: 60%;
+}
+
+table{
+   min-height: 80%;
+   margin-left: 23%;
+   width: 53%;
+   border: 1px solid black;
+   border-collapse: separate !important;
+   border-spacing:0px;
+   border-radius: 20px 20px 0px 0px;
+   border-top: 8px solid #421453;
+}
+
+.tableBody{
+   background-color: red !important;
+   z-index: 34 !important;
+}
+td , th{
+   padding: 5px 45px;
+   width: 400px;
+}
+
+tr:hover{
+   background-color: rgba(172, 168, 168, 0.529);
+}
+
+
+td{
+   border-bottom: 0.2px solid rgba(0, 0, 0, 0.256);
+}
+
+.addNew{
+   position:static;
+   margin-left: 23%;
+   width: 20%;
+   padding: 1%;
+   font-size: 2rem;
+   border-radius: 15px;
+   background-color: #421453;
+   color: white;
+   border: none;
+}
+
+.sideInfo{
+   margin-left: 5%;
+}
+.nameInfo{
+   margin-left: 10%;
+}
+
+.title{
+   font-weight: bolder;
+   margin-top: 20px !important;
+}
+
+.infoBody {
+   margin-top: 1rem;
+}
+
+.personalInfo{
+   border: 1px solid black;
+   border-radius: 15px;
+   padding: 1rem;
+   width: 80%;
+   margin-top: 47%;
+}
+
+.editBtn{
+   margin-top: 20%;
+   margin-left: 70%;
+   color: white;
+   background-color: #421453;
+   border-radius: 20px;
+   padding: 0.4rem 1.4rem;
+   border: 1px solid black;
+}
+
+input{
+   height: 50px !important;
+}
+
+#searchLable{
+   width: 7rem !important;
+}
+
+.pageCore{
+   display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+      .pageCore{
+         display: flex;
+         flex-direction: column;
+      }
+
+      .sideBar{
+         height: 100%;
+      }
+}
+
+.confirmDeleting{
+   position: absolute;
+   top: 40%;
+   left: 30%;
+   z-index: 23;
+   width: 35%;
+   padding: 1.5rem;
+   background-color: white;
+   border-radius: 2px;
+   border: 1px solid black;
+   display: none;
+}
+
+input{
+   color: rgba(128, 128, 128, 0.256);
+}
+
+.acceptDeclineBtns{
+   margin-left: 25%;
+}
+
+#deleteButton{
+   background-color: red;
+   color: white;
+   border-radius: 5px;  
+   border: 1px solid black; 
+}
+
+#cancelButton{
+   margin-left: 30%;
+   color: white;
+   border-radius: 5px; 
+   border: 1px solid black;   
+}
+
+.currentAdminBtn{
+   margin-top: 30%;
+   padding: 2%;
+   width: 50%;
+   font-size: 1.4rem;
+   border-radius: 25px;
+   background-color: #421453;
+   color: white;
+   border: none;
+   margin-left: 30%;
+}
+
+/* hidden div for add new */
+
+.addNewDiv{
+   display: none;
+   position: absolute;
+   width: 70%;
+   height: 70%;
+   top: 15%;
+   left: 10%;
+   border: 1px solid black;
+   border-radius: 12px;
+   background-color: white;
+}
+
+.addHeader{
+   width: 85%;
+   margin: 1% 15%;
+   display: flex;
+}
+
+.addUserIcon{
+   width:130px;
+   background-color: #F0DBF8; 
+   height: 130px;
+   padding: 33px 40px;
+   border-radius: 130px;
+   color: white;
+   border: 0.1px solid rgba(0, 0, 0, 0.251);
+}
+
+.studentName{
+   width: 73%;
+   margin: 4% 0px 0px 5%;
+}
+
+.studentName h2{
+   margin-bottom: 0px;
+}
+
+.form-row{
+   margin-top: 3%;
+   width: 100%;
+   margin-left:7%;
+}
+
+.infoRow{
+   display: flex;
+}
+
+.infoRow div{
+   margin: 1rem;
+}
+
+.addUserBtn{
+   position: inherit;
+   margin-left: 40%;
+   margin-top: 4%;
+   padding: 0.8rem 3rem;
+   background-color: #421453;
+   border: none;
+}
+
+.addUserBtn:hover{
+   background-color: #6c2187;
+}
+
+#majorSpan, #firstNameSpan, #lastNameSpan, #emailSpan, #passwordSpan, #phoneNumberSpan{
+   visibility: hidden;
+   font-size: 0.8rem;
+   color: red;
+}
+
+.tableHeader:hover{
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.tableOfUsers{
+   max-height: 500px !important;
+   min-height: 500px !important;
+   overflow-y: scroll;
+}

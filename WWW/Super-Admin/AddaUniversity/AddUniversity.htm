@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="AddUniversity.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0c87c204cf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="DivBody1">
+        <div id="idUniversity" class="FlexContainer">
+            <h1>Add University</h1>
+            <div class="DivUniversity">
+                <div>
+                    <h10 class="headtxtUniversity">University Name</h10><br><input type="text" id="UniName"
+                        class="textUniversity" placeholder="Enter University Name">
+                </div>
+                <div>
+                    <h10 class="headtxtUniversity">University location</h10> <br><input type="text" id="UniLocation"
+                        class="textUniversity" placeholder="Enter University location">
+                </div>
+            </div>
+            <H1>Admin</H1>
+            <div claas="DivIcon"><i class="fa-solid fa-user"></i></div>
+            <div class="DivAdmin">
+                <div class="FlexContainer1">
+                    <div>
+                        <h10 class="headtxtAdmin">First Name</h10><br><input type="text" id="FirstAdmin"
+                            class="textAdmin" name="FName" placeholder="Enter your First Name">
+                        <h10 class="headtxtAdmin">Email Address</h10><br><input type="email" id="EmailAdmin"
+                            class="textAdmin" name="Email" placeholder="Enter your Email">
+                    </div>
+                    <div>
+                        <h10 class="headtxtAdmin">Last Name</h10> <br><input type="text" id="LastAdmin"
+                            class="textAdmin" name="LName" placeholder="Enter your Last Name">
+                        <h10 class="headtxtAdmin">Phone Number</h10><br><input type="number" id="phoneAdmin"
+                            class="textAdmin" name="PhoneN" placeholder="Enter your Phone Number">
+                    </div>
+                </div>
+            </div>
+
+            <!-- <span class="SpanHeadAdmin"></span> -->
+        </div>
+        <input type="button" id="Add" onclick="Add()" class="btn" value="ADD">
+    </div>
+    <script src="AddUniversity.js"></script>
+
+</body>
+
+</html>

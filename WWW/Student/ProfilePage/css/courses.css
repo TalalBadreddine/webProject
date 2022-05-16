@@ -1,0 +1,529 @@
+ @media screen and (max-width: 650px){
+    .pagination{
+        margin-left: 0rem !important;
+        max-width: 10rem !important;
+     
+    }
+.containerStudent{
+    flex-direction: column;
+    justify-content: center;
+    }
+ 
+aside{
+    margin: 1.5rem 0rem 1rem 0rem !important;
+    width: 100% !important;
+}
+.Mans{
+    width: 100% !important;
+}
+.subContainerStudent{
+    margin: 1.5rem 0rem 1rem 0rem !important;
+}
+
+ }
+body nav {
+    background-color: #1DA1F2;
+    height: 10vh;
+    width: 100vw;
+}
+
+.element {
+    color: white;
+    margin: 2rem;
+    font-size: 1.3rem;
+}
+
+body header button {
+    color: black;
+}
+
+#navbarSupportedContent {
+    /* background-image: linear-gradient(#1DA1F2, #1da0f276); */
+    background-color: #1da0f2;
+}
+
+
+
+/*.....................................................*/
+
+
+ reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.containerStudent {
+    background-color: #FBFBFB;
+    display: flex;
+}
+
+aside {
+    background: white;
+    margin-top: 6.5rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+    width: 30%;
+    min-width: 15rem;
+    height: 100%;
+}
+
+.imgProfile {
+    text-align: center;
+}
+
+.userImg {
+    margin-top: 1.5rem;
+}
+
+#underLine {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+h3 {
+    font-size: larger !important;
+}
+
+h6 {
+    color: #8692A6;
+    padding-top: 0;
+    font-size: smaller !important;
+}
+
+h4 {
+    font-size: medium !important;
+}
+
+.infoProfile {
+    margin-left: 2rem;
+}
+
+.Button {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.Mans {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.subContainerStudent {
+    background: white;
+    margin-top: 6.5rem;
+    margin-left: 3rem;
+    width: 100%;
+    height: 100%;
+}
+
+.pagination{
+    margin-top: 1rem !important;
+    margin-left: 2% !important;
+}
+.pagination > li > a
+{
+    background-color: white;
+    color: #5D96B9 !important;
+}
+.pagination > .active > a
+{
+    color: white !important;
+    background-color: #5D96B9 !Important;
+    border: solid 1px #5D96B9 !Important;
+}
+.pagination > .active > a:hover
+{
+    color: black !important;
+    background-color: #5D96B9 !Important;
+    border: solid 1px #5D96B9 !Important;
+}
+
+/* Payments */
+@media only screen and (max-width: 768px) {
+    .PaymentsDiv {
+        height: 60% !important;
+
+    }
+
+    .RemainingPaymentsDiv {
+
+        height: 40% !important;
+        margin-top: .5rem !important;
+        margin-left: 15% !important;
+    }
+
+    .PaymentsDiv .pagination {
+        margin-left: 1.5% !important;
+    }
+
+    .RemainingPaymentsDiv .pagination {
+        margin-left: 1.5% !important;
+    } 
+
+    .containerStudent {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    aside {
+        margin: 1.5rem 0rem 1rem 0rem !important;
+        width: 100% !important;
+    }
+
+    .Mans {
+        width: 100% !important;
+    }
+
+    .subContainerStudent {
+        margin: 1.5rem 0rem 1rem 0rem !important;
+    }
+
+}
+
+body nav {
+    background-color: #1DA1F2;
+    height: 10vh;
+    width: 100vw;
+}
+
+.element {
+    color: white;
+    margin: 2rem;
+    font-size: 1.3rem;
+}
+
+body header button {
+    color: black;
+}
+
+#navbarSupportedContent {
+    /* background-image: linear-gradient(#1DA1F2, #1da0f276); */
+    background-color: #1da0f2;
+}
+
+
+/*.....................................................*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.containerStudent {
+    background-color: #FBFBFB;
+    width: 100%;
+    display: flex;
+}
+
+aside {
+    background: white;
+    margin-top: 6.5rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+    width: 30%;
+    min-width: 15rem;
+    height: 100%;
+}
+
+.imgProfile {
+    text-align: center;
+}
+
+.userImg {
+    margin-top: 1.5rem;
+}
+
+#underLine {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+#h3Table1 {
+    border-bottom: 1px solid hsla(0, 6%, 60%, 0.466) !important;
+    height: 2.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-top: 00.5rem !important;
+}
+
+#h3Table2 {
+    border-bottom: 1px solid hsla(0, 6%, 60%, 0.466) !important;
+    height: 2.5rem;
+    padding-left: 0.5rem !important;
+    padding-top: 00.5rem !important;
+}
+
+h3 {
+    font-size: larger !important;
+}
+
+h6 {
+    color: #8692A6;
+    padding-top: 0;
+    font-size: smaller !important;
+}
+
+h4 {
+    font-size: medium !important;
+}
+
+.infoProfile {
+    margin-left: 2rem;
+}
+
+.Button {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.Mans {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.subContainerStudent {
+    background: white;
+    margin-top: 6.5rem;
+    margin-left: 3rem;
+    width: 100%;
+    height: 100%;
+}
+
+.PaymentsDiv {
+    width: 90%;
+    box-sizing: border-box;
+    height: 50vh;
+    margin: 3rem 1rem;
+    border-top: 4px solid #5D96B9 !important;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #8692a69a !important;
+}
+
+.PaymentsDiv .pagination>li>a {
+    background-color: white;
+    color: #5D96B9 !important;
+}
+
+.PaymentsDiv .pagination>li>a:hover {
+    background-color: rgba(182, 224, 243, 0.397);
+    color: #5D96B9 !important;
+}
+
+
+.PaymentsDiv .pagination>.active>a {
+    color: white !important;
+    background-color: #5D96B9 !Important;
+    border: solid 1px #5D96B9 !Important;
+}
+
+.PaymentsDiv .pagination>.active>a:hover {
+    color: black !important;
+    background-color: #5D96B9 !Important;
+    border: solid 1px #5D96B9 !Important;
+}
+
+
+
+.RemainingPaymentsDiv {
+    width: 90%;
+    box-sizing: border-box;
+    height: 50vh;
+    margin: 3rem 1rem;
+    border-top: 4px solid #1DA1F2 !important;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #8692a69a !important;
+}
+
+.RemainingPaymentsDiv .pagination>li>a {
+    background-color: white;
+    color: #1DA1F2 !important;
+}
+
+.RemainingPaymentsDiv .pagination>.active>a {
+    color: white !important;
+    background-color: #1DA1F2 !Important;
+    border: solid 1px #1DA1F2 !Important;
+}
+
+.RemainingPaymentsDiv .pagination>.active>a:hover {
+    color: black !important;
+    background-color: #1DA1F2 !Important;
+    border: solid 1px #1DA1F2 !Important;
+}
+
+.RemainingPaymentsDiv .pagination>li>a:hover {
+    background-color: rgba(182, 224, 243, 0.397);
+    color: #5D96B9 !important;
+}
+
+.specificColor {
+    color: #17A2B8;
+}
+
+/* Warnings */
+h6{
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+input{
+    margin-bottom: 1rem;
+}
+
+.canEdit{
+    border: none;
+    /* border: 0.2px solid rgba(0, 0, 0, 0.295); */
+    color: gray;
+    border-radius: 13px;
+    padding: 0.3rem;
+    font-size: 1rem;
+    width: 90%;
+}
+
+#Warnings{
+    display: none;
+}
+
+#Payments{
+    display: none;
+}
+
+#AcadamicStats{
+    display: none;
+}
+.gpaDiv{
+    width: 40%;
+    height: 10%;
+    margin-top: 15%;
+}
+
+/* Academic Stats */
+
+.statsTitle{
+    margin-top: 2%;
+    width: 70%;
+    text-align: center;
+    margin-left: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.statsTitle select{ margin-top: 1%;
+    font-size: 1rem;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gpaSection{
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    margin-bottom: 13%;
+}
+
+/* percentage circle */
+.skill-circles-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-block: 1rem;
+}
+.skill{
+    margin: 3rem;
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+}
+
+.outer{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    padding: 1.48rem;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), 
+                 -6px -6px 10px -1px rgba(230, 230, 230, 0.7) ;
+}
+
+.inner{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                 inset -4px -4px 6px -1px rgba(230, 230, 230, 0.7),
+                 -0.5px -0.5px 0px  rgba(230, 230, 230, 1),
+                 0.5px 0.5px 0px  rgba(0, 0, 0, 0.15),
+                 0px 12px 10px -10px rgba(0, 0, 0, 0.05) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: .7rem;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anime 3s linear forwards;
+}
+
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes anime {
+    100%{
+        stroke-dashoffset: 200;
+    }
+}
+
+.one-circle-container{
+    margin-right: 2rem;
+}
+
+.details-container{
+    padding: 1rem 2rem;
+}
+
+.underCircle{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: gray;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+#number{
+    font-size: 2rem;
+}
+
+#chartContainer{
+    width: 40%;
+    max-height: 100px;
+}
+
+#passwordSpan , #emailSpan , #phoneSpan{
+    font-size: 0.8rem;
+    color: red;
+    display: none;
+
+}

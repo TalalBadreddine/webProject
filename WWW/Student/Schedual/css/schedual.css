@@ -1,0 +1,39 @@
+#calendar {
+  width: 68%;
+  margin-left: 2%;
+}
+
+#calendar button{
+  color: white;
+  background-color: green;
+}
+body nav {
+  background-color: #1DA1F2;
+  height: 10vh;
+  width: 100vw;
+}
+
+.element {
+  color: white;
+  margin: 2rem;
+  font-size: 1.3rem;
+}
+
+body header button {
+  color: black;
+}
+
+#navbarSupportedContent {
+  /* background-image: linear-gradient(#1DA1F2, #1da0f276); */
+  background-color: #1da0f2;
+}
+
+.schedualBody{
+  margin-top: 15vh;
+  display: flex;
+}
+
+.sideHelper{
+  margin-left: 2%;
+  width: 25%;
+}

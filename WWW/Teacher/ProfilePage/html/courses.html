@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/courses.css" rel="stylesheet">
+    <link href="../../../../Resorces/Icons/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel = "icon" href="../../../../../../Desktop/tobefavicon.ico" type = "image/x-icon">
+
+    <title>Student Courses</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg header-nav fixed-top">
+                <a class="navbar-brand" href="#" style="color:white;font-weight: bolder;margin-left: 2rem;"><img src="../../../../../Resorces/Student/logo/logo.png" width="52px" height="50px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars" style="margin-right: 1rem;"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../../Courses/html/courses_student_page.html"><span class="element">Courses</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../ChatPage/Html/chatPage.html"><span class="element">Chat</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Schedual/html/schedual.html"><span class="element">Schedual</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Files/Html/Files.html"><span class="element">File</span></a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <a class="nav-link" href="#"><span class="element"><i
+                                    class="fas fa-user-circle fa-2x"></i></span><span
+                                    class="sr-only">(current)</span></a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="containerStudent">
+            <aside>
+                <div class="imgProfile">
+                    <img src="../../../../Resorces/Student/coursesInfoImages/user.png" alt="user image" class="userImg" >
+                    <h3>Mike James</h3>
+                    <h6>Teacher Id: 123456</h6>
+                    <hr id="underLine">
+                </div>
+                <div class="infoProfile">
+                    <h4>Degrees</h4>
+                    <h6>- Bachlor in Computer Science</h6>
+                    <h6>- Master in  Machine Learning</h6>
+                    <h4>Campus</h4>
+                    <h6>Beirut</h6>
+                    <h4>Email Address</h4>
+                    <input type="text" class="canEdit" id = "emailInput" value="Mikejames@mail.com" readonly>
+                    <br>
+                    <span id="emailSpan"></span>
+                    <h4>Phone Number</h4>
+                    <input type="text" class="canEdit" value="+961 XX-XXX-XXX" id="phone" readonly>
+                    <br>
+                    <span id="phoneSpan"></span>
+                    <h4>Nationality</h4>
+                    <h6>Lebanese</h6>
+                    <h4>File Number</h4>
+                    <h6>1312830</h6>
+                    <h4>Current Adress</h4>
+                    <input class="canEdit" type="text" value="12Random Street, Beirut" readonly>
+                    <h4>Marital Status</h4>
+                    <input type="text" value="Single" class="canEdit" readonly>
+                    <h4>Gender</h4>
+                    <h6>Male</h6>
+                    <h4>Password</h4>
+                    <input type="password" class="canEdit" value="Testing" id="passwordInput" readonly>
+                    </input>
+                    <br>
+                    <span id="passwordSpan"></span>
+                    <h4>Blood Group</h4>
+                    <h6>A+</h6>
+                </div>
+                <form class="Button">
+                    <button type="button" class="btn btn-primary btn-lg" id="editBtn"
+                        style="background-color:#1DA1F2;">Edit</button>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="window.location.href = ('../../../Student/Sign-In/Html/sign_up.html')">Log Out</button>
+                </form>
+            </aside>
+
+            <div class="Mans">
+                <div class="subContainerStudent">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" id="AcadamicStatsNav" href="#" onclick="show('AcadamicStats')">Academic
+                                Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="coursesNav" href="#" onclick="show('courses')">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="PaymentsNav" href="#" onclick="show('Payments')">Payments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="WarningsNav" onclick="show('Warnings')">Warnings</a>
+                        </li>
+                    </ul>
+                    <!-- Acadamic Stats-->
+                    <div id="AcadamicStats">
+
+                        <div class="statsPageView">
+
+                            <div>
+                                <div class="statsTitle">
+                                    <h2>Courses Rating</h2>
+                                    <hr>
+                                    <select onchange="changeChartType()" class="form-select form-select-lg mb-3"
+                                        aria-label=".form-select-lg example" id="chartType">
+                                        <option selected disabled>Select Graph type</option>
+                                        <option value="line">Line Graph</option>
+                                        <option value="pie">Pie Graph</option>
+                                        <option value="bar">Bar</option>
+                                        <option value="polarArea"> Polar Graph</option>
+                                        <option value="radar">Radar Graph</option>
+                                    </select>
+                                </div>
+
+                                <canvas id="myChart"></canvas>
+                            </div>
+
+                            <div>
+                                <div class="skills-details">
+                                    <div class="skill-circles-container .place-row">
+                                        <div class="one-circle-container">
+                                            <div class="skill">
+                                                <div class="outer">
+                                                    <div class="inner">
+                                                        <div id="number">
+                                                            85 %
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                                                    height="160px">
+                                                    <defs>
+                                                        <linearGradient id="GradientColor">
+                                                            <stop offset="0%" stop-color="#1DA1F2" />
+                                                            <stop offset="100%" stop-color="#00DAF7" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                                </svg>
+                                                <span class="underCircle">Grades Students Average</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="one-circle-container">
+                                            <div class="skill">
+                                                <div class="outer">
+                                                    <div class="inner">
+                                                        <div id="number">
+                                                            18
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                                                    height="160px">
+                                                    <defs>
+                                                        <linearGradient id="GradientColor">
+                                                            <stop offset="0%" stop-color="#1DA1F2" />
+                                                            <stop offset="100%" stop-color="#00DAF7" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                                </svg>
+                                                <span class="underCircle">Number of Courses</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="one-circle-container">
+                                            <div class="skill">
+                                                <div class="outer">
+                                                    <div class="inner">
+                                                        <div id="number">
+                                                            682h
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                                                    height="160px">
+                                                    <defs>
+                                                        <linearGradient id="GradientColor">
+                                                            <stop offset="0%" stop-color="#5D96B9" />
+                                                            <stop offset="100%" stop-color="#5D96B9" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                                </svg>
+                                                <span class="underCircle">Hours Teaching</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- courses-->
+                    <div id="courses">
+
+                        <h3
+                            style="background-color:#5D96B9; color:white; margin-top: 3.5rem; height: 2.5rem; text-align: center; padding-top: 0.5rem; border: top 1px;border-radius: 0.5rem;">
+                            Old courses</h3>
+                        <table class="table table-hover" style="margin-top: -0.9rem;">
+                            <thead class="table"
+                                style="background-color: #5D96B9; color:white; font-family:Arial, Helvetica, sans-serif">
+                                <tr>
+                                    <th>course</th>
+                                    <th>doctor</th>
+                                    <th>credits</th>
+                                    <th>semester</th>
+                                    <th>Year</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>M2201</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>First Fall</td>
+                                    <td>2019</td>
+                                    <td>A-</td>
+                                </tr>
+                                <tr>
+                                    <td>Algebra II</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>Second Fall</td>
+                                    <td>2019</td>
+                                    <td>B+</td>
+                                </tr>
+                                <tr>
+                                    <td>M2201</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>First Fall</td>
+                                    <td>2018</td>
+                                    <td>A+</td>
+                                </tr>
+                                <tr>
+                                    <td>M2201</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>First Fall</td>
+                                    <td>2018</td>
+                                    <td>C</td>
+                                </tr>
+                                <tr>
+                                    <td>M2201</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>First Fall</td>
+                                    <td>2018</td>
+                                    <td>A+</td>
+                                </tr>
+                                <tr>
+                                    <td>M2201</td>
+                                    <td>Dr.unkown</td>
+                                    <td>3</td>
+                                    <td>First Fall</td>
+                                    <td>2018</td>
+                                    <td>C</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Payments -->
+                    <div id="Payments">
+                        <div class="Payments">
+
+                            <div class="PaymentsDiv">
+                                <h3 id="h3Table1">
+                                    Receipts</h3>
+                                <div class="table-responsive-sm">
+                                    <table class="table table-bordered table-hover table_sizing1"
+                                        style="margin: 0.5rem; width: 98%;">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Receipts</th>
+                                            <th>Ammount</th>
+                                            <th>Description</th>
+                                            <th>Details</th>
+                                            <th>Term</th>
+                                        </tr>
+                                        <tr>
+                                            <td>DD/MM/YYYY</td>
+                                            <td>Recipt #</td>
+                                            <td>$$$$ </td>
+                                            <td>Ex. : Cash Payment</td>
+                                            <td></td>
+                                            <td>Spring 2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DD/MM/YYYY</td>
+                                            <td>Recipt #</td>
+                                            <td>$$$$ </td>
+                                            <td>Ex. : Cash Payment</td>
+                                            <td></td>
+                                            <td>Spring 2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DD/MM/YYYY</td>
+                                            <td>Recipt #</td>
+                                            <td>$$$$ </td>
+                                            <td>Ex. : Cash Payment</td>
+                                            <td></td>
+                                            <td>Spring 2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DD/MM/YYYY</td>
+                                            <td>Recipt #</td>
+                                            <td>$$$$ </td>
+                                            <td>Ex. : Cash Payment</td>
+                                            <td></td>
+                                            <td>Spring 2022</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <ul class="pagination" style="margin-top: 1rem; margin-left: 31vw;">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Wanings -->
+                    <div id="Warnings">
+                        <div class="ForWarnings">
+                            <div class="Mans1">
+                                <h3
+                                    style="background-color:#DC3545; color:white; margin-top: 3rem; height: 2.5rem; padding-left: 0.5rem; padding-top: 0.5rem; border: top 1px;border-radius: 5px 5px 0 0;">
+                                    Warnings</h3>
+                                <table class="table table-hover" style="margin-top: -0.6rem;">
+                                    <tbody>
+                                        <tr>
+                                            <th>course</th>
+                                            <th>Warning</th>
+                                            <th>Term</th>
+                                        </tr>
+                                        <tr>
+                                            <td>COMP 443</td>
+                                            <td>The course is outdated</td>
+                                            <td>Spring 2022</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="Mans2">
+                                <h3
+                                    style="background-color:#28A745; color:white; margin-top: 3rem; height: 2.5rem; padding-left: 0.5rem; padding-top: 0.5rem; border: top 1px;border-radius: 5px 5px 0 0;">
+                                    Probation</h3>
+                                <h4 style="padding-left: 0.5rem;">Term</h4>
+                                <hr>
+                                <p style="text-align: center;">No Probation Reported</p>
+                            </div>
+                            <div class="Mans3">
+                                <h3
+                                    style="background-color:#28A745; color:white; margin-top: 3rem; height: 2.5rem; padding-left: 0.5rem; padding-top: 0.5rem; border: top 1px;border-radius: 5px 5px 0 0;">
+                                    Holds</h3>
+                                <h4 style="padding-left: 0.5rem;">Description</h4>
+                                <hr>
+                                <p style="text-align: center;">No Holds Reported</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="../js/StudentProfile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/AcadamecStats.js"></script>
+</body>
+
+</html>

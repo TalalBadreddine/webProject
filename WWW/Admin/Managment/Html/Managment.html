@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../../../../Resorces/Icons/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/Managment.css">
+    <title>Managment</title>
+</head>
+
+<body>
+    <div class="allPage">
+
+        <div class="sideBar">
+            <nav>
+                <h1 class="cmsTitle" style="margin-top: 20px ;color: white">C</h1>
+                <h1 class="cmsTitle" style="color: white ;">M</h1>
+                <h1 class="cmsTitle" style="color: white ;">S</h1>
+                <ul>
+                    <li class="managmentLi">
+                        <div class="managment-icon">
+                            <i class="fas fa-users-cog fa-2x" style="color: white ;"></i>
+                        </div>
+                    </li>
+                    <li class="chatLi">
+                        <div class="chat-icon">
+                            <i class="fas fa-comments fa-2x" style="color: white ;"></i>
+                        </div>
+                    </li>
+                    <li class="applicationLi">
+                        <div class="applications-icon">
+                            <i class="fas fa-file-signature fa-2x" style="color: white ;"></i>
+                        </div>
+                    </li>
+                    <li class="reportLi">
+                        <div class="report-icon">
+                            <i class="fas fa-exclamation-circle fa-2x" style="color: white ;"></i>
+                        </div>
+                    </li>
+
+                    <li class="logOutLi">
+                        <div class="logOut-icon">
+                            <div class="logOut-base">
+                                <i class="fa-solid fa-right-from-bracket fa-2x" style="color: white ;"></i>
+                                <div class="logOut-top"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="pageCore">
+
+
+            <div class="tableAndTitle">
+                <div class="teacherAndStudent container1 ms-5 mt-4 d-flex">
+
+                    <div>
+                        <h3 id="teacherHeader">Teacher</h3>
+                        <span>
+                            <hr id="teacherRuler">
+                        </span>
+                    </div>
+
+                    <div class="ms-5">
+                        <h3 id="studentHeader">Students</h3>
+                        <span>
+                            <hr id="studentRuler">
+                        </span>
+                    </div>
+
+
+                </div>
+
+                <div>
+
+                    <div id="filterDivId" style="display: flex;">
+                        <p style="padding-top:12px; font-size: 1rem;">Filter By: </p>
+                        <select class="form-select" aria-label="Default select example" id="select">
+                            <option selected disabled value="">Type</option>
+                            <option value="1">Name</option>
+                            <option value="2">Id</option>
+                            <option value="3">Major</option>
+                        </select>
+
+                        <div class="search input-group rounded">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" id="searchLable" />
+                            <span class="input-group-text border-0" id="search-addon" style="height:3rem !important;">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br>
+                <div>
+                    
+                    <table id="tableOfUsers">
+                        <tr class="tableHeader">
+                            <th>Student Id</th>
+                            <th>Student Name</th>
+                            <th>Faculty</th>
+                            <th>Major</th>
+                            <th></th>
+                        </tr>
+                       
+                            <tr id="row 1">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 1" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+
+                            <tr id="row 2">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 2" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+                            <tr id="row 3">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 3" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+
+                            <tr id="row 4">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 4" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+
+                            <tr id="row 5">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 5" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+                            <tr id="row 6">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 6" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+
+                            <tr id="row 7">
+                                <td>213421</td>
+                                <td>Mike Joe</td>
+                                <td>Nabatieh</td>
+                                <td>CS</td>
+                                <td><i id="icon 7" class="deleteClass fa-solid fa-circle-minus fa-2x"
+                                        style="color:red ;"></i></td>
+                            </tr>
+                    </table>
+                    <br>
+    
+                    <button class="addNew" id="addNewUser">New <i class="fa-solid fa-user-plus fa-1x"></i></button>
+                </div>
+            </div>
+
+            <div class="sideInfo">
+                <div>
+                    <button class="currentAdminBtn">Admin 1 <i class="fas fa-user"></i></button>
+                </div>
+                <div class="personalInfo">
+                    <div>
+                        <div style="display:flex ;">
+                            <i class="personIcon fa-solid fa-user-large fa-2x"></i>
+                            <h4 class="nameInfo">Mike Joe</h4>
+                        </div>
+                    </div>
+
+                    <div class="infoBody">
+                        <span><span class="title">ID</span>: 728362</span><br>
+                        <span><span class="title">Degree</span>: Computer Science</span><br>
+                        <span><span class="title">Campus</span>: Nabatieh</span><br>
+                        <span><span class="title">Phone Number</span>: +961 XX-XXX-XXX</span><br>
+                        <span><span class="title">Nationality</span>: Lebanese</span><br>
+                        <span><span class="title">File Number</span>: 261826</span><br>
+                        <span><span class="title">Mail</span>: mike@gmail.com</span><br>
+                        <span><span class="title">Blood Type</span> : A+</span>
+                        <button class="editBtn" id="editBtn">Edit</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hidden Div Confmation to delete -->
+    <div class="confirmDeleting" id="confirmDeleting">
+        <div>
+            <h4>Are you sure you want to delete this user?</h4>
+            <p>Deleting a user from will permanently delete all of their associated data, documents, and more</p>
+            <div class="acceptDeclineBtns">
+                <button id="deleteButton">Delete</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Hidden Div Add New -->
+
+    <div class="addNewDiv" id="userToBeAdded">
+
+        <div class="addHeader">
+            <i class="addUserIcon fas fa-user fa-4x"></i>
+            <div class="studentName">
+                <h2>Admin 1</h2>
+                <span>Admin ID: 1231241</span>
+            </div>
+            <i class="exitButton fa-solid fa-circle-xmark fa-3x" id="exitButton"></i>
+        </div>
+
+        <div class="addUserBody">
+
+            <form>
+                <div class="form-row">
+
+                    <div  class="infoRow">
+                        <div class="form-group col-md-3 ms-3">
+                            <label for="inputEmail4">First Name</label>
+                            <input type="text" class="form-control" placeholder="FirstName" id="firstName" oninput="resetFirstNameField()">
+                            <span id="firstNameSpan">test</span>
+                        </div>
+
+                        <div class="form-group col-md-3 ms-3">
+                            <label for="inputEmail4">Last Name</label>
+                            <input type="text" class="form-control" id="lastName"  placeholder="LastName" oninput="resetLastNameField()">
+                            <span id="lastNameSpan"></span>
+                        </div>
+
+                        <div class="form-group col-md-3 ms-3">
+                            <label for="inputEmail4">Major</label>
+                            <input type="text" class="form-control" id="major" placeholder="Major" oninput="resetMajor()">
+                            <span id="majorSpan"></span>
+                        </div>
+
+
+                    </div>
+
+                    <div  class="infoRow"">
+
+                        <div class="form-group col-md-3 ms-3">
+                            <label for="inputEmail4">Phone Number</label>
+                            <input type="email" class="form-control" id="phoneNumber" placeholder="Phone Number" oninput="resetPhoneNumber()">
+                            <span id="phoneNumberSpan"></span>
+                        </div>
+
+                        <div class="form-group col-md-3 ms-3">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" oninput="resetEmail()">
+                            <span id="emailSpan"></span>
+                        </div>
+
+
+                    <div class="form-group col-md-3 ms-3">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" id="password"  placeholder="Password" oninput="resetPassword()">
+                        <span id="passwordSpan">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis</span>
+                    </div>
+
+
+
+                    </div>
+                </div>
+                <button type="button" class="addUserBtn btn btn-primary">Add User</button>
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../Js/Management.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+.leftSide{
+    width: 45vw;
+    height: 100vh;
+    display: flex;
+}
+
+.blueArea{
+    background-color: #0B6D12;
+    width: 100%;
+    height: 100%;
+}
+
+.blackArea{
+    background-color: rgba(0, 0, 0, 0.927);
+    width: 55%;
+    height: 100%;
+}
+
+.logo{
+    color: white;
+    margin-left: 10%;
+    margin-top: 12%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.pageView{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* writing */
+#blueAreaBody{
+    margin-top: 10%;
+    margin-left: 7%;
+    margin-right: 3%;
+
+}
+
+.blueArea a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 0.4rem;
+}
+br {
+    display: block;
+    margin: 10px 0;
+ }
+
+
+#blackAreaBody {
+    margin-top: 19.4vh;
+    margin-left: 7%;
+    margin-right: 3%;
+}
+
+.blackArea a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 0.4rem;  
+}
+/* */
+
+.backButton{
+    text-decoration: none;
+    border: none;
+    background-color: inherit;
+    color: gray;
+}
+
+.topView{
+    display: flex;
+}
+
+ .whiteArea{
+     margin-top: 10vh;
+    width: 60vw;
+    height: 100%;
+}
+
+.topView{
+    width: 100%;
+    height: 100%;
+} 
+
+.rightSideInfo{
+    text-align: right;
+    line-height: 0.2rem;
+}
+.titleSubText{
+    color: #8692A6;
+    font-size: 1rem;
+}
+
+.titleText{
+    display: block;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: black;
+}
+
+.hrefHelper{
+    text-decoration: none;
+    color: white;
+}
+
+/* upload */
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select files';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+
+  @media screen and (max-width:900px) {
+
+    .pageView{
+        display: flex;
+        flex-direction: column;
+    }
+
+      .leftSide{
+          display: flex;
+          flex-direction: column;
+          width: 100vw;
+          height: 100vh;
+      }
+
+      .blueArea{
+          min-width: 100%;
+          min-height: 40%;
+      }
+
+      .blackArea{
+        min-width: 100%;
+        min-height: 40%;
+      }
+
+      .logo{
+          margin-top: 10px;
+          margin-left: 10px;
+      }
+
+      #blueAreaBody{
+          margin-top: 0px;
+      }
+
+
+      #blueAreaBody a{
+        font-size: 0.8rem;
+    }
+
+    #blackAreaBody{
+        margin-top: 10px;
+    }
+
+    #blackAreaBody a{
+        font-size: 0.8rem;
+    }
+
+    .whiteArea{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .middleText{
+        width: 60%;
+    }
+
+  }
+
+  .backButton:hover{
+    color: rgb(88, 88, 88);
+    font-weight: bold;
+  }
+
+  .outVision{
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 5%;
+  }

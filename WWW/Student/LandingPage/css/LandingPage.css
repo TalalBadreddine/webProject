@@ -1,0 +1,205 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+a{
+    text-decoration: none;
+}
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FBFBFB;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+header{
+    margin-bottom: 7rem;
+}
+
+
+aside{
+    height: 100%;
+    width: 62%;
+    background-color: #1DA1F2;
+    padding: 3rem;
+    align-items: center;
+    color: white;
+}
+
+.quote-mark{
+    margin-bottom: 1rem;
+}
+
+.quote-mark > i{
+    font-size: 2rem;             
+    color: #00DAF7;
+}
+
+.quote-paragraph{
+    font-weight: 300 ;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    margin-bottom: .7rem;
+}
+
+.author-name-of-quote{
+    position: relative;
+
+}
+
+.author-name-of-quote span i{
+    color: #08AD36;
+    font-size: 1rem;
+    display: inline;
+    margin-left: 10px;
+    top: .3rem;
+    left: 3.5rem;
+}
+
+/* Left Side Of Screen */
+
+.whiteRectanglePart{
+    width: 100%;
+}
+
+.textOnTopRight{
+    font-size: 1rem;
+    margin-left: 60%;
+    margin-top: 5%;
+}
+
+.signIn{
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+.signIn:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.JoinUs{
+    width: auto;
+    margin-left: 10rem;
+    margin-top:  8rem;
+}
+
+.JoinUs p {
+   color: #8692A6;
+   width: 70%;
+}
+
+/* Teacher */
+
+
+.teacherButton {
+    margin-top: 2rem;
+    padding: 1.8rem 3rem;
+    display: block;
+    text-align: left;
+    border-radius: 6px;
+    border: 1px solid #FBFBFB;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
+    
+}
+
+.divInTeacherButton{
+    width: 20rem;
+}
+
+.teacherButton:hover{
+    background-color: #F5F9FF;
+    border: 1px solid #1DA1F2
+}
+
+.teacherButton:hover .teacherArrowClass{
+    display: inline;
+    float: right;
+    margin-top: 1rem;
+    transition: 0.25s;
+    visibility: visible;
+}
+
+.teacherButton p{
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.teacherArrowClass{
+    visibility: hidden;
+}
+
+
+ /* Student */
+
+ .studentButton {
+    margin-top: 2rem;
+    padding: 1.8rem 3rem;
+    display: block;
+    text-align: left;
+    border-radius: 6px;
+    border: 1px solid #FBFBFB;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
+    
+}
+
+.divInStudentButton{
+    width: 20rem;
+}
+
+.studentButton:hover{
+    background-color: #F5F9FF;
+    border: 1px solid #1DA1F2
+}
+
+.studentButton:hover .studentArrowClass{
+    display: inline;
+    float: right;
+    margin-top: 1rem;
+    transition: 0.25s;
+    visibility: visible;
+}
+
+.studentButton p{
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    width: 80%;
+}
+
+.studentArrowClass{
+    visibility: hidden;
+}
+
+/* responsive */
+@media screen and (max-width: 768px){
+    .container{
+        display: block;
+    }
+    aside{
+        width: 100%;
+    }
+
+    .JoinUs{
+        margin-left: 7rem;
+        margin-right: auto;
+    }
+
+    .whiteRectanglePart{
+        padding-bottom: 5rem;
+    }
+
+} 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/FirstRegisterPage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Teacher Second Rejis Page</title>
+</head>
+
+<body>
+    <aside>
+        <header class="container-sm pt-3 ps-4">
+            <img src="teacher.png" class="float-start mt-3" id="logo" alt="Web Uni Logo" width="67.6px" height="65px">
+        </header>
+    </aside>
+    <div class="coreInfo container-sm p-3  white-part">
+        <div class="row">
+            <div class="col-sm-1">
+                    <button class="backBtn" onclick = "window.location.replace('../../../../Student/LandingPage/Html/LandingPage.html')">
+                        < Back
+                    </button>
+                </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5 title-registration">
+                <h2>Register Account!</h2>
+                <p>For the purpose of education, your details are required.</p>
+                <hr>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 step">
+                <h6>STEP 01/03</h6>
+                <p>Personal Info.</p>
+            </div>
+        </div>
+        <form action="/action_page.php" class="was-validated">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="firstname" class="form-label">First Name *</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname"
+                        placeholder="Enter first name" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="lastname" class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter last name"
+                        required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="middlename" class="form-label">Middle Name (optional) *</label>
+                    <input type="text" class="form-control optional" name="middlename" id="middlename"
+                        placeholder="Enter middle name" required>
+                    <div class="valid-feedback"></div>
+                </div>
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="Email" class="form-label">Email address *</label>
+                    <input type="email" class="form-control" name="Email" id="Email" placeholder="Enter email name"
+                        required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="pwd" class="form-label">Create password *</label>
+                    <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="Pwd" class="form-label">Repeat password *</label>
+                    <input type="password" class="form-control" name="Pwd" id="Pwd" placeholder="Repeat password"
+                        required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <label for="select">University * </label>
+                    <select class="form-select" id="select" required aria-label="select example" >
+                        <option>University of Oxford</option>
+                        <option>University of Cambridge</option>
+                        <option>University College London</option>
+                        <option>The University of Edinburgh</option>
+                    </select>
+                    <div class="invalid-feedback">Please select the universityk</div>
+                </div>
+                <div class="col-sm-7"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3 mb-2 mt-2">
+                    <div class="form-check">
+                        <input  class="form-check-input " type="checkbox" id="check1" name="check university" value="something">
+                        <label class="form-check-label">I agree to terms & conditions</label>
+                    </div>
+                </div>
+                <div class="col-sm-8"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 mb-2 mt-2">
+                    <button type="button" class="btn btn-outline-success Register_Button" onclick="window.location.replace('../../SecondRegistPage/Html/SecondRegisterPage.html')">Register Account</button>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

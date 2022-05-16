@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FBFBFB;
+}
+
+.allPageContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+header{
+    margin-bottom: 7rem;
+}
+
+
+aside{
+    height: 100%;
+    width: 25%;
+    background-color: #1DA1F2;
+    padding: 3rem;
+    align-items: center;
+    color: white;
+}
+
+.quote-container{
+   max-width: 98% ;
+}
+
+.quote-mark{
+    margin-bottom: 1rem;
+}
+
+.quote-mark > i{
+    font-size: 2rem;             
+    color: #00DAF7;
+}
+
+.quote-paragraph{
+    font-weight: 300 ;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    margin-bottom: .7rem;
+}
+
+.author-name-of-quote{
+    position: relative;
+
+}
+
+.author-name-of-quote span i{
+    color: #08AD36;
+    font-size: 1rem;
+    display: inline;
+    margin-left: 10px;
+    top: .3rem;
+    left: 3.5rem;
+}
+
+.signUpForm{
+    width: 100%;
+    background-color: red;
+}
+
+
+/* Top Side Of Page */
+
+.backButton{
+    background-color: white;
+    border: none;
+    color: gray;
+}
+
+
+.backButton:hover{
+    color: rgb(88, 88, 88);
+    font-weight: bold;
+}
+
+
+/* Small Screen */
+
+@media screen and (max-width:900px) {
+    
+    .allPageContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside{
+        width: 100vw;
+        text-align: center;
+    }
+
+    .backButton{
+        margin-left: -1rem;
+    }
+
+}
+.submitDiv{
+    margin-left: 30%;
+}
+
+.submitDiv button{
+    background-color: #1DA1F2;
+}
+
+span{
+    font-size: 0.8rem;
+    color: red;
+    position: absolute;
+    z-index: 3;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+/* Animation */
+
+#confirmPasswordActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#passwordActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#firstNameActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#lastNameActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#emailActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#programActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#universityActive{
+    background-color: white;
+    border: 1px #ff0000 solid !important;
+    
+    animation: blink 1s !important;
+    animation-iteration-count: 2 !important;
+}
+
+#university, #program{
+    min-height: 2.5rem !important;
+    background-color: white !important;
+    border: 0.2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+/* .usiversityLabel , .programLabel{
+    margin-bottom: -.7rem !important;
+} */
+
+@keyframes blink { 50% { border-color:#fff ; }  }

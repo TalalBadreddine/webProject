@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/courses_student_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../../../../Resorces/Icons/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="../css/courses_student_page.css" rel="stylesheet">
+    <link rel="icon" href="../../../../../../Desktop/tobefavicon.ico" type="image/x-icon">
+
+    <script type="text/javascript"></script>
+    <title>My Courses</title>
+</head>
+
+<body>
+    <!-- header & navbar -->
+    <header class="bigHeader">
+        <nav class="navbar navbar-expand-lg header-nav fixed-top">
+            <a class="navbar-brand" href="#" style="color:white;font-weight: bolder;margin-left: 1rem;"><img
+                    src="Logo.png" alt="web Uni Logo" id="logo" style="width:52px; height: 50px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fas fa-bars" id="iconResponsive"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><span class="element">Courses</span><span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../ChatPage/Html/chatPage.html"><span
+                                class="element">Chat</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../schedual/html/schedual.html"><span
+                                class="element">Schedual</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Files/Html/Files.html"><span class="element">File</span></a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <a class="nav-link" href="../../ProfilePage/html/courses.html"><span class="element"><i
+                                class="fas fa-user-circle fa-2x"></i></span></a>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- main -->
+    <main>
+        <!--Hidden in pop UP-->
+        <div class="popUpPageView" id="hiddenPopUp">
+            <div class="hiddenPopUp" style="cursor: pointer;"><i id="close1" class="fas fa-times-circle"
+                    onclick="test()"></i>
+                <h3>Details</h3>
+
+                <div class="timeIntervalDiv">
+                    <label for="startDate" class="form-label">From:</label>
+                    <input type="time" id="startDate" min="08:00" max="20:00">
+                </div>
+                <div class="timeIntervalDiv">
+                    <label for="endDate" class="form-label">To:</label>
+                    <input type="time" id="endDate" min="08:00" max="20:00">
+                </div>
+                <!-- <span class="timeSpan">testing</span> -->
+                <div class="form-group">
+                    <label for="comment">More Info</label>
+                    <textarea class="TextAreaOfDetails form-control Textarea" rows="8" cols="25" id="comment">
+                    Chemistry: 
+                    Building 3, Floor 2
+                    Room 205 :-number of seats: 25
+                            -number of vacant seats: 9
+                            
+                    is the agenda for the meeting:
+                    Syllabus
+                    Introduction to chapter 1
+                    -Atom
+                    -Periodic table
+                    -Atomic bond
+                    </textarea>
+                </div>
+                <button type="button" class="editButtonForTime btn btn-success mt-1" id="EditButton">Save</button>
+            </div>
+        </div>
+
+        <section class="one">
+            <div class="table-one">
+                <table class="schedual-table">
+                    <thead>
+                        <tr>
+                            <th class="leftOne">6:00</th>
+                            <th>8:00</th>
+                            <th>10:00</th>
+                            <th>12:00</th>
+                            <th>14:00</th>
+                            <th>16:00</th>
+                            <th>18:00</th>
+                            <th>20:00</th>
+                            <th class="rightOne">22:00</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp')"
+                                    style="background-color: #F3F0FF;border: 0.5px solid #8369FF;">
+                                    <span><i class="ri-code-view"></i></span>
+                                    <div class="title-of-course-schedual">
+                                        <h3>coding</h3>
+                                    </div>
+                                    <span><i class="ri-user-3-line"></i></span>
+                                </div>
+                            </td>
+                            <td colspan="3"></td>
+                            <td colspan="3">
+                                <div class="card-of-schedual"
+                                    style="background-color: #E6F3FF; border: 0.5px solid #80BFFC;"
+                                    onclick="showDiv('hiddenPopUp')">
+                                    <span><i class="ri-code-view"></i></span>
+                                    <div class="title-of-course-schedual1">
+                                        <h3>coding</h3>
+                                    </div>
+                                    <span><i class="ri-user-3-line"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td colspan="3">
+                                <div class="card-of-schedual"
+                                    style="background-color: #FFEAF6; border: 00.5px solid #FC2EA1;"
+                                    onclick="showDiv('hiddenPopUp')">
+                                    <span><i class="ri-code-view"></i></span>
+                                    <div class="title-of-course-schedual">
+                                        <h3>Algerba I</h3>
+                                    </div>
+                                    <span><i class="ri-user-3-line"></i></span>
+                                </div>
+                            </td>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-two">
+                <div class="word">
+                    <h1>On</h1>
+                    <h1>G<span>oin</span>g</h1>
+                </div>
+                <div class="course-table">
+                    <table class="courses-table">
+                        <thead>
+                            <tr>
+                                <th class="coursesLeftOne">course</th>
+                                <th>credit</th>
+                                <th>semester</th>
+                                <th>language</th>
+                                <th class="coursesRightOne">hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="../../CourseDetails/html/course_info.html">coding</a></td>
+                                <td>3</td>
+                                <td>spring</td>
+                                <td>English</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td><a href="../../CourseDetails/html/course_info.html">coding</a></td>
+                                <td>3</td>
+                                <td>spring</td>
+                                <td>English</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td><a>coding</a></td>
+                                <td>3</td>
+                                <td>spring</td>
+                                <td>English</td>
+                                <td>300</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="two">
+            <form action="">
+                <div>
+                    <label for="language">Language</label> <br>
+                    <select name="language" id="language-search-courses">
+                        <option value="english">English</option>
+                        <option value="french">French</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="credits">Credits</label><br>
+                    <select name="credits" id="credits-search-courses">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="hours">Hours</label><br>
+                    <select name="hours" id="hours-search-courses">
+                        <option value="50">50</option>
+                        <option value="300">300</option>
+                        <option value="160">160</option>
+                    </select>
+                </div>
+                <div class="rate-container">
+                    <label for="">Rate</label><br>
+                    <div class="stars-container">
+                        <form action="">
+                            <input class="star star-1" id="star-1" type="radio" name="star" />
+                            <label class="star star-1" for="star-1"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" />
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" />
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" />
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-5" id="star-5" type="radio" name="star" />
+                            <label class="star star-5" for="star-5"></label>
+                        </form>
+                    </div>
+                </div>
+                <button class="filter-btn">
+                    Filters <span><i class="ri-filter-line"></i></span>
+                </button>
+            </form>
+        </section>
+
+        <section class="three" id="courses-cards">
+            <div class="onGoingCourses">
+                <h2 class="coursesTitle">On G<span class="coursesTitleColor" style="color: #0B6D12;">oin</span>g
+                    Courses<span class="coursesTitleColor" style="color: #0B6D12;">:</span></h2>
+
+                <div class="addRemoveCourses">
+                    <button style="background-color: #fbfbfb;" id="addCourse"> <i id="addicon"
+                            class="fa-solid fa-circle-plus fa-3x" style="color: green;"></i></button>
+                    <button id="removeButton" style="background-color: #fbfbfb;"><i id="removeicon"
+                            class="fa-solid fa-circle-minus fa-3x " style="color: red;"></i></button>
+                </div>
+
+                <!--Hidden in pop UP-->
+                <div class="addCoursePoPUp" id="Hidden_PopUp">
+
+                    <i id="secondCloseButton" class="fas fa-times-circle" onclick="test2()"></i>
+
+                    <div class="containerFlex">
+                        <div class="Hidden_PopUp" style="margin-top: -1rem; width: 65%;">
+                            <div class="form-group firstdiv">
+                                <label for="newComment1" style="margin-bottom: 0.3rem">
+                                    <h5>About this Course</h5>
+                                </label>
+                                <textarea class="form-control Textarea" rows="10" cols="20"
+                                    id="newComment1">Materials are the physical foundations for the development of science and technology. The human civilizations are historically designated by the evolution of materials, such as the Stone Age, the Bronze Age and the Iron Age. Nowadays, materials science and technology support most of the industrial sectors, including aerospace, telecommunications, transportation, architecture, infrastructure and so on.</textarea>
+                            </div>
+
+                            <div class="form-group seconddiv">
+                                <label for="newComment2" style="margin-bottom: 0.3rem; margin-top: 0.8rem;">
+                                    <h5>Syllabus</h5>
+                                </label>
+                                <textarea class="form-control Textarea" rows="8" cols="20" id="newComment2">- Chapter 1: Introduction      
+- Chapter 2: Atoms and interatomic bonds
+- Chapter 3: Crystallography
+- Chapter 4: Crystalline Defects
+- Chapter 5: Properties of Materials
+- Chapter 6: Mechanical Properties 
+- Chapter 7: Multi-Material Applications</textarea>
+                            </div>
+                        </div>
+                        <div class="inputDiv" style="width:40%; max-height: 40vh;">
+                            <div class="input-group mb-3 input-group-sm">
+                                <span class="input-group-text" >Title</span>
+                                <input id="title" type="text" class="form-control" placeholder="Add title for the course">
+                            </div>
+                            <div class="input-group mb-3 input-group-sm">
+                                <span class="input-group-text">Semester</span>
+                                <input type="text" class="form-control" placeholder="First or second semester">
+                            </div>
+                            <div class="input-group mb-3 input-group-sm">
+                                <span class="input-group-text">Language</span>
+                                <input type="text" class="form-control" placeholder="English, French">
+                            </div>
+                            <div class="input-group mb-3 input-group-sm">
+                                <span class="input-group-text">Credit</span>
+                                <input type="text" class="form-control" placeholder="Number of  credit of this course">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newEditButton">
+                        <button type="button" class="btn btn-success" id="newEditButton">Add</button>
+                    </div>
+                </div>
+
+
+                <div class="wrap-cards-of-courses" id="coursesContainer">
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer" id="firstfooter">
+                                <button class="apply-btn"><a id="firstCardButtonlink"
+                                        href="../../CourseDetails/html/course_info.html"
+                                        class="hrefHelper">Edit</a></button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-of-course">
+                        <div class="header">
+                            coding web
+                        </div>
+                        <div class="body-card">
+                            <div class="description">
+                                <h5>you'll learn how to:</h5>
+                                <ul>
+                                    <li>create responsive web app</li>
+                                    <li>make relation with database</li>
+                                    <li>sucess in interview</li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <button class="apply-btn">Edit</button>
+                                <p>credits: 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/courses_student_page.js"></script>
+</body>
+
+</html>

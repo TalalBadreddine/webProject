@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link href="../web_Project/College-Managment-System/Resorces/Icons/fontawesome-free-6.1.1-web/css/all.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>StudentProfile</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg header-nav fixed-top">
+                <a class="navbar-brand" href="#" style="color:white;font-weight: bolder;margin-left: 1rem;">LOGO</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars" style="margin-right: 1rem;"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><span class="element">Courses</span><span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span class="element">Chat</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span class="element">Schedual</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span class="element">File</span></a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <a class="nav-link" href="#"><span class="element"><i
+                                    class="fas fa-user-circle fa-2x"></i></span></a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+         <div class="containerStudent">
+            <aside>
+                <div class="imgProfile">
+                    <img src="user.png" alt="user image" class="userImg">
+                    <h3>Mike James</h3>
+                    <h6>Student Id: 123456</h6>
+                    <hr id="underLine">
+                </div>
+                <div class="infoProfile">
+                    <h4>Program</h4>
+                    <h6>Bachlor in Computer Science</h6>
+                    <h4>Campus</h4>
+                    <h6>Beirut</h6>
+                    <h4>Admission Date</h4>
+                    <h6>12/03/2019</h6>
+                    <h4>Email Address</h4>
+                    <h6>Mikejames@mail.com</h6>
+                    <h4>Phone Number</h4>
+                    <h6>+961 XX-XXX-XXX</h6>
+                    <h4>Nationality</h4>
+                    <h6>Lebanese</h6>
+                    <h4>File Number</h4>
+                    <h6>1312830</h6>
+                    <h4>Current Adress</h4>
+                    <h6>12Random Street, Beirut</h6>
+                    <h4>Marital Status</h4>
+                    <h6>Single</h6>
+                    <h4>Gender</h4>
+                    <h6>Male</h6>
+                    <h4>Password</h4>
+                    <h6>********** <span><i class="ri-eye-fill" style="color: black; margin-left: 3rem;"></i></span></h6>
+                    <h4>Blood Group</h4>
+                    <h6>A+</h6>
+                </div>
+                <form class="Button">
+                    <button type="button" class="btn btn-primary btn-lg" style="background-color:#1DA1F2;">Edit</button>
+                    <button type="button" class="btn btn-danger btn-lg">Log Out</button>
+                </form>
+            </aside>
+
+            <div class="Mans">
+                <div class="subContainerStudent">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Academic Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Payments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Warnings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> 
+    </main>
+</body>
+
+</html>

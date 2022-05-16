@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../WWW/Student/Teacher profile/css/teacher_profile_page.css">
+    <link rel = "icon" href="../../../../Resorces/Student/logo/favicon.png" type = "image/x-icon">
+    <title>Teacher profile</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="part-left">
+            <h1>Dr. Ali</h1>
+            <h3>Web Developement</h4>
+        </div>
+
+        <div class="part-right">
+            <span class="close-btn"><i class="ri-close-circle-line" onclick="history.back()"></i></span>
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- pop-up report -->
+
+        <div id="report-container">
+            <div class="report-form">
+                <form action="">
+                    <div class="name-fields">
+                        <div class="first-name-field">
+                            <label for="">First name</label>
+                            <input type="text" class="first-name-input" placeholder="Your first name">
+                        </div>
+                        <div class="last-name-field">
+                            <label for="">Last name</label>
+                            <input type="text" class="last-name-input" placeholder="Your last name">
+                        </div>
+                    </div>
+
+                    <div class="report-field">
+                        <label for=""><span><i class="ri-alarm-warning-line"></i></span> Report field</label>
+                        <input type="text">
+                    </div>
+                    <button class="submitBtn">submit</button>
+                </form>
+            </div>
+            <button id="close-btn-report">
+                <span><i class="ri-close-circle-line"></i></span>
+            </button>
+        </div>
+
+        <div class="card-container">
+
+            <div class="image-box">
+                <div class="image">
+                    <img src="../../../../Resorces/Student/coursesInfoImages/professor.png" alt="professor"
+                        class="professor-image">
+                </div>
+                <div class="buttons-box">
+                    <button id="message-btn"><a href="../../ChatPage/Html/chatPage.html"><span><i
+                                    class="ri-message-3-fill"></i></span> Message</a></button>
+                    <button id="report-btn"> <span><i class="ri-alarm-warning-line"></i></span> Report</button>
+                </div>
+            </div>
+
+            <div class="details-container">
+                <div class="general-details">
+                    <h3> <span><i class="ri-bookmark-line"></i></span> Languages: <span
+                            class="description-text">English, French, Arabic.</span></h3>
+
+                    <h3> <span><i class="ri-award-line"></i></span> Experience: <span class="description-text">7
+                            years</span></h3>
+                    <h3> <span><i class="ri-shield-star-line"></i></span> Average rating of courses: <span
+                            class="rating-stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </span> </h3>
+                </div>
+                <!-- till here-->
+                <div class="skills-details">
+                    <h3> <span><i class="ri-pie-chart-line"></i></span> Skills: </h3>
+                    <div class="skill-circles-container .place-row">
+                        <div class="one-circle-container">
+                            <div class="skill">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <div id="number">
+                                            55 %
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#1DA1F2" />
+                                            <stop offset="100%" stop-color="#00DAF7" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="one-circle-container">
+                            <div class="skill">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <div id="number">
+                                            55 %
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#1DA1F2" />
+                                            <stop offset="100%" stop-color="#00DAF7" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="one-circle-container">
+                            <div class="skill">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <div id="number">
+                                            55 %
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#1DA1F2" />
+                                            <stop offset="100%" stop-color="#00DAF7" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card-container">
+                    <h3> <span><i class="ri-quill-pen-line"></i></span>Education: </h3>
+                    <div class="education-card">
+                        <ul>
+                            <li>
+                                <h4>University: <span class="description-text">ESA CODING LAB</span></h4>
+                            </li>
+                            <li>
+                                <h4>Specialization:<span class="description-text"> THREE.JS</span></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3><span><i class="ri-book-mark-line"></i></span>Courses:</h3>
+                <div class="courses-card">
+                    <ul>
+                        <li> <span><i class="ri-checkbox-circle-line"></i></span> UTC 404 (Thermodynamics and Fluid
+                            Mechanics) UTC 405 (Fundamentals of materials) MEC 121 (Solid Mechanics) MEC 124 (Analysis
+                            and modeling of mechanisms)</li>
+                        <li> <span><i class="ri-checkbox-circle-line"></i></span> UTC 404 (Thermodynamics and Fluid
+                            Mechanics) UTC 405 (Fundamentals of materials) MEC 121 (Solid Mechanics) MEC 124 (Analysis
+                            and modeling of mechanisms)</li>
+                        <li><span><i class="ri-checkbox-circle-line"></i></span> UTC 404 (Thermodynamics and Fluid
+                            Mechanics) UTC 405 (Fundamentals of materials) MEC 121 (Solid Mechanics) MEC 124 (Analysis
+                            and modeling of mechanisms)</li>
+                        <li> <span><i class="ri-checkbox-circle-line"></i></span> UTC 404 (Thermodynamics and Fluid
+                            Mechanics) UTC 405 (Fundamentals of materials) MEC 121 (Solid Mechanics) MEC 124 (Analysis
+                            and modeling of mechanisms)</li>
+                        <li> <span><i class="ri-checkbox-circle-line"></i></span> UTC 404 (Thermodynamics and Fluid
+                            Mechanics) UTC 405 (Fundamentals of materials) MEC 121 (Solid Mechanics) MEC 124 (Analysis
+                            and modeling of mechanisms)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../js/teacher_profile_page.js"></script>
+</body>
+
+</html>

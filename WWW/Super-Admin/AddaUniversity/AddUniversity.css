@@ -1,0 +1,182 @@
+*{box-sizing:border-box}
+H1 {
+    margin: 1% 2%;
+    margin-bottom: -2% !important;
+}
+
+body {
+    background-color: rgb(233, 231, 231);
+    width: 90vw;
+    height: 100vh;
+}
+
+.DivBody1 {
+    background-color: rgb(133, 131, 131);
+    color: rgb(58, 57, 57);
+    width: 90vw;
+    height: 80vh;
+    margin: 4px 4px 20px 20px;
+    float: left;
+    justify-content: center;
+}
+
+.DivUniversity {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 10%;
+}
+
+.DivAdmin {
+    width: 40rem;
+    height: 12rem;
+    color: rgb(58, 57, 57);
+    margin-top: -12rem;
+    margin-left: 10rem;
+}
+
+.DivIcon {
+    margin-bottom: 1rem;
+    display: flex;
+    margin-left: 15rem;
+}
+
+.FlexContainer {
+    margin: 1% 1%;
+
+}
+
+.FlexContainer1 {
+    display: flex;
+    margin: 25% 10%;
+
+}
+
+.headtxtUniversity {
+    width: 60%;
+    height: 50%;
+    font-size: large;
+color: blue;
+    padding: 16px !important;
+    margin: 2px 20px 25px 20px;
+}
+
+.fa-solid {
+    color: blue;
+    background-color: white;
+    border-radius: 90%;
+    padding: 1% 2% 1% 2%;
+    margin-left: 29rem;
+    margin-bottom: 5%;
+    margin-top: 1rem;
+    font-size: 400%;
+
+}
+
+.headtxtAdmin {
+    font-size: large;
+    color: blue;
+    margin-left: 20px;
+    padding: 2px;
+}
+
+.textUniversity {
+    width: 20rem;
+    height: 3rem;
+    border-color: rgb(124, 124, 192);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1% 2%;
+    margin: 2px 20px 6px 35px;
+}
+.textUniversity:hover{
+    border-color: blue;
+}
+
+.textAdmin {
+    width: 15rem;
+    height: 3rem;
+    border-color: rgb(124, 124, 192);
+    text-align: center;
+    border-radius: 10px;
+    padding: 1% 2%;
+    margin: 4px 20px 15px 20px;
+    font-size: medium;
+}
+.textAdmin:hover{
+    border-color: blue;
+}
+.btn {
+    color: wheat;
+    font-size:medium;
+    background-color: rgb(133, 131, 131);
+    padding: 2% 8%;
+    margin-left: 72vw;
+    margin-top: 2rem;
+    border-color: rgb(165, 161, 161);
+}
+.btn:hover{ border-color: blue;
+} 
+@media(max-width:860px) {
+.fa-solid{
+    position: relative;
+margin-left: 19rem !important;
+margin-bottom: 3rem;
+}
+    
+    .DivBody1 {
+        margin-left: -1%;
+        width: 95vw;
+        height: 85vh;
+        justify-content: center;
+    }
+
+    .DivUniversity {
+        margin-left: 5%;
+    }
+
+    .DivAdmin {
+        margin-left: 0%;
+        margin-bottom: 8%;
+        color: rgb(49, 48, 48);
+    }
+
+    .DivUniversity {
+        flex-direction: row;
+    }
+
+    .textUniversity {
+        width: 15rem;
+        height: 3rem;
+        color: rgb(49, 48, 48);
+        font-size: medium;
+    }
+
+    .FlexContainer1 {
+        flex-direction: row;
+    }
+
+    .btn {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 40rem;
+        
+    }
+    .btn:hover{ border-color: blue;
+    } 
+}
+@media(max-width:765px) {
+.btn {
+    margin-top: 0.1rem;
+    margin-bottom: 30%;
+    justify-items: center;
+    margin-left: 15rem;}
+.btn:hover{ border-color: blue;
+} 
+.DivBody1
+{
+    height: 95vh;
+}
+}
+@media(max-width:450px) {
+   .DivBody1{justify-content: flex-end; }
+    }

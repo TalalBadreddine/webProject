@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../SecondRegistPage/Css//SecondRegister.css">
+    <link rel = "icon" href="../../../../../Resorces/Student/logo/favicon.png" type = "image/x-icon">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="allPageView">
+        <div class="bluePart">
+
+            <div class="logo">
+
+                <span><img src="../../../../../Resorces/Student/logo/logo.png" width="72.8px" height="70px"></span>
+
+            </div>
+
+        </div>
+
+        <div class="whitePart">
+
+            <div class="helper">
+
+                <a href="../../FirstRegisterPage/Html/firstRegisterPage.html" class="backButton">
+                    < Back </a>
+
+                        <div class="middleAndSideDiv">
+
+                            <div class="middleText">
+
+                                <h1>Your Half Way There!</h1>
+                                <p>For the purpose of education, your details are required.</p>
+
+                            </div>
+
+                            <div class="rightText">
+                                <p><span> STEP 02/03</span><span class="eductaion">Educational Info.</span></p>
+                            </div>
+
+                        </div>
+            </div>
+
+            <form method="" action="../../ThirdRegisterPage/html/thirdRegisterPage.html">
+                <div>
+
+                    <div class="labels">
+
+                        <div class="languageDiv">
+                            <h4>Language *</h4>
+                            <select  id="Language" oninput="resett('Language', 'LanguageSpan')"> 
+                                <option selected disabled value="">Choose...</option>
+                                <option value="1">French</option>
+                                <option value="2">English</option>
+                            </select>
+                            
+                            <div>
+                                <span id="LanguageSpan"></span>
+
+                            </div>
+
+                            <div class="underDiv" oninput="resett('underDiv', 'schoolGradesSpan')">
+                                <h4>SchoolGrades *</h4>
+                                <input type="file" id="schoolGrades">
+                            </div>
+
+                            <span id="schoolGradesSpan"></span>
+
+                        </div>
+
+                        <div class="MajorDiv" oninput="resett('MajorDiv', 'MajorSpan')">
+                            <h4>Major *</h4>
+                            <select  id="Major" >
+                                <option selected disabled value="">Choose...</option>
+                                <option>Computer Science</option>
+                                <option>Psychology</option>
+                            </select>
+
+                            <div>
+                                <span id="MajorSpan"></span>
+
+                            </div>
+
+                            <div class="underDiv">
+                                <h4>Personal Photo* </h4>
+                                <input type="file" id="personalPhoto" oninput="resett('personalPhoto', 'personalPhotoSpan')">
+                            </div>
+
+                            <span id="personalPhotoSpan"></span>
+
+                        </div>
+
+                        <div class="brancheDiv" oninput="resett('brancheDiv', 'BranchSpan')">
+                            <h4>Branche *</h4>
+                            <select id="Branch">
+                                <option selected disabled value="">Choose...</option>
+                                <option>Tyre</option>
+                                <option>Beirut</option>
+                            </select>
+
+                            <div>
+                                <span id="BranchSpan"></span>
+                            </div>
+
+                            <div class="underDiv" oninput="resett('passport', 'passportSpan')">
+                                <h4>Personal Id or Passport*</h4>
+                                <input type="file" id="passport">
+                            </div>
+
+                            <span id="passportSpan"></span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="submitButton">
+                        <button id="saveAndContinue" type="submit" onclick="return nextPage()">Save & Continue</button>
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    <script src="../Js/secondRegister.js"></script>
+</body>
+
+</html>

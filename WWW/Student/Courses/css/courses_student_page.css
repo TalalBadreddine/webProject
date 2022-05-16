@@ -1,0 +1,496 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --background-color: #FBFBFB;
+    --primary-color: #1DA1F2;
+    --secondery-color: #00DAF7;
+    --text-color: #8692A6;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-color);
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+header{
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 7rem;
+    z-index: 99;
+} 
+
+
+body nav{
+    background-color: #1DA1F2;
+    height: 10vh;
+    width: 100vw;
+}
+
+.element{
+    color: white;
+    margin: 2rem;
+    font-size: 1.3rem;
+}
+
+
+#navbarSupportedContent{
+    /* background-image: linear-gradient(#1DA1F2, #1da0f276); */
+    background-color: #1da0f2;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-item{
+    margin-right: 2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.list-item:hover{
+    color: var(--background-color);
+} 
+
+.active{
+    color: var(--background-color);
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--background-color);
+}
+
+.user-profile{
+    font-size: 3rem;
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+} 
+
+main{
+    width: 100vw;
+    margin-top: 9rem;
+}
+
+td{
+    padding: 1rem;
+}
+
+.schedual-table th{
+    margin-left: 1rem;
+    height: 8vh;
+    border-bottom: 1px solid black;
+    color: #1D41F2;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* section one */
+
+.one{
+    padding: 0 2rem;
+}
+
+.schedual-table{
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+    width: 100%;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.schedual-table thead{
+    border-collapse: collapse;
+    border-radius: 30px;
+    text-align: center;
+    background-color: white;
+    color: var(--primary-color);
+    height: 2rem;
+}
+
+.leftOne{
+    border-top-left-radius: 30px;
+}
+
+.rightOne{
+    border-top-right-radius: 30px;
+}
+
+.schedual-table thead tr th {
+    background-color: rgba(189, 189, 189,0.3);
+}
+
+.schedual-table td{
+    height: 7rem;
+}
+
+.card-of-schedual{
+    cursor: pointer;
+    background-color: rgba(94, 211, 247,0.2);
+    border: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.card-of-schedual1{
+    background-color: #00DAF7;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.card-of-schedual span i{
+    font-size: 3rem;
+}
+
+.table-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.word{
+    width: 20%;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.word span{
+    color: var(--primary-color);
+}
+.course-table{
+    width:80%;
+
+}
+
+.courses-table{
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    background-color: white;
+   
+}
+.headerRow{
+    border-radius: 10px;
+}
+
+.courses-table thead{
+    height: 5rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.courses-table a{
+    text-decoration: none;
+    color: black;
+}
+
+.courses-table th{
+    height: 7vh;
+}
+
+.coursesLeftOne{
+   border-top-left-radius: 10px;
+}
+
+.coursesRightOne{
+    border-top-right-radius: 10px;
+}
+
+/* section two */
+.two{
+    width: 100%;
+    background-color: rgba(143, 142, 142,0.1);
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem;
+}
+
+.two form{
+    margin-left: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.two form div {
+    margin-right: 4rem;
+}
+
+.two select,.stars-container{
+    width: 11rem;
+    height: 3rem;
+    border-radius: 7px;
+    padding: 1rem;
+    margin-top: .5rem;
+}
+
+.filter-btn{
+    width: 11rem;
+    height: 3rem;
+    border-radius: 7px;
+}
+.stars-container{
+    background-color: white;
+    border: 1px solid black;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stars-container i{
+    margin-right: .3rem;
+}
+
+.filter-btn{
+    margin: 2rem 0 0 -2rem;
+
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: bold;
+}
+
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* section three */
+
+.three{
+    padding: 2rem;
+    margin-left: 5%;
+}
+
+.card-of-course{
+    display: block;
+    min-width: 21rem;
+    max-width: 21rem;
+    max-height: 20rem;
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 15%);
+    border-radius: 15px;
+    transition: transform .7s;
+    margin-right: 5rem;
+    margin-block: 3rem;
+}
+
+.card-of-course:hover{
+    transform: scale(1.1);
+}
+
+.header{
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 15px 15px 0 0 ;
+    color: var(--background-color);
+    font-size: 1.3rem;
+}
+
+.body-card{
+    padding: 2rem;
+}
+
+.body-card li{
+    margin-left: 3rem;
+}
+
+.description{
+    margin-bottom: 1rem;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.apply-btn{
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: bold;
+    transition: 1s ease-in-out;
+}
+
+.apply-btn:hover{
+    background-color:  var(--secondery-color);
+}
+
+.wrap-cards-of-courses{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+}
+
+@media screen and (max-width: 768px) {
+    .card-of-schedual{
+        display: block;
+    }
+    .table-two{
+        display: block;
+    }
+    .word{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    .course-table{
+        width: 100%;
+    }
+
+    .two form{
+        flex-wrap: wrap;
+        margin-left: 10rem;
+    }
+
+    .filter-btn{
+        margin-left: -4rem;
+    }
+}
+
+/*Pop up */
+
+.hiddenPopUp{
+    width: 30%;
+    height: auto;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35%;
+    margin-top: 20%;
+    background-color: white;
+    padding: 1rem;
+
+}
+
+.hiddenPopUp i{
+    margin-left: 95%;
+    width: 30px;
+    cursor: pointer;
+}
+
+.popUpPageView{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.157);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 160vh;
+
+}
+
+.bigHeader{
+    z-index: 1;
+}
+
+/* Stars */
+
+div.stars {
+    width: 100%;
+    display: inline-block
+}
+
+.mt-200 {
+    margin-top: 200px
+}
+
+input.star {
+    display: none
+}
+
+label.star {
+    float: right;
+    padding: 7px;
+    font-size: 1.1rem;
+    color: black;
+    transition: all .2s
+}
+
+input.star:checked~label.star:before {
+    content: '\f005';
+    color: black;
+    transition: all .25s
+}
+
+input.star-5:checked~label.star:before {
+    color: black;
+    text-shadow: 0 0 20px #952
+}
+
+input.star-1:checked~label.star:before {
+    color: gold
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3)
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome
+}
+#logoImg{
+    border: 1px solid #1DA1F2;
+}
+
+.hrefHelper:hover{
+    color: white;
+}
+.hrefHelper{
+    text-decoration: none;
+}
+
+.nbOfCreditsLeft{
+    margin-left: 90%;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+
+#language-search-courses,#credits-search-courses,#hours-search-courses{
+    background-color: white !important;
+    padding: 0.5rem;
+}

@@ -1,0 +1,268 @@
+/* Navs */
+
+.item:target{
+    background-color: red;
+}
+body nav{
+    background-color: #1DA1F2;
+    height: 10vh;
+    width: 100vw;
+}
+
+.element{
+    color: white;
+    margin: 2rem;
+    font-size: 1.3rem;
+}
+
+body header button{
+    color: black;
+}
+
+#navbarSupportedContent{
+    /* background-image: linear-gradient(#1DA1F2, #1da0f276); */
+    background-color: #1da0f2;
+}
+
+/* building it */
+
+.pageView{
+    width: 100%;
+    height: 100%;
+    margin-top: 11vh;
+    margin-bottom: 5vh;
+}
+
+.scroller{
+    display: flex;
+    height: 100%;
+    width:100%; 
+    overflow-x: hidden;
+}
+
+.allCourses{
+    width: 50%;
+    height: 10%;
+    margin-top: 10%;
+    margin-left: 34%;
+}
+
+.forButtons{
+    display: flex;
+}
+
+.allCourses button{
+    border: none;
+    background-color: white;
+}
+
+.scrollerElement{
+    cursor: pointer;
+    margin: 1rem;
+    margin-left: 4rem;
+    font-size: 1rem;
+}
+
+#scrollerElement1{
+    margin-left: 0px;
+}
+
+.underCoursesHR{
+    margin-top: 3px;
+    width: 95%;
+    margin-left: 2.5%;
+    z-index: 3;
+}
+
+/* .hrThatChangeColor{
+    border: none;
+    height: 100px;
+    background-color: blue;
+    top: 22.8vh;
+    width: 7%;
+    z-index: 2;
+    position: absolute;
+    
+} */
+
+.filesInfo{
+    margin-left: 2%;
+    width: 72%;
+    height: 100%;
+    border: 0.1px solid black;
+    border-top: 5px solid gray;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    padding: 1rem;
+    
+}
+
+.filesPath{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.bigP{
+    font-size: 1.4em;
+}
+
+.list-group li{
+    width: 80%;
+    margin-left: 7%;
+    border: none;
+}
+
+.list-group li:hover{
+    background-color: #CDECFF;
+}
+
+.vl {
+    border-left: 0.3px solid #000000ee;
+    height: 500px;
+  }
+
+.coursesContact{
+    width: 100%;
+}
+
+
+.currentFiles{
+    display: flex;
+    width: 100%;
+}
+
+.imageIcon{
+    display: flex;
+    margin-left: 4%;
+}
+
+.modified{
+    margin-left: 70%;
+}
+
+.nameClass{
+    margin-left: 2%;
+}
+
+.leftBodyOfPage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 11%;
+}
+
+.filesRow{
+    width: 100%;
+}
+
+.files .item{
+    display: flex;
+    width: 94%;
+}
+
+.date{
+    margin-left: 76%;
+}
+
+.pdfIcon{
+    margin-right: 1%;
+    color: red;
+    margin-bottom: 0px;
+}
+
+.underTheScroller{
+    display: flex;
+}
+
+.allGradesViewClass{
+    width: 25%;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-top: 5px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.gradesHead p {
+    margin-top: 2%;
+    font-size: 1.7rem;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+
+.examsHead{
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+}
+
+.gradesTable{
+    text-align: left;
+    width: 60%;
+    margin-left: 3%;
+}
+
+.examName{
+    font-weight: bolder;
+    text-align: left;
+}
+
+
+
+.gradesLine{
+    margin-left: 5%;
+    letter-spacing: 2px;
+}
+.examName{
+    font-weight: bolder;
+    margin-right: 10%;
+}
+
+.examsGrades{
+    display: flex;
+    flex-direction: column;
+    line-height: 2.5rem;
+}
+
+.averageGrades{
+    margin-top: 25%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.5rem 0;
+}
+
+@media screen and (max-width: 900px) {
+   .underTheScroller{
+       display: flex;
+       flex-direction: column;
+   }
+
+   .allGradesViewClass{
+       width: 50%;
+       margin: auto;
+       margin-top: 10%;
+   }
+
+   .filesInfo{
+       width: 95%;
+   }
+
+   .modified{
+       margin-left: 60%;
+   }
+
+   .date{
+       margin-left: 60%;
+   }
+
+   .currentFiles{
+       margin-top: 20%;
+   }
+}

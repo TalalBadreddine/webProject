@@ -135,14 +135,16 @@ $(document).ready(function(){
 
     $('#idOrPassport').change(function () {
       $('#idOrPassportSpan').text(this.files[0].name + " file is selected");
-      schoolSpan.style.border = "1px solid black"
+      idOrPassportSpan.style.border = "2.3px solid green"
     });
 
     $('#personalPhoto').change(function () {
         $('#personalPhotoSpan').text(this.files[0].name + " file is selected");
+        personalPhotoSpan.style.border = "2.3px solid green"
       });
 
     $('#schoolGrades').change(function () {
         $('#schoolSpan').text(this.files[0].name + " file is selected");
+        schoolSpan.style.border = "2.3px solid green"
       });
 });

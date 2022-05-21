@@ -494,3 +494,7 @@ label.star:before {
     background-color: white !important;
     padding: 0.5rem;
 }
+
+select{
+    border: 1px solid rgba(0, 0, 0, 0.371) !important;
+}

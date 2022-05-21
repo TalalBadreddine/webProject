@@ -1,4 +1,4 @@
-body{
+/* body{
     padding: 0px;
     margin: 0px;
     display: flex;
@@ -19,7 +19,7 @@ body{
     margin-top: 15%;
 }
 
-/* White Part */
+White Part
 
 .whitePart{
     width: 82%;
@@ -202,4 +202,146 @@ body{
     margin-left: 0.5rem;
     margin-top: 0.3rem;
     position: absolute;
+} */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+
+
+/* reset */
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FBFBFB;
+}
+
+.mainContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+header{
+    margin-bottom: 7rem;
+}
+
+
+aside{
+    height: 100%;
+    width: 20%;
+    background-color: #1DA1F2;
+    padding: 3rem;
+    align-items: center;
+    color: white;
+}
+
+.allPage{
+    margin-left:  0px;
+} */
+
+.allPage{
+    height: 100vh;
+}
+
+.side{
+    background-color: #1da1f2;
+}
+
+.backBtn button{
+    border: none;
+    color: gray;
+    background-color: white;
+}
+
+.backBtn button:hover{
+    font-weight: bolder;
+}
+
+select,input{
+    height: 45px;
+    width: 75%;
+    background-color: white;
+    border: 0.2px solid black;
+    border-radius: 12px;
+    padding: 0.4rem;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+    border-radius: 6px;
+    /* -webkit-animation: scaling 0.6s alternate-reverse;
+    animation: wiggle 0.8s; */
+}
+
+
+@keyframes wiggle{
+    0%{
+        transform: rotate(0deg);
+    }
+    20%{
+        transform: rotate(2deg);
+    }
+    30%{
+        transform: rotate(-2deg);
+    }
+    40%{
+        transform: rotate(2deg);
+    }
+    50%{
+        transform: rotate(-2deg);
+    }
+    70%{
+        transform: rotate(2deg);
+    }
+    80%{
+        transform: rotate(-2deg);
+    }
+    90%{
+        transform: rotate(2deg);
+    }
+}
+
+/* @-webkit-keyframes scaling {
+    30% {
+        -webkit-transform: scale(1.0);
+    }
+    50% {
+        -webkit-transform: scale(1.15);
+    }
+    75%{
+        -webkit-transform: scale(1.0)
+    }
+
+    
+} */
+
+select:focus{
+    border: 1px solid #1565D8;
+}
+
+#schoolGrades,#personalPhoto,#idOrPassport{
+  position: absolute;
+  width: 80%;
+  height: 10rem;
+  outline: none;
+  opacity: 0;
+  z-index: 33;
+}
+
+#schoolSpan,#personalPhotoSpan,#idOrPassportSpan{
+    position: absolute;
+    top: 60%;
+    width: 80%;
+    height: 10rem;
+    padding: 3.5rem;
+    border: 2px dashed #000;
+}
+
+.continueBtn{
+    margin-top: 15%;
+    margin-left: 35%;
+    padding: 0.8rem 6rem;
+    background-color: #1da1f2;
+    color: white;
 }

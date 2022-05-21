@@ -5,129 +5,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../SecondRegistPage/Css//SecondRegister.css">
-    <link rel = "icon" href="../../../../../Resorces/Student/logo/favicon.png" type = "image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../SecondRegistPage/Css/SecondRegister.css">
+    <link rel="stylesheet" href="../../../../../Resorces/Icons/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="icon" href="../../../../../Resorces/Student/logo/favicon.png" type="image/x-icon">
     <title>Register</title>
 </head>
 
 <body>
-    <div class="allPageView">
-        <div class="bluePart">
 
-            <div class="logo">
+    <div class="allPage col-12 p-0 d-flex">
 
-                <span><img src="../../../../../Resorces/Student/logo/logo.png" width="72.8px" height="70px"></span>
-
-            </div>
-
+        <div class="side col-2 ">
+            <img src="../../../../../Resorces/Student/logo/logo.png" width="72px" height="70px" class="ms-3 mt-5">
         </div>
 
-        <div class="whitePart">
+        <div class="whitePart col-10">
 
-            <div class="helper">
+            <div class="header d-flex col-12 mt-5">
 
-                <a href="../../FirstRegisterPage/Html/firstRegisterPage.html" class="backButton">
-                    < Back </a>
+                <div class="backBtn col-2">
+                    <button onclick="window.location.href = '../../FirstRegisterPage/Html/FirstRegisterPage.html'">
+                        < Back </button>
+                </div>
 
-                        <div class="middleAndSideDiv">
+                <div class="col-7 mt-3">
 
-                            <div class="middleText">
-
-                                <h1>Your Half Way There!</h1>
-                                <p>For the purpose of education, your details are required.</p>
-
-                            </div>
-
-                            <div class="rightText">
-                                <p><span> STEP 02/03</span><span class="eductaion">Educational Info.</span></p>
-                            </div>
-
-                        </div>
-            </div>
-
-            <form method="" action="../../ThirdRegisterPage/html/thirdRegisterPage.html">
-                <div>
-
-                    <div class="labels">
-
-                        <div class="languageDiv">
-                            <h4>Language *</h4>
-                            <select  id="Language" oninput="resett('Language', 'LanguageSpan')"> 
-                                <option selected disabled value="">Choose...</option>
-                                <option value="1">French</option>
-                                <option value="2">English</option>
-                            </select>
-                            
-                            <div>
-                                <span id="LanguageSpan"></span>
-
-                            </div>
-
-                            <div class="underDiv" oninput="resett('underDiv', 'schoolGradesSpan')">
-                                <h4>SchoolGrades *</h4>
-                                <input type="file" id="schoolGrades">
-                            </div>
-
-                            <span id="schoolGradesSpan"></span>
-
-                        </div>
-
-                        <div class="MajorDiv" oninput="resett('MajorDiv', 'MajorSpan')">
-                            <h4>Major *</h4>
-                            <select  id="Major" >
-                                <option selected disabled value="">Choose...</option>
-                                <option>Computer Science</option>
-                                <option>Psychology</option>
-                            </select>
-
-                            <div>
-                                <span id="MajorSpan"></span>
-
-                            </div>
-
-                            <div class="underDiv">
-                                <h4>Personal Photo* </h4>
-                                <input type="file" id="personalPhoto" oninput="resett('personalPhoto', 'personalPhotoSpan')">
-                            </div>
-
-                            <span id="personalPhotoSpan"></span>
-
-                        </div>
-
-                        <div class="brancheDiv" oninput="resett('brancheDiv', 'BranchSpan')">
-                            <h4>Branche *</h4>
-                            <select id="Branch">
-                                <option selected disabled value="">Choose...</option>
-                                <option>Tyre</option>
-                                <option>Beirut</option>
-                            </select>
-
-                            <div>
-                                <span id="BranchSpan"></span>
-                            </div>
-
-                            <div class="underDiv" oninput="resett('passport', 'passportSpan')">
-                                <h4>Personal Id or Passport*</h4>
-                                <input type="file" id="passport">
-                            </div>
-
-                            <span id="passportSpan"></span>
-
-                        </div>
-
-                    </div>
-
-                    <div class="submitButton">
-                        <button id="saveAndContinue" type="submit" onclick="return nextPage()">Save & Continue</button>
+                    <div class="text-center">
+                        <p class="h3">Your Half Way There! </p>
+                        <p class="lead">For the purpose of education, your details are required.</p>
+                        <hr>
                     </div>
 
                 </div>
-            </form>
 
 
+                <div class="col-lg-3 mt-3 text-right ml-">
+
+                    <p class="mb-0">STEP 02/03</p>
+                    <p>Personal Info.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 d-flex mt-4">
+
+
+                <div class="col-3">
+                    <h5>Branch</h5>
+
+                    <select name="branch" id="branchId" onclick="resetMe(this.id)">
+                        <option selected="true" disabled="disabled">Branch</option>
+                        <option>Nabatieh</option>
+                        <option>Beirut</option>
+                        <option>Tripoli</option>
+
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <h5>Language</h5>
+
+                    <select name="languge" id="langugeId" onclick="resetMe(this.id)">
+                        <option selected="true" disabled="disabled">Language</option>
+                        <option>French</option>
+                        <option>English</option>
+
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <h5>Blood Type</h5>
+
+                    <select name="BloodType" id="BloodType" onclick="resetMe(this.id)">
+                        <option selected="true" disabled="disabled">BloodType</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <h5>Marital Status</h5>
+
+                    <select name="status" id="statusId" onclick="resetMe(this.id)">
+                        <option selected="true" disabled="disabled">Status</option>
+                        <option>Married</option>
+                        <option>Single</option>
+                        <option>Widow</option>
+                        <option>Seperated</option>
+                        <option>Divorced</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-12 mt-5 d-flex">
+
+                <div class="col-3">
+                    <h5>Gender</h5>
+    
+                    <select name="Gender" id="Gender" onclick="resetMe('Gender')">
+                        <option selected="true" disabled="disabled">Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+    
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <h5>Date Of Birth</h5>
+                    <input type="date" id="dob"  onclick="resetMe(this.id)">
+
+                </div>
+
+                <div class="col-3">
+                    <h5>Address</h5>
+                    <input type="text" placeholder="2Random Street, Beirut" id="address" onclick="resetMe(this.id)">
+                </div>
+
+                <div class="col-3">
+                    <h5>Phone Number</h5>
+                    <input type="tel" id="phone" name="phone" placeholder="XX-XXX-XXX" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" required onclick="resetMe(this.id)"><br>
+                    <small>Format: 12-345-678</small><br><br>
+                </div>
+
+
+            </div>
+
+            <div class="col-12 mt-4 d-flex">
+
+                <div class="col-4">
+                    <h5>School Grades</h5>
+                    <input type="file" id="schoolGrades" ><br>
+                    <small id="schoolSpan">Drag your files here or click in this area. <i class="fas fa-arrow-circle-up fa-1"></i> </small>
+                </div>
+
+                <div class="col-4">
+                    <h5>Personal Photo</h5>
+                    <input type="file" id="personalPhoto" ><br>
+                    <small id="personalPhotoSpan">Drag your files here or click in this area. <i class="fas fa-arrow-circle-up fa-1"></i> </small>
+                </div>
+
+                <div class="col-4">
+                    <h5> Id or Passport</h5>
+                    <input type="file" id="idOrPassport" ><br>
+                    <small id="idOrPassportSpan">Drag your files here or click in this area. <i class="fas fa-arrow-circle-up fa-1"></i> </small>
+                </div>
+
+            </div>
+                <button class="btn continueBtn" id="continueBtn" type="submit" onclick="validate()">Save & Continue</button>
         </div>
+       
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../Js/secondRegister.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

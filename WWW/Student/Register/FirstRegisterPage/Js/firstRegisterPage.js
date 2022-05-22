@@ -21,6 +21,8 @@ const programSpan = document.getElementById("programSpan")
 
 const form = document.getElementsByTagName("form")
 
+const listOfUniversities = document.getElementById("university")
+
 var randomEmailCode = ""
 
 let codeToSendToEmail = 0
@@ -198,29 +200,6 @@ function resetEmail(){
     emailSpan.innerHTML = ""
 }
 
-/* University */
-
-// function validateUniversity(){
-//     let universityValue = university.value
-//     let notesToDisplay = []
-
-//     if(universityValue == ""){
-
-//         notesToDisplay.push("Please select a university")
-//         universitySpan.innerHTML = notesToDisplay[0]
-//         university.style.border = "1px solid red"
-//         university.id += "Active"
-//         return false
-//     }
-//     return true
-// }
-
-// function resetUniversity(){
-//     university.style.border = "1px solid rgba(0, 0, 0, 0.2)"
-//     university.id = "university"
-//     universitySpan.innerHTML = ""
-// }
-
 function validate(){
     // sendEmail()
     generateRandomEmailCode()
@@ -245,30 +224,47 @@ function charIsAlpha(p2) {
       return (asciiCode >= 65 && asciiCode <=90 ) || (asciiCode <= 120 && asciiCode >= 97)
 }
 
-    // Email 
+function addUniversity(uniName){
+    listOfUniversities.innerHTML += `<option>${uniName}</option>`
+    
+}
 
-// function sendMail(){
+function  addMajor(majorName){
+    program.innerHTML += `<option>${majorName}</option>`;
+}
 
-//     Email.send({
-//         SecureToken : "dbb121d0-bde4-489c-8279-0ca07a67a68e",
-//         To : email.innerHTML.trim(),
-//         From : "managementsystemcollege@gmail.com",
-//         Subject : "This is the subject",
-//         Body : "And this is the body"
-//     }).then(
-//       message => alert(message)
-//     );
-// }
+// Ajax Connecting to PHP;
 
-// function sendEmail(){
-//     let emailBody = {
-//         from_name : "CMS",
-//         email_id : email.innerHTML,
-//         message : "testing"
-//     }
-//     emailjs.sent("service_gduvkt9", "template_hk2yeqe", emailBody).then(function(res){
-//         alert("email Status : " + res.status)
-//     })
-// }
+university.addEventListener("change", function(){
+     $.ajax({
+         url:'../php/getUniversityMajors.php',
+         type: 'POST',
+         data:{
+            universityName: university.value
+         },
+         success:function(result){
+            let data = JSON.parse(result)
+            for(let i = 0 ; i < data.length; i++){
+                addMajor(data[i]);
+            }
+         }
+     })
+})
 
- 
+$(document).ready(function(){
+
+    $.ajax({
+        url:'../php/getUniversity.php',
+        type: 'POST',
+        success : function (result) {
+            let data = JSON.parse(result);
+            for(let i = 0 ; i < data.length ; i++){
+                addUniversity(data[i].UniversityName)
+            }
+         },
+         error : function () {
+            console.log ('error could not load universities in js');
+         }
+    })
+
+})

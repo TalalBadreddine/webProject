@@ -4,6 +4,8 @@ const fnSpan = document.getElementById("firstNameSpan")
 const ln = document.getElementById("lastName")
 const lnSpan = document.getElementById("lastNameSpan")
 
+const middleName = document.getElementById("middleName")
+
 const email = document.getElementById("email")
 const emailSpan = document.getElementById("emailSpan")
 
@@ -204,7 +206,20 @@ function validate(){
     // sendEmail()
     generateRandomEmailCode()
     if(validateFirstName() && validateLastName() && validatePassword() && validateEmail()){
-        return true
+
+        $.ajax({
+            url:"../php/studentInfoPart1.php",
+            type: 'POST',
+            data:{
+                firstName: fn.value,
+                lastName: ln.value,
+                middleName: middleName.value,
+                password: password.value,
+                email: email.value,
+            }
+        })
+
+        return true;
     }
     return false
 }

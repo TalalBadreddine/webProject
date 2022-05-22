@@ -2,6 +2,8 @@
 
 require '../../../../extension/makeConnection.php';
 
+session_start();
+
 $uniName = $_POST['universityName'];
 
 $sqlForUniID = "SELECT UniversityID FROM University WHERE `UniversityName` = '$uniName' ";
@@ -13,22 +15,27 @@ $UniversityID = $resultSqlUniID->fetch_assoc()["UniversityID"];
 
 // ALL GOOD (Got the university)
 
-$sqlForBranch = "SELECT BranchID FROM Branch WHERE `UniversityID` = $UniversityID ";
+$sqlForBranch = "SELECT * FROM Branch WHERE `UniversityID` = $UniversityID ";
 
 $sqlResultForBranch = $conn->query($sqlForBranch);
 
 $arrayOfBranches = array();
+$arrayOfBranchesName = array();
+
 
 if ($sqlResultForBranch->num_rows > 0) {
     // output data of each row
     while($row = $sqlResultForBranch->fetch_assoc()) {
       array_push($arrayOfBranches,$row['BranchID']);
+      array_push($arrayOfBranchesName,$row['BranchName']);
     }
 
   } else {
 
     echo "no branch found in DB";
 }
+
+$_SESSION['branches'] = $arrayOfBranchesName;
 
 // All GOOD ( got all branch of the university)
 
@@ -55,7 +62,6 @@ for( $i = 0 ; $i < count($arrayOfBranches); $i++){
 }
 
 echo json_encode($arrOfMajors);
-
 
 
 ?>

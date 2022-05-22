@@ -33,7 +33,6 @@ let arr = {gender, language, bloodType, status, branch, dob, address, phoneNumbe
      ){
          window.location.href = '../../ThirdRegisterPage/html/thirdRegisterPage.html'
      }
-
 }
 
 function validateFile(Dom, spanDom){
@@ -129,6 +128,10 @@ phoneNumber.addEventListener('keyup', function(){
 
 })
 
+function addBranch(branchName){
+    branch.innerHTML += `<option>${branchName}</option>`
+}
+
 // File Name
 
 $(document).ready(function(){
@@ -148,3 +151,21 @@ $(document).ready(function(){
         schoolSpan.style.border = "2.3px solid green"
       });
 });
+
+
+// Ajax Connections 
+
+// get Branches
+$(document).ready(function(){
+
+    $.ajax({
+        url: '../php/getBranches.php',
+        type: 'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+            for(let i = 0; i< data.length ; i++){
+                addBranch(data[i])
+            }
+        }
+    })
+})

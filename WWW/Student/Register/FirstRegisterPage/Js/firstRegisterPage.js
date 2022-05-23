@@ -216,6 +216,8 @@ function validate(){
                 middleName: middleName.value,
                 password: password.value,
                 email: email.value,
+                university: university.value,
+                program: program.value
             }
         })
 

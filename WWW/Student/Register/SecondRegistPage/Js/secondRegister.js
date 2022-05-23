@@ -163,9 +163,10 @@ $(document).ready(function(){
         type: 'POST',
         success:function(response){
             let data = JSON.parse(response)
-            for(let i = 0; i< data.length ; i++){
+            for(let i = 0 ; i <data.length ; i++){
                 addBranch(data[i])
             }
+
         }
     })
 })

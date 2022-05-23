@@ -35,10 +35,10 @@ if ($sqlResultForBranch->num_rows > 0) {
     echo "no branch found in DB";
 }
 
-$_SESSION['branches'] = $arrayOfBranchesName;
+// All GOOD (got all branch of the university)
 
-// All GOOD ( got all branch of the university)
 
+$assisativeArrayOfBranchesName = array();
 $arrOfMajors = array();
 
 for( $i = 0 ; $i < count($arrayOfBranches); $i++){
@@ -51,8 +51,15 @@ for( $i = 0 ; $i < count($arrayOfBranches); $i++){
     if ($sqlResultForMajors->num_rows > 0) {
         // output data of each row
         while($row = $sqlResultForMajors->fetch_assoc()) {
+
+          $currentArr = array();
           array_push($arrOfMajors, $row['MajorName']);
-        }
+
+          $currentArr['BranchName'] = $arrayOfBranchesName[$i];
+          $currentArr['MajorName'] = $row['MajorName'];
+
+          }
+          array_push($assisativeArrayOfBranchesName, $currentArr);
     
       } else {
     
@@ -60,6 +67,8 @@ for( $i = 0 ; $i < count($arrayOfBranches); $i++){
     }
 
 }
+
+$_SESSION['branches'] = $assisativeArrayOfBranchesName;
 
 echo json_encode($arrOfMajors);
 

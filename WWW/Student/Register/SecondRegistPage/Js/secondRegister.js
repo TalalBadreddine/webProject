@@ -15,7 +15,25 @@ const idOrPassportSpan = document.getElementById('idOrPassportSpan')
 
 const submitBtn = document.getElementById('continueBtn')
 
-let arr = {gender, language, bloodType, status, branch, dob, address, phoneNumber,personalPhoto, schoolGrades,idOrPassport}
+$(document).ready(function(){
+
+    $.ajax({
+        url: '../php/getBranches.php',
+        type: 'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+            for(let i = 0 ; i <data.length ; i++){
+                addBranch(data[i]['BranchName']);
+                branchWithMajorJSON.add(data[i]['MajorLanguage'])
+            }
+
+        },error:function (request, status, error) {
+            window.location = "../../../LandingPage/Html/LandingPage.html"
+
+        }
+    })
+})
+
 
  function validate(){
      if(
@@ -31,25 +49,43 @@ let arr = {gender, language, bloodType, status, branch, dob, address, phoneNumbe
          validateFile(personalPhoto,personalPhotoSpan)&&
          validateFile(idOrPassport,idOrPassportSpan)
      ){
+        var schoolDocument = $('#schoolGrades').prop('files')[0]; 
+        var form_data = new FormData();                  
+        form_data.append('file', schoolDocument)  
+
+        // $.ajax({
+        //     url:'../php/studentInfoPart2.php',
+        //     type:'POST',
+        //     data:{
+        //         branch: branch.value,
+        //         language: language.value,
+        //         bloodType: bloodType.value,
+        //         status: status.value,
+        //         gender: gender.value,
+        //         dateOfBirth: dob.value,
+        //         address: address.value,
+        //         phoneNumber: phoneNumber.value
+        //     },
+        //     success:function(result){
+        //         console.log(result)
+        //     },error:function (request, status, error) {
+        //         console.log(error)
+    
+        //     }
+        // })
 
         $.ajax({
             url:'../php/studentInfoPart2.php',
             type:'POST',
-            data:{
-                branch: branch.value,
-                language: language.value,
-                bloodType: bloodType.value,
-                status: status.value,
-                gender: gender.value,
-                dateOfBirth: dob.value,
-                address: address.value,
-                phoneNumber: phoneNumber.value,
-                schoolGradesDocument: schoolGrades.value,
-                personalPhotoDocument: personalPhotoSpan.value,
-                idOrPassportDocument: idOrPassport.value 
-            },
+            dataType: 'text', 
+            contentType: false,
+            processData: false,
+            data: form_data,
             success:function(result){
                 console.log(result)
+            },error:function (request, status, error) {
+                console.log(error)
+    
             }
         })
 
@@ -195,21 +231,4 @@ branch.addEventListener('change', function(){
 })
 
 
-$(document).ready(function(){
 
-    $.ajax({
-        url: '../php/getBranches.php',
-        type: 'POST',
-        success:function(response){
-            let data = JSON.parse(response)
-            for(let i = 0 ; i <data.length ; i++){
-                addBranch(data[i]['BranchName']);
-                branchWithMajorJSON.add(data[i]['MajorLanguage'])
-            }
-
-        },error:function (request, status, error) {
-            window.location = "../../../LandingPage/Html/LandingPage.html"
-
-        }
-    })
-})

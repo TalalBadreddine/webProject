@@ -44,7 +44,7 @@ $arrOfMajors = array();
 for( $i = 0 ; $i < count($arrayOfBranches); $i++){
     $branchID = $arrayOfBranches[$i];
 
-    $sqlForMajors = "SELECT MajorName FROM Major WHERE `BranchID` = '$branchID' ";
+    $sqlForMajors = "SELECT * FROM Major WHERE `BranchID` = '$branchID' ";
 
     $sqlResultForMajors = $conn->query($sqlForMajors);
 
@@ -57,6 +57,7 @@ for( $i = 0 ; $i < count($arrayOfBranches); $i++){
 
           $currentArr['BranchName'] = $arrayOfBranchesName[$i];
           $currentArr['MajorName'] = $row['MajorName'];
+          $currentArr['MajorLanguage'] = $row['Language'];
 
           }
           array_push($assisativeArrayOfBranchesName, $currentArr);

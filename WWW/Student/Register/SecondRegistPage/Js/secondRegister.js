@@ -31,7 +31,29 @@ let arr = {gender, language, bloodType, status, branch, dob, address, phoneNumbe
          validateFile(personalPhoto,personalPhotoSpan)&&
          validateFile(idOrPassport,idOrPassportSpan)
      ){
-         window.location.href = '../../ThirdRegisterPage/html/thirdRegisterPage.html'
+
+        $.ajax({
+            url:'../php/studentInfoPart2.php',
+            type:'POST',
+            data:{
+                branch: branch.value,
+                language: language.value,
+                bloodType: bloodType.value,
+                status: status.value,
+                gender: gender.value,
+                dateOfBirth: dob.value,
+                address: address.value,
+                phoneNumber: phoneNumber.value,
+                schoolGradesDocument: schoolGrades.value,
+                personalPhotoDocument: personalPhotoSpan.value,
+                idOrPassportDocument: idOrPassport.value 
+            },
+            success:function(result){
+                console.log(result)
+            }
+        })
+
+        //  window.location.href = '../../ThirdRegisterPage/html/thirdRegisterPage.html'
      }
 }
 
@@ -132,6 +154,12 @@ function addBranch(branchName){
     branch.innerHTML += `<option>${branchName}</option>`
 }
 
+function addLanguage(languageName){
+
+    language.innerHTML += `<option>${languageName}</option>`
+
+}
+
 // File Name
 
 $(document).ready(function(){
@@ -156,6 +184,17 @@ $(document).ready(function(){
 // Ajax Connections 
 
 // get Branches
+
+var  branchWithMajorJSON = new Set()
+
+branch.addEventListener('change', function(){
+    
+    branchWithMajorJSON.forEach(function(element){
+        addLanguage(element)
+    })
+})
+
+
 $(document).ready(function(){
 
     $.ajax({
@@ -164,8 +203,12 @@ $(document).ready(function(){
         success:function(response){
             let data = JSON.parse(response)
             for(let i = 0 ; i <data.length ; i++){
-                addBranch(data[i])
+                addBranch(data[i]['BranchName']);
+                branchWithMajorJSON.add(data[i]['MajorLanguage'])
             }
+
+        },error:function (request, status, error) {
+            window.location = "../../../LandingPage/Html/LandingPage.html"
 
         }
     })

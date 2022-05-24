@@ -15,6 +15,6 @@ $_SESSION['program'] = cleanItUp($_POST['program']);
 $randomCode = generateRandomCode();
 $_SESSION['randomCode'] = $randomCode;
 
-sendEmailTo($email, "you're verification code is : $randomCode  don't share it with anyone");
+sendEmailTo($_SESSION['email'], "you're verification code is : $randomCode  don't share it with anyone");
 
 ?>

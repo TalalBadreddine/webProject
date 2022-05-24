@@ -49,33 +49,39 @@ $(document).ready(function(){
          validateFile(personalPhoto,personalPhotoSpan)&&
          validateFile(idOrPassport,idOrPassportSpan)
      ){
-        var schoolDocument = $('#schoolGrades').prop('files')[0]; 
-        var form_data = new FormData();                  
-        form_data.append('file', schoolDocument)  
+        let schoolDocument = $('#schoolGrades').prop('files')[0]; 
+        let personalPhoto = $('#personalPhoto').prop('files')[0];
+        let idOrPassport = $('#idOrPassport').prop('files')[0];
 
-        // $.ajax({
-        //     url:'../php/studentInfoPart2.php',
-        //     type:'POST',
-        //     data:{
-        //         branch: branch.value,
-        //         language: language.value,
-        //         bloodType: bloodType.value,
-        //         status: status.value,
-        //         gender: gender.value,
-        //         dateOfBirth: dob.value,
-        //         address: address.value,
-        //         phoneNumber: phoneNumber.value
-        //     },
-        //     success:function(result){
-        //         console.log(result)
-        //     },error:function (request, status, error) {
-        //         console.log(error)
-    
-        //     }
-        // })
+        var form_data = new FormData();   
+
+        form_data.append('schoolGrades', schoolDocument)
+        form_data.append('personalPhoto', personalPhoto)  
+        form_data.append('idOrPassport', idOrPassport)  
 
         $.ajax({
             url:'../php/studentInfoPart2.php',
+            type:'POST',
+            data:{
+                branch: branch.value,
+                language: language.value,
+                bloodType: bloodType.value,
+                status: status.value,
+                gender: gender.value,
+                dateOfBirth: dob.value,
+                address: address.value,
+                phoneNumber: phoneNumber.value
+            },
+            success:function(result){
+                console.log(result)
+            },error:function (request, status, error) {
+                console.log(error)
+    
+            }
+        })
+
+        $.ajax({
+            url:'../php/savingDocs.php',
             type:'POST',
             dataType: 'text', 
             contentType: false,

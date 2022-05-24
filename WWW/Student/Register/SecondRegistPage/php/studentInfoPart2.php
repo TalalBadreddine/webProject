@@ -1,27 +1,23 @@
 <?php
 
-require '../../../../extension/makeConnection.php';
 require '../../../../extension/extensions.php';
 
 
 session_start();
 
-// $branch = cleanItUp(isset($_POST['branch']) ? $_POST['branch'] : '');
-// $language = cleanItUp($_POST['language']);
-// $bloodType = cleanItUp($_POST['bloodType']);
-// $status = cleanItUp($_POST['status']);
-// $gender = cleanItUp($_POST['gender']);
-// $dateOfBirth = cleanItUp($_POST['dateOfBirth']);
-// $address = cleanItUp($_POST['address']);
-// $phoneNumber = cleanItUp($_POST['phoneNumber']);
-$fileId = uniqid();
-// $test = $_POST['test'];
+$_SESSION['branch'] = cleanItUp(isset($_POST['branch']) ? $_POST['branch'] : '');
+$_SESSION['language'] = cleanItUp($_POST['language']);
+$_SESSION['$bloodType'] = cleanItUp($_POST['bloodType']);
+$_SESSION['$status'] = cleanItUp($_POST['status']);
+$_SESSION['$gender'] = cleanItUp($_POST['gender']);
+$_SESSION['$dateOfBirth'] = cleanItUp($_POST['dateOfBirth']);
+$_SESSION['$address'] = cleanItUp($_POST['address']);
+$_SESSION['$phoneNumber'] = cleanItUp($_POST['phoneNumber']);
+
 // $schoolGradesDocument = cleanItUp($_POST['schoolGradesDocument']);
 // $personalPhotoDocument = cleanItUp($_POST['personalPhotoDocument']);
 // $idOrPassportDocument = cleanItUp($_POST['idOrPassportDocument']);
 
-
-saveDocAs('teacher', $_FILES['file']['name'], $_SESSION['fn'].$_SESSION['ln'], '628d5f1c363d6', "exam")
 
 ?>
 

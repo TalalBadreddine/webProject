@@ -27,7 +27,7 @@ function Redirect($url, $permanent = false)
     exit();
 }
 
-function saveDocAs($role, $fileName, $userFullName, $personalFileId, $description){
+function saveDocAs($role, $fileTmpName, $userFullName, $personalFileId, $description){
     $role = ucfirst($role);
     $fileSavingName = $userFullName . '-'. $personalFileId ;
     $filePath = '../../../../../../../webProjectFiles/'. $role . '/' . $fileSavingName . '/';
@@ -36,14 +36,14 @@ function saveDocAs($role, $fileName, $userFullName, $personalFileId, $descriptio
         mkdir($filePath, 0777, true);
     }
 
-    if (!is_file($fileSavingName)) {
+    if (is_file($fileSavingName)) {
 
         echo "exist";
-        move_uploaded_file($_FILES['file']['tmp_name'], $filePath . $description . '- copy' . uniqid());
+        move_uploaded_file($fileTmpName, $filePath . $description . '- copy' . uniqid());
 
     }else{
 
-        move_uploaded_file($_FILES['file']['tmp_name'], $filePath . $description);
+        move_uploaded_file($fileTmpName, $filePath . $description);
 
     }
 

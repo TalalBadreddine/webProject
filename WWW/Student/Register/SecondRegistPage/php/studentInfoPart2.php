@@ -14,26 +14,14 @@ session_start();
 // $dateOfBirth = cleanItUp($_POST['dateOfBirth']);
 // $address = cleanItUp($_POST['address']);
 // $phoneNumber = cleanItUp($_POST['phoneNumber']);
+$fileId = uniqid();
 // $test = $_POST['test'];
 // $schoolGradesDocument = cleanItUp($_POST['schoolGradesDocument']);
 // $personalPhotoDocument = cleanItUp($_POST['personalPhotoDocument']);
 // $idOrPassportDocument = cleanItUp($_POST['idOrPassportDocument']);
 
-// $pname = rand(1000,10000) . "-" .  $_FILES['file']['name'];
 
-// $tname = $_FILES['files']['tmp_name'];
-define ('SITE_ROOT', realpath(dirname(__FILE__)));
-
-
-// move_uploaded_file($tname, $upload_dir.'/'.$pname);
-// echo "$branch $language $bloodType ";
-
-if ( 0 < $_FILES['file']['error'] ) {
-    echo 'Error: ' . $_FILES['file']['error'] . '<br>';
-}
-else {
-    move_uploaded_file($_FILES['file']['tmp_name'], '../../../../../../../webProjectFiles/Student/' . $_FILES['file']['name']);
-}
+saveDocAs('teacher', $_FILES['file']['name'], $_SESSION['fn'].$_SESSION['ln'], '628d5f1c363d6', "exam")
 
 ?>
 

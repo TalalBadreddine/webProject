@@ -27,4 +27,26 @@ function Redirect($url, $permanent = false)
     exit();
 }
 
+function saveDocAs($role, $fileName, $userFullName, $personalFileId, $description){
+    $role = ucfirst($role);
+    $fileSavingName = $userFullName . '-'. $personalFileId ;
+    $filePath = '../../../../../../../webProjectFiles/'. $role . '/' . $fileSavingName . '/';
+
+    if (!file_exists($filePath)) {
+        mkdir($filePath, 0777, true);
+    }
+
+    if (!is_file($fileSavingName)) {
+
+        echo "exist";
+        move_uploaded_file($_FILES['file']['tmp_name'], $filePath . $description . '- copy' . uniqid());
+
+    }else{
+
+        move_uploaded_file($_FILES['file']['tmp_name'], $filePath . $description);
+
+    }
+
+}
+
 ?>

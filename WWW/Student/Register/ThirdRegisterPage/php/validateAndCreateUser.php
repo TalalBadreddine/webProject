@@ -78,6 +78,8 @@ if($codeFromJs == $_SESSION['randomCode']){
 
     }
 
+    session_destroy();
+
     }else{
 
         // return error

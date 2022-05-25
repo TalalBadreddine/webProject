@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/sign_up.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet"> 
+    <!-- <link href="../../../../Resorces/bootstrap-5.0.2/css/bootstrap.css" rel="stylesheet"> -->
     <link rel = "icon" href="../../../../Resorces/Student/logo/favicon.png" type = "image/x-icon">
     <title>Sign-up</title>
 </head>
@@ -54,7 +55,7 @@
                     <input type="text" id="email" placeholder="Enter your email adress">
                     <br>
                     <label for="">Password</label><br>
-                    <input type="password" placeholder="Password"><br>
+                    <input type="password" placeholder="Password" id="password"><br>
                     <a href="../../ForgotPassword/html/ConfirmEmail.html" class="forget-password-btn">Forget password?</a>
                 </form>
 
@@ -68,6 +69,13 @@
 
     </main>
 
+    <div class="hiddenDiv" id="hiddenDiv">
+        <h1> Alert!</h1>
+        <p style="margin-top: 15px;" id="popUpBody"> testing testingtesting testingtesting testingtesting testingtesting testingtesting testing</p>
+        <button id="popUpBtn">Ok</button>
+    </div>
+
+    <script src="../../../../Resorces/Jquery/jquery.js"></script>
     <script src="../js/sign_up.js"></script>
 </body>
 </html>

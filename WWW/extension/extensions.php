@@ -1,6 +1,6 @@
 <?php
 
-include '../../../../../../../phpmailer/index.php';
+require '../../../../../../../phpmailer/index.php';
 
 
 function cleanItUp($dummy){

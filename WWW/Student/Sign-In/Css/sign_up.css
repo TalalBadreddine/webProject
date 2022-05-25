@@ -210,3 +210,29 @@ input{
     color: rgb(88, 88, 88);
     font-weight: bold;
 }
+
+.hiddenDiv{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    z-index: -1;
+    top:30%;
+    left: 37.5%;
+    width: 25%;
+    height: 25%;
+    opacity: 0;
+    /* display: block; */
+}
+
+#popUpBtn{
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color:red;
+    color: white;
+    padding: 0.5rem 1rem;
+}

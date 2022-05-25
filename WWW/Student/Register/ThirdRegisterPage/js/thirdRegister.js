@@ -1,6 +1,9 @@
 const emailLabel = document.getElementById("codeForEmail")
 const submitBtn = document.getElementById("submitBtn")
 const emailSpan = document.getElementById("emailHelp")
+const doneButton = document.getElementById("doneButton")
+const hiddenContainer = document.getElementById("hiddenContainer")
+const doneBtnInHiddenDiv = document.getElementById("doneBtn")
 
 function goBigger(bigger, smaller){
     var getBigger = document.getElementById(bigger)
@@ -95,7 +98,21 @@ emailLabel.addEventListener('keyup', function(){
     }
 })
 
+function showDiv(){
+    hiddenContainer.classList.add("active")
+    hiddenContainer.style.opacity  = 1
+}
+
+doneBtnInHiddenDiv.addEventListener('click', function(){
+    hiddenContainer.classList.remove('active')
+    hiddenContainer.classList.add("hide")
+    hiddenContainer.style.opacity  = 0
+
+})
+
+
 submitBtn.addEventListener('click', function(){
+    
     let emailCode = emailLabel.value.trim()
     
     $.ajax({
@@ -105,21 +122,28 @@ submitBtn.addEventListener('click', function(){
             emailCode: emailCode
         },
         success:function(response){
-
-            console.log(response)
-
             if(response == "exist"){
-                
-                alert("User Already Exist")
+
+                alert("User Already Exist, you will be redirected")
+
+                setTimeout(function(){
+
+                     window.location.href = "../../../LandingPage/Html/LandingPage.html"
+
+                }, 4000)
 
             }else if(response == "wrong"){
 
                 showEmailError("Wrong Code")
 
             }else{
+                showDiv()
+                
+                setTimeout(function(){
 
-                // need done page
-            // window.location.href = "../../../Courses/html/courses_student_page.html"
+                    window.location.href = "../../../LandingPage/Html/LandingPage.html"
+
+               }, 7000)
 
             }
         }

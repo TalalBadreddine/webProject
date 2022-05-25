@@ -1,6 +1,8 @@
 <?php
 
-include '../../../../extension/extensions.php';
+require '../../../../extension/extensions.php';
+require '../../../../../../../phpmailer/index.php';
+
 
 session_start();
 

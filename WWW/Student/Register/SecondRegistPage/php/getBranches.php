@@ -1,15 +1,9 @@
 <?php
-// require '../../../../extension/makeConnection.php';
+
+require '../../../../extension/extensions.php';
 
 session_start();
 
-// try {
-//     empty($_SESSION['fn']);
-// }
-//   catch(Exception $e) {
-//     echo 'Message: ' .$e->getMessage();
-
-//   }
 if(empty($_SESSION['fn'])){
     
     http_response_code(404);
@@ -19,7 +13,7 @@ if(empty($_SESSION['fn'])){
 
     $targetMajor = $_SESSION['program'];
     $branches = $_SESSION['branches'];
-    
+
     $arr = array();
     
     for($x = 0 ; $x < count($branches) ; $x++){
@@ -27,14 +21,13 @@ if(empty($_SESSION['fn'])){
             $currentArr = array();
             $currentArr['BranchName'] = $branches[$x]['BranchName'];
             $currentArr['MajorLanguage'] = $branches[$x]['MajorLanguage'];
+            $currentArr["BranchId"] = $branches[$x]['BranchID'];
+            $currentArr["MajorId"] = $branches[$x]["MajorId"];
             array_push($arr,$currentArr);
         }
     }
     
     echo json_encode($arr);
-
 }
-
-
 
 ?>

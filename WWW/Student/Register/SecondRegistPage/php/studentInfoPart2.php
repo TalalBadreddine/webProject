@@ -7,12 +7,14 @@ session_start();
 
 $_SESSION['branch'] = cleanItUp(isset($_POST['branch']) ? $_POST['branch'] : '');
 $_SESSION['language'] = cleanItUp($_POST['language']);
-$_SESSION['$bloodType'] = cleanItUp($_POST['bloodType']);
-$_SESSION['$status'] = cleanItUp($_POST['status']);
-$_SESSION['$gender'] = cleanItUp($_POST['gender']);
-$_SESSION['$dateOfBirth'] = cleanItUp($_POST['dateOfBirth']);
-$_SESSION['$address'] = cleanItUp($_POST['address']);
-$_SESSION['$phoneNumber'] = cleanItUp($_POST['phoneNumber']);
+$_SESSION['bloodType'] = cleanItUp($_POST['bloodType']);
+$_SESSION['status'] = cleanItUp($_POST['status']);
+$_SESSION['gender'] = cleanItUp($_POST['gender']);
+$_SESSION['dateOfBirth'] = cleanItUp($_POST['dateOfBirth']);
+$_SESSION['address'] = cleanItUp($_POST['address']);
+$_SESSION['phoneNumber'] = cleanItUp($_POST['phoneNumber']);
+$_SESSION['branchId'] = $_POST['branchId'];
+$_SESSION['majorId'] = $_POST['majorId'];
 
 // $schoolGradesDocument = cleanItUp($_POST['schoolGradesDocument']);
 // $personalPhotoDocument = cleanItUp($_POST['personalPhotoDocument']);

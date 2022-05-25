@@ -1,4 +1,6 @@
-const emailLabel = document.getElementById("exampleInputEmail1")
+const emailLabel = document.getElementById("codeForEmail")
+const submitBtn = document.getElementById("submitBtn")
+const emailSpan = document.getElementById("emailHelp")
 
 function goBigger(bigger, smaller){
     var getBigger = document.getElementById(bigger)
@@ -68,7 +70,7 @@ window.onload = function() {
           new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
-    // INJECT CSS
+    // add css
     var css = document.createElement("style");
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
@@ -76,10 +78,50 @@ window.onload = function() {
     document.body.appendChild(css);
 };
 
-function validateEmail(){
-    if(emailLabel.value == "letMePass"){
-        return true
-    }
-
-    return false
+function showEmailError(message){
+    emailHelp.style.display = "block"
+    emailHelp.innerHTML = message
+    emailHelp.style.color = "red"
 }
+
+emailLabel.addEventListener('keyup', function(){
+    if(emailLabel.value == ""){
+        emailHelp.style.display = "block"
+        emailHelp.innerHTML = "Don't share the code with anyone"
+        emailHelp.style.color = "gray"
+    }else{
+        emailHelp.style.display = "none"
+
+    }
+})
+
+submitBtn.addEventListener('click', function(){
+    let emailCode = emailLabel.value.trim()
+    
+    $.ajax({
+        url:"../php/validateAndCreateUser.php",
+        type: 'POST',
+        data:{
+            emailCode: emailCode
+        },
+        success:function(response){
+
+            console.log(response)
+
+            if(response == "exist"){
+                
+                alert("User Already Exist")
+
+            }else if(response == "wrong"){
+
+                showEmailError("Wrong Code")
+
+            }else{
+
+                // need done page
+            // window.location.href = "../../../Courses/html/courses_student_page.html"
+
+            }
+        }
+    })
+})

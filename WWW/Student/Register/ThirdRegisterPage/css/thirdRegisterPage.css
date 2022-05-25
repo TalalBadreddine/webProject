@@ -208,6 +208,10 @@ br {
       background-color: #1DA1F2;
   }
 
+  .emailHelp{
+      color: gray;
+  }
+
 /* .logo{
     margin-left: -10px !important;
     margin-top: -10px!important;

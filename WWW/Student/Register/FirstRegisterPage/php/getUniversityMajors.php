@@ -12,6 +12,8 @@ $resultSqlUniID = $conn->query($sqlForUniID);
 
 $UniversityID = $resultSqlUniID->fetch_assoc()["UniversityID"];
 
+$_SESSION['universityId'] = $UniversityID;
+
 
 // ALL GOOD (Got the university)
 
@@ -56,8 +58,10 @@ for( $i = 0 ; $i < count($arrayOfBranches); $i++){
           array_push($arrOfMajors, $row['MajorName']);
 
           $currentArr['BranchName'] = $arrayOfBranchesName[$i];
+          $currentArr['BranchID'] = $arrayOfBranches[$i];
           $currentArr['MajorName'] = $row['MajorName'];
           $currentArr['MajorLanguage'] = $row['Language'];
+          $currentArr['MajorId'] = $row['MajorID'];
 
           }
           array_push($assisativeArrayOfBranchesName, $currentArr);

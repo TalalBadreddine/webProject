@@ -15,16 +15,18 @@ const idOrPassportSpan = document.getElementById('idOrPassportSpan')
 
 const submitBtn = document.getElementById('continueBtn')
 
+var branchesArr = []
+
 $(document).ready(function(){
 
     $.ajax({
         url: '../php/getBranches.php',
         type: 'POST',
         success:function(response){
-            let data = JSON.parse(response)
-            for(let i = 0 ; i <data.length ; i++){
-                addBranch(data[i]['BranchName']);
-                branchWithMajorJSON.add(data[i]['MajorLanguage'])
+            branchesArr = JSON.parse(response)
+            for(let i = 0 ; i <branchesArr.length ; i++){
+                addBranch(branchesArr[i]['BranchName']);
+                branchWithMajorJSON.add(branchesArr[i]['MajorLanguage'])
             }
 
         },error:function (request, status, error) {
@@ -49,6 +51,9 @@ $(document).ready(function(){
          validateFile(personalPhoto,personalPhotoSpan)&&
          validateFile(idOrPassport,idOrPassportSpan)
      ){
+
+        var targetBranches = branchesArr.filter(element => element.BranchName == branch.value);
+
         let schoolDocument = $('#schoolGrades').prop('files')[0]; 
         let personalPhoto = $('#personalPhoto').prop('files')[0];
         let idOrPassport = $('#idOrPassport').prop('files')[0];
@@ -63,6 +68,8 @@ $(document).ready(function(){
             url:'../php/studentInfoPart2.php',
             type:'POST',
             data:{
+                branchId: targetBranches[0]["BranchId"],
+                majorId: targetBranches[0]["MajorId"],
                 branch: branch.value,
                 language: language.value,
                 bloodType: bloodType.value,
@@ -88,14 +95,15 @@ $(document).ready(function(){
             processData: false,
             data: form_data,
             success:function(result){
-                console.log(result)
+                window.location.href = '../../ThirdRegisterPage/html/thirdRegisterPage.html'
             },error:function (request, status, error) {
-                console.log(error)
+                alert("error")
+                window.location.href = '../../../LandinPage/Html/LandingPage.html'
+
     
             }
         })
 
-        //  window.location.href = '../../ThirdRegisterPage/html/thirdRegisterPage.html'
      }
 }
 

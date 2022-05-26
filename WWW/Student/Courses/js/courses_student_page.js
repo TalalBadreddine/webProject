@@ -1,6 +1,7 @@
 var winX = null;
 var winY = null;
 const tableRowWithData = document.getElementById("tableRowWithData")
+const hidenPopUp = document.getElementById("hiddenPopUpId")
 
 // window.addEventListener('scroll', function () {
 //     if (winX !== null && winY !== null) {
@@ -10,12 +11,18 @@ const tableRowWithData = document.getElementById("tableRowWithData")
 
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-function showDiv(p1){
+function showDiv(p1,message){
     var elementToShow = document.getElementById(p1)
     
 
     elementToShow.style.display = "block"
     elementToShow.style.position = "fixed"
+    if(message == "" || message == null){
+        hidenPopUp.innerHTML = "No Message Added By The Teacher"
+        return
+    }
+    hidenPopUp.innerHTML = message
+
     winX = window.scrollX;
     winY = window.scrollY;
     
@@ -31,18 +38,30 @@ function test(){
 const time = new Date()
 let today = daysOfTheWeek[time.getDay()].toLowerCase()
 
+var arrToDisplay = []
+
 $(document).ready(function(){
     $.ajax({
         url:'../php/loadDailySchedual.php',
         type:'POST',
         success:function(response){
             let data = JSON.parse(response)
-            // console.log(response)
             let coursesForToday = data.filter(course => course[11].toLowerCase().includes(today));
-            coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo']])
-            coursesForToday.push(["Test","6/8"], ["other Test", "16/20"])
+            coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
+            coursesForToday.push(["Test","6/8"], ["other Test", "16/20"], ["test3","16/20"],["test2", "6/12"])
             coursesForToday = oraganizeAndSortArray(coursesForToday)
-            inserIntoTable(coursesForToday)
+            arrToDisplay = coursesForToday
+
+            // console.log(arrToDisplay)
+
+            if(thereIsConflict(arrToDisplay)){
+                inserIntoTable(arrToDisplay)
+                inserIntoTable(arrofConfilcted)
+            }else{
+                inserIntoTable(arrToDisplay)
+            }
+
+ 
         }
     })
 })
@@ -64,8 +83,8 @@ var added = true
 
 function inserIntoTable(arr){
     let lastFilledTime = 6
+    let html = '<tr>'
     for(let i = 0 ; i < arr.length ; i++){
-        console.log(arr[i])
         let startTime = parseInt(arr[i][1].split('/')[0])
         let duration = parseInt(arr[i][1].split('/')[1]) - startTime
         let currentEnd = startTime + duration
@@ -76,28 +95,26 @@ function inserIntoTable(arr){
 
         if(nbofEmpty > 0){
             for(let k = 0 ; k < nbofEmpty; k++){
-                tableRowWithData.innerHTML += `<td></td>`
-
+                html += `<td></td>`
             }
         }
 
-        // let nbOfColspan = 0
-
-        // if(duration > 2)nbOfColspan = 1
-        // else{
-        //     nbOfColspan = duration/2 + 1
-        // }
         let imgsource = ``
-        if(arr[i].length == 3)imgsource = `<img src= ${getImgResource(arr[i][2])} width='70px' height='70px' style="border-radius: 50%;">`
-        tableRowWithData.innerHTML += `
+        let drName = ``
+        if(arr[i].length > 2){
+            imgsource = `<img src= ${getImgResource(arr[i][2])} width='70px' height='70px' style="border-radius: 50%;">`
+            drName = firstLetterCapital(arr[i][2][1]) + firstLetterCapital(arr[i][2][2])
+        }
+       
+        html += `
                             
                             <td colspan="${duration/2}">
-                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp')"
+                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp','${arr[i][3]}')"
                                     style="${arrayOfStyles[i%3]}">
                                     <span><i class="${arrayOfIcons[i%4]}"></i></span>
                                     <div class="title-of-course-schedual">
-                                        <h3>${arr[i][0]}</h3>
-                                        <p>from ${startTime} to ${currentEnd}</p>
+                                        <h3>${firstLetterCapital(arr[i][0])}</h3>
+                                        <p>from ${startTime} to ${currentEnd}<br> with dr. ${drName}</p>
                                     </div>
                                     <span>${imgsource}</span>
                                 </div>
@@ -105,22 +122,42 @@ function inserIntoTable(arr){
                             `
         lastFilledTime = currentEnd 
     }
+    html += '</tr>'
+
+    tableRowWithData.innerHTML += html
+
 }
 
 // Check For Coflict
-function checkForTimeConflict(arr){
-    for(let i = 0 ; i < arr.length - 1 ; i++){
+var arrofConfilcted = []
+function thereIsConflict(arr){
+    
+    let end = arr[0][1].split('/')[1]
+
+    for(let i = 1 ; i < arr.length ; i++){
 
         let currentArrStartTime = arr[i][1].split('/')[0]
         let currentArrEndTime = arr[i][1].split('/')[1]
 
-        let nextArrStartTime = arr[i+1][1].split('/')[0]
-        let nextArrEndTime = arr[i+1][1].split('/')[1]
 
-        if(currentArrEndTime > nextArrStartTime )return [arr[i], arr[i+1]]
+        if(end > currentArrStartTime ){
+            arrofConfilcted.push(arr[i])
+            end = Math.min(arr[i][1].split[1], end)
+        
+        arrToDisplay = arrToDisplay.filter(function(item) {
+            return item !== arr[i]
+        })
+         }else{
+             end = currentArrEndTime
+         }
     
     }
-    return true
+    return arrofConfilcted.length != 0
+}
+
+
+function firstLetterCapital(str){
+    return  str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function oraganizeAndSortArray(arr){

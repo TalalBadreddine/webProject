@@ -68,17 +68,11 @@
     <main>
         <!--Hidden in pop UP-->
         <div class="popUpPageView" id="hiddenPopUp">
-            <div class="hiddenPopUp"  style="cursor: pointer;"><i class="fas fa-times-circle" onclick="test()"></i>
-                <h3>Details</h3> Chemistry Meeting (10:00 am - 12:00 pm)<br>Building 3, Floor 2
-                <br>Room 205 :-number of seats: 25
-                <br>-number of vacant seats: 9
-                <br>
-                <br>This is the agenda for the meeting:
-                <br>Syllabus
-                <br>Introduction to chapter 1
-                <br>-Atom
-                <br>-Periodic table
-                <br>-Atomic bond
+            <div class="hiddenPopUp"  style="cursor: pointer;" ><i class="fas fa-times-circle" onclick="test()"></i>
+                 <h3>Details</h3>
+                 <div id="hiddenPopUpId">
+
+                 </div> 
             </div>
         </div>
 
@@ -98,47 +92,7 @@
                             <th class="rightOne" style="text-align: left;">22:00</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr id="tableRowWithData">
-                            <!-- <td colspan="3">
-                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp')"
-                                    style="background-color: #F3F0FF;border: 0.5px solid #8369FF;">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual">
-                                        <h3>Front-end</h3>
-                                        <p>with dr. Ali</p>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                            <td colspan="3"></td>
-                            <td colspan="3">
-                                <div class="card-of-schedual"
-                                    style="background-color: #E6F3FF; border: 0.5px solid #80BFFC;" onclick="showDiv('hiddenPopUp')">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual1">
-                                        <h3>Back-end</h3>
-                                        <p>with dr. Ali</p>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"></td>
-                            <td colspan="3">
-                                <div class="card-of-schedual"
-                                    style="background-color: #FFEAF6; border: 00.5px solid #FC2EA1;" onclick="showDiv('hiddenPopUp')">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual">
-                                        <h3>Algo</h3>
-                                        <p>with dr. Ali</p>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                            <td colspan="3"></td> -->
-                        </tr>
+                    <tbody id="tableRowWithData">
                     </tbody>
                 </table>
             </div>

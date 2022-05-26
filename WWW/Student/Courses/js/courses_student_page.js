@@ -37,11 +37,11 @@ $(document).ready(function(){
         type:'POST',
         success:function(response){
             let data = JSON.parse(response)
+            // console.log(response)
             let coursesForToday = data.filter(course => course[11].toLowerCase().includes(today));
-            coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase()])
+            coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo']])
             coursesForToday.push(["Test","6/8"], ["other Test", "16/20"])
             coursesForToday = oraganizeAndSortArray(coursesForToday)
-            
             inserIntoTable(coursesForToday)
         }
     })
@@ -65,7 +65,7 @@ var added = true
 function inserIntoTable(arr){
     let lastFilledTime = 6
     for(let i = 0 ; i < arr.length ; i++){
-        console.log(arr)
+        console.log(arr[i])
         let startTime = parseInt(arr[i][1].split('/')[0])
         let duration = parseInt(arr[i][1].split('/')[1]) - startTime
         let currentEnd = startTime + duration
@@ -76,7 +76,6 @@ function inserIntoTable(arr){
 
         if(nbofEmpty > 0){
             for(let k = 0 ; k < nbofEmpty; k++){
-                console.log("test")
                 tableRowWithData.innerHTML += `<td></td>`
 
             }
@@ -88,6 +87,8 @@ function inserIntoTable(arr){
         // else{
         //     nbOfColspan = duration/2 + 1
         // }
+        let imgsource = ``
+        if(arr[i].length == 3)imgsource = `<img src= ${getImgResource(arr[i][2])} width='70px' height='70px' style="border-radius: 50%;">`
         tableRowWithData.innerHTML += `
                             
                             <td colspan="${duration/2}">
@@ -98,7 +99,7 @@ function inserIntoTable(arr){
                                         <h3>${arr[i][0]}</h3>
                                         <p>from ${startTime} to ${currentEnd}</p>
                                     </div>
-                                    <span><i class="ri-user-3-line"></i></span>
+                                    <span>${imgsource}</span>
                                 </div>
                             </td>
                             `
@@ -158,4 +159,8 @@ function sortArrayByTiming(arr){
         }
     }
     return arr
+}
+
+function getImgResource(teacherArr){
+    return '../../../../../../../webProjectFiles/Teacher/'+teacherArr[1]+teacherArr[2]+'-'+teacherArr[3]+'/personalPhoto.png'
 }

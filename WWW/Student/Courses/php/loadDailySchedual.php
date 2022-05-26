@@ -29,16 +29,28 @@ for($x = 0 ; $x < count($CoursesID) ; $x++){
 
     if ($result = $conn -> query($sql)) {
         while ($row = $result -> fetch_row()) {
-          array_push($arrayOfCoursesDetails,$row);
+            $currentCourseArray = $row;
 
-        //   $sqlForTeacher = "SELECT * FROM `ManageTeachersAndCourses` WHERE `CourseId` = '$CoursesID[$x]' ";
 
-        //   if ($result = $conn -> query($sqlForCourses)) {
-        //     while ($row = $result -> fetch_row()) {
-        //       array_push($CoursesID,$row[1]);
-        //     }
-        //     $result -> free_result();
-        // }
+          $sqlForTeacher = "SELECT * FROM `ManageTeachersAndCourses` WHERE `CourseId` = '$CoursesID[$x]' ";
+
+          if ($resultforTeacher = $conn -> query($sqlForTeacher)) {
+            while ($rowForTeacher = $resultforTeacher -> fetch_row()) {
+                $teacherID = $rowForTeacher[0];
+                
+                $sqlForTeacherProfile = "SELECT * FROM `Teacher` WHERE `TeacherId` = '$teacherID' ";
+
+                $resultforTeacherProfile = $conn -> query($sqlForTeacherProfile);
+
+                $resultDataForTeacherProfile = $resultforTeacherProfile-> fetch_row();
+
+                $currentCourseArray['teacherInfo'] =  $resultDataForTeacherProfile;
+
+
+            
+            }
+          array_push($arrayOfCoursesDetails,$currentCourseArray);
+        }
 
         }
         $result -> free_result();

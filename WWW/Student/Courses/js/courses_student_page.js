@@ -53,6 +53,13 @@ arrayOfStyles = [
     "background-color: #FFEAF6; border: 00.5px solid #FC2EA1;"
 ]
 
+arrayOfIcons = [
+    "fa-brands fa-gg",
+    "fa-brands fa-connectdevelop",
+    "fa-brands fa-nfc-directional",
+    "fa-brands fa-pushed"
+]
+
 var added = true
 
 function inserIntoTable(arr){
@@ -86,7 +93,7 @@ function inserIntoTable(arr){
                             <td colspan="${duration/2}">
                                 <div class="card-of-schedual" onclick="showDiv('hiddenPopUp')"
                                     style="${arrayOfStyles[i%3]}">
-                                    <span><i class="ri-code-view"></i></span>
+                                    <span><i class="${arrayOfIcons[i%4]}"></i></span>
                                     <div class="title-of-course-schedual">
                                         <h3>${arr[i][0]}</h3>
                                         <p>from ${startTime} to ${currentEnd}</p>

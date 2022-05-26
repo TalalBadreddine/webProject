@@ -42,7 +42,7 @@ function saveDocAs($role, $fileTmpName, $userFullName, $personalFileId, $descrip
 
     }else{
 
-        move_uploaded_file($fileTmpName, $filePath . $description);
+        move_uploaded_file($fileTmpName, $filePath . $description.'.png');
 
     }
 

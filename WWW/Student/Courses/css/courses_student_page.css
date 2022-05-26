@@ -504,3 +504,10 @@ select{
     text-align: left !important;
     min-width: 100px !;
 }
+
+#creditsLabel,#hoursLabel{
+    border: 0.7px solid rgb(0, 0, 0) ;
+    height: 44px;
+    border-radius: 8px;
+    width: 100%;
+}

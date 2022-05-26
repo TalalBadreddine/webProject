@@ -8,6 +8,8 @@ $studentId = $_SESSION['studentData']['StudentID'];
 
 // Getting CoursesID
 
+// var_dump($_SESSION['studentData']);
+
 $sqlForCourses = "SELECT * FROM `ManageStudentAndCourses` WHERE `StudentID` = '$studentId' ";
 
 $CoursesID = array();

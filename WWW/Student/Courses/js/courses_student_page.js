@@ -3,12 +3,31 @@ var winY = null;
 const tableRowWithData = document.getElementById("tableRowWithData")
 const hidenPopUp = document.getElementById("hiddenPopUpId")
 const secondTableBody = document.getElementById("secondTableBody")
+const listOfCourses =document.getElementById("listOfCourses")
+const filterBtn = document.getElementById("filterBtn")
+const language = document.getElementById("language-search-courses")
+const credits = document.getElementById("creditsLabel")
+const hours = document.getElementById("hoursLabel")
+const star1 = document.getElementById("star-1")
+const star2 = document.getElementById("star-2")
+const star3 = document.getElementById("star-3")
+const star4 = document.getElementById("star-4")
+const star5 = document.getElementById("star-5")
 
 // window.addEventListener('scroll', function () {
 //     if (winX !== null && winY !== null) {
 //         window.scrollTo(winX, winY);
 //     }
 // });
+
+function getRating(){
+    if(star1.checked)return 5
+    if(star2.checked)return 4
+    if(star3.checked)return 3
+    if(star4.checked)return 2
+    if(star5.checked)return 1
+    return 0
+}
 
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -40,7 +59,6 @@ const time = new Date()
 let today = daysOfTheWeek[time.getDay()].toLowerCase()
 
 var arrToDisplay = []
-var coursesArray = []
 
 $(document).ready(function(){
     $.ajax({
@@ -48,9 +66,9 @@ $(document).ready(function(){
         type:'POST',
         success:function(response){
             let data = JSON.parse(response)
+            currentCoursesArray = data
             displayArrayInTable(data)
             addToSecondTable(data)
-            console.log(data)
         }
     })
 })
@@ -220,4 +238,172 @@ function sortArrayByTiming(arr){
 
 function getImgResource(teacherArr){
     return '../../../../../../../webProjectFiles/Teacher/'+teacherArr[1]+teacherArr[2]+'-'+teacherArr[3]+'/personalPhoto.png'
+}
+
+
+// Return All Courses Of This Major
+
+
+
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/loadAllMajors.php',
+        type:'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+            console.log(data)
+            arrayOfFilteredCourses = (filterArray(data))
+
+            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+                addToCourses(arrayOfFilteredCourses[i])
+            }
+
+        }
+    })
+})
+
+function addToCourses(course){
+    let listOfObjectives = course[9].split('-')
+    listOfCourses.innerHTML += `
+                <div class="card-of-course">
+                    <div class="header">
+                        ${course[1]}
+                    </div>
+                    <div class="body-card">
+                        <div class="description">
+                            <h5>you'll learn how to:</h5>
+                            <ul>
+                                <li>${listOfObjectives[0]}</li>
+                                <li>${listOfObjectives[1]}</li>
+                                <li>${listOfObjectives[2]}</li>
+                            </ul>
+                        </div>
+                        <div class="footer">
+                            <button class="apply-btn"><a href="../../CourseDetails/html/course_info.html" class="hrefHelper">Apply</a></button>
+                            <p>credits: ${course[2]}</p>
+                        </div>
+                    </div>
+                </div>
+    `
+}
+
+
+var currentCoursesArray = []
+var arrayOfFilteredCourses = []
+
+function filterArray(arr){
+    for(let i = 0 ; i < arr.length ; i++){
+        for(let j = 0 ; j < currentCoursesArray.length ; j++){
+            // console.log(arr)
+            // console.log(currentCoursesArray)
+            if(arr[i][1] == currentCoursesArray[j][1]){
+                arr.splice(i, 1);
+
+
+            }
+        }
+    }
+    return arr
+}
+
+function resetCoursesList(){
+    listOfCourses.innerHTML = ""
+}
+
+// Filter
+
+filterBtn.addEventListener('click', function(){
+    filter()
+})
+
+function filter(){
+    let arrAfterPressingFilter = arrayOfFilteredCourses
+    let rating = getRating()
+    let hoursVal = hours.value
+    let credistVal = credits.value
+    let languageVal = language.value
+
+    if(rating == 0 && hoursVal == "" && credistVal.length == 0 && languageVal.length == 0){
+        resetCoursesList()
+        for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+            addToCourses(arrayOfFilteredCourses[i])
+        }
+        return
+    }
+
+    let mathForm = ['<=','>=','<','>']
+
+    if(rating != 0 ){
+        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[7] == rating)
+    }
+
+    if(hoursVal != 0 ){
+        let found = false
+        for(let z=0; z < mathForm.length; z++){
+            if(hoursVal.includes(mathForm[z]) ){
+
+                switch(z) {
+                    case 0:
+                        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] <= parseInt(hoursVal.slice(2,hoursVal.length)))
+                        break;
+                    case 1:
+                        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] >= parseInt(hoursVal.slice(2,hoursVal.length)))
+                        break;
+                    case 2:
+                        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] < parseInt(hoursVal.slice(1,hoursVal.length)))
+                      break;
+                    case 3:
+                        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] > parseInt(hoursVal.slice(1,hoursVal.length)))
+                        break; 
+                  }
+                  found = true
+                break
+
+            }else{
+                if(found)break
+                arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] == hoursVal)
+                
+
+            }
+        }
+    }
+
+    if(credistVal != 0 ){
+        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[2] == credistVal)
+    }
+
+    if(languageVal != "none" ){
+        arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[8].toLowerCase().includes(languageVal.toLowerCase()))
+    }
+
+    resetCoursesList()
+
+    for(let i = 0; i < arrAfterPressingFilter.length ; i++){
+        addToCourses(arrAfterPressingFilter[i])
+    }
+
+    if(arrAfterPressingFilter.length > 0)window.scrollBy(300, 400);
+
+}
+
+let arr=[star1,star2,star3,star4,star5]
+
+
+
+language.addEventListener('change',function(){
+    filter()
+})
+
+credits.addEventListener('change',function(){
+    filter()
+})
+
+hours.addEventListener('keyup',function(){
+    filter()
+})
+
+for(let x = 0 ; x < arr.length ; x++){
+    arr[x].addEventListener('click',function(){
+        filter()
+    })
 }

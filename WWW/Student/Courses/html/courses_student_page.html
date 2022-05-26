@@ -150,26 +150,19 @@
                 <div>
                     <h5>Language</h5>
                     <select name="language" id="language-search-courses" class="form-select">
+                        <option value="none" selected>Choose...</option>
                         <option value="english">English</option>
                         <option value="french">French</option>
                     </select>
                 </div>
                 <div>
                     <h5>Credits</h5>
-                    <select name="credits" id="credits-search-courses" class="form-select">
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
+                    <input type="number" class="form-control" id="creditsLabel">
                 </div>
-                <div>
-                    <h5>Hours</h5>
-                    <select name="hours" id="hours-search-courses" class="form-select">
-                        <option value="50">50</option>
-                        <option value="300">300</option>
-                        <option value="160">160</option>
-                    </select>
-                </div>
+                    <div>
+                        <h5>Hours</h5>
+                        <input type="text" class="form-control" id="hoursLabel">
+                    </div>
                 <div class="rate-container">
                     <h5>Rating</h5>
                     <div class="stars-container">
@@ -187,7 +180,7 @@
                             </form>
                     </div>
                 </div>
-                <button class="filter-btn">
+                <button class="filter-btn" id="filterBtn">
                     Filters <span><i class="ri-filter-line"></i></span>
                 </button>
             </form>
@@ -196,146 +189,8 @@
         <p class="nbOfCreditsLeft">Credits: 3/14</p>
 
         <section class="three" id="courses-cards">   
-            <div class="wrap-cards-of-courses">
-                <div class="card-of-course">
-                    <div class="header">
-                        Web Development
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>create responsive web app</li>
-                                <li>make relation with database</li>
-                                <li>sucess in interview</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn"><a href="../../CourseDetails/html/course_info.html" class="hrefHelper">Apply</a></button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        Algorithm
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>Big O Notation, big theta notation</li>
-                                <li>Inline sorting, stage sorting</li>
-                                <li>Problem solving</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        Software Engineering
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>Data structures, and algorithms</li>
-                                <li>Software design</li>
-                                <li>Databases and software architecture</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        coding web
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>create responsive web app</li>
-                                <li>make relation with database</li>
-                                <li>sucess in interview</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        coding web
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>create responsive web app</li>
-                                <li>make relation with database</li>
-                                <li>sucess in interview</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        coding web
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>create responsive web app</li>
-                                <li>make relation with database</li>
-                                <li>sucess in interview</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-course">
-                    <div class="header">
-                        coding web
-                    </div>
-                    <div class="body-card">
-                        <div class="description">
-                            <h5>you'll learn how to:</h5>
-                            <ul>
-                                <li>create responsive web app</li>
-                                <li>make relation with database</li>
-                                <li>sucess in interview</li>
-                            </ul>
-                        </div>
-                        <div class="footer">
-                            <button class="apply-btn">Apply</button>
-                            <p>credits: 3</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="wrap-cards-of-courses" id="listOfCourses">
+                
             </div>
         </section>
     </main>

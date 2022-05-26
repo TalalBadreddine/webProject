@@ -2,6 +2,7 @@ var winX = null;
 var winY = null;
 const tableRowWithData = document.getElementById("tableRowWithData")
 const hidenPopUp = document.getElementById("hiddenPopUpId")
+const secondTableBody = document.getElementById("secondTableBody")
 
 // window.addEventListener('scroll', function () {
 //     if (winX !== null && winY !== null) {
@@ -39,6 +40,7 @@ const time = new Date()
 let today = daysOfTheWeek[time.getDay()].toLowerCase()
 
 var arrToDisplay = []
+var coursesArray = []
 
 $(document).ready(function(){
     $.ajax({
@@ -46,25 +48,44 @@ $(document).ready(function(){
         type:'POST',
         success:function(response){
             let data = JSON.parse(response)
-            let coursesForToday = data.filter(course => course[11].toLowerCase().includes(today));
-            coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
-            coursesForToday.push(["Test","6/8"], ["other Test", "16/20"], ["test3","16/20"],["test2", "6/12"])
-            coursesForToday = oraganizeAndSortArray(coursesForToday)
-            arrToDisplay = coursesForToday
-
-            // console.log(arrToDisplay)
-
-            if(thereIsConflict(arrToDisplay)){
-                inserIntoTable(arrToDisplay)
-                inserIntoTable(arrofConfilcted)
-            }else{
-                inserIntoTable(arrToDisplay)
-            }
-
- 
+            displayArrayInTable(data)
+            addToSecondTable(data)
+            console.log(data)
         }
     })
 })
+
+function addToSecondTable(arr){
+    for(let i = 0 ; i < arr.length ; i++){
+        secondTableBody.innerHTML += `
+        <tr>
+        <td><a href="../../CourseDetails/html/course_info.html">${arr[i][1]}</a></td>
+        <td><a href="../../Teacher profile/html/teacher_profile_page.html">${firstLetterCapital(arr[i]["teacherInfo"][1]) + firstLetterCapital(arr[i]["teacherInfo"][2])}</a></td>
+        <td>${arr[i][2]}</td>
+        <td>${arr[i][5]}</td>
+        <td>${arr[i][8]}</td>
+        <td>${arr[i][6]}</td>
+    </tr>
+    `
+    }
+}
+
+function displayArrayInTable(arr){
+
+    let coursesForToday = arr.filter(course => course[11].toLowerCase().includes(today));
+    coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
+    coursesForToday.push(["Test","6/8"], ["other Test", "16/20"], ["test3","16/20"],["test2", "6/12"])
+    coursesForToday = oraganizeAndSortArray(coursesForToday)
+    arrToDisplay = coursesForToday
+
+    if(thereIsConflict(arrToDisplay)){
+        inserIntoTable(arrToDisplay)
+        inserIntoTable(arrofConfilcted)
+    }else{
+        inserIntoTable(arrToDisplay)
+    }
+
+}
 
 arrayOfStyles = [
     "background-color: #F3F0FF;border: 0.5px solid #8369FF;",
@@ -79,7 +100,6 @@ arrayOfIcons = [
     "fa-brands fa-pushed"
 ]
 
-var added = true
 
 function inserIntoTable(arr){
     let lastFilledTime = 6

@@ -15,13 +15,13 @@
     <header>
 
         <div class="course-title">
-            <h1 class="course-name">Fundamentals of Web Development 2022</h1>
-            <h3 class="sub-course-name-major">Mechanics</h3>
+            <h1 class="course-name" id="title"></h1>
+            <h3 class="sub-course-name-major"></h3>
         </div>
 
         <div class="logo">
-            <img src="/Resorces/Student/coursesInfoImages/graduation-cap.png" alt="graduation-cap" class="logo-header">
-            <i class="closeButton fas fa-times-circle fa-2x" onclick="history.back()"></i>
+            <!-- <img src="/Resorces/Student/coursesInfoImages/graduation-cap.png" alt="graduation-cap" class="logo-header"> -->
+            <i class="closeButton fas fa-times-circle fa-3x" onclick="history.back()"></i>
         </div>
         
     </header>
@@ -38,16 +38,9 @@
                 </button>
 
                 <h4> <span><i class="ri-question-line"></i></i></span> About this course</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur. Aspernatur error odio eius inventore quaerat, molestiae, nobis reprehenderit impedit velit exercitationem eos dolorum quisquam quod. Minus ex fugiat alias?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit nam sed a praesentium et labore dolore temporibus laborum, iure molestias nobis libero consequatur nemo deserunt perferendis facere quos doloribus officiis.</p>
+                <p id="aboutThisCourse"></p>
                 <h4> <span><i class="ri-book-mark-line"></i></span> Syllabus</h4>
-                <ul class="list-of-syllabus">
-                    <li class="list-items-syllabus">Chapter 1: Introduction </li>
-                    <li class="list-items-syllabus">Chapter 2: Html Css </li>
-                    <li class="list-items-syllabus">Chapter 3: JavaScript </li>
-                    <li class="list-items-syllabus">Chapter 4: Mysql Php </li>
-                    <li class="list-items-syllabus">Chapter 5: Node js </li>
-                    <li class="list-items-syllabus">Chapter 6: React </li>
-                    <li class="list-items-syllabus">Chapter 7: Mongo DB </li>
+                <ul class="list-of-syllabus" id="sylabus">
                     
                 </ul>
 
@@ -56,70 +49,70 @@
             <div class="details">
                 <div class="card-of-detail">
                     <div class="image-box">
-                        <img src="/Resorces/Student/coursesInfoImages/hours.png" alt="hours" class="images-of-details">
+                        <img src="../../../../Resorces/Student/coursesInfoImages/hours.png" alt="hours" class="images-of-details">
                     </div>
                     <div class="text-of-detail">
                         <div class="title-of-detail">
                             <h2>Hours</h2>
                         </div>
                         <div class="description-of-title-detail">
-                            10 hours per week
+                            <span id="nbOfHours">10</span> hours 
                         </div>
                     </div>
                 </div>
 
                 <div class="card-of-detail">
                     <div class="image-box">
-                        <img src="/Resorces/Student/coursesInfoImages/schedule.png" alt="schedule" class="images-of-details">
-                    </div>
-                    <div class="text-of-detail">
-                        <div class="title-of-detail">
-                            <h2>Semester</h2>
-                        </div>
-                        <div class="description-of-title-detail">
-                            <p>Semster 2 or 3</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-of-detail">
-                    <div class="image-box">
-                        <img src="/Resorces/Student/coursesInfoImages/credit.png" alt="hours" class="images-of-details">
+                        <img src="../../../../Resorces/Student/coursesInfoImages/schedule.png" alt="schedule" class="images-of-details">
                     </div>
                     <div class="text-of-detail">
                         <div class="title-of-detail">
                             <h2>Credits</h2>
                         </div>
                         <div class="description-of-title-detail">
-                            <p>3 credits</p>
+                            <p id="credits"></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-of-detail">
                     <div class="image-box">
-                        <img src="/Resorces/Student/coursesInfoImages/languages.png" alt="hours" class="images-of-details">
+                        <img src="../../../../Resorces/Student/coursesInfoImages/credit.png" alt="hours" class="images-of-details">
+                    </div>
+                    <div class="text-of-detail">
+                        <div class="title-of-detail">
+                            <h2>Fees</h2>
+                        </div>
+                        <div class="description-of-title-detail">
+                            <p><span id="fees"></span>$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-of-detail">
+                    <div class="image-box">
+                        <img src="../../../../Resorces/Student/coursesInfoImages/languages.png" alt="hours" class="images-of-details">
                     </div>
                     <div class="text-of-detail">
                         <div class="title-of-detail">
                             <h2>Languages</h2>
                         </div>
                         <div class="description-of-title-detail">
-                            Available languages: English, Francais
+                            Available languages: <span id="languages"></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-of-detail">
-                    <div class="image-box">
-                        <img src="/Resorces/Student/coursesInfoImages/professor.png" alt="hours" class="images-of-details">
+                    <div class="image-box" id="profImg">
+                        <img src="../../../../Resorces/Student/coursesInfoImages/professor.png" alt="hours" class="images-of-details">
                     </div>
                     <div class="text-of-detail">
                         <div class="title-of-detail">
                             <h2>Professor</h2>
                         </div>
                         <div class="description-of-title-detail">
-                            Dr. Ali
+                            <p id="teacherName">Dr.</p>
                         </div>
                     </div>
                 </div>
@@ -129,6 +122,7 @@
         </div>
 
     </main>
-    <script src="/js/course_info.js"></script>
+    <script src="../../../../Resorces/Jquery/jquery.js"></script>
+    <script src="../js/course_info.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@ const star5 = document.getElementById("star-5")
 //     }
 // });
 
+
 function getRating(){
     if(star1.checked)return 5
     if(star2.checked)return 4
@@ -60,15 +61,31 @@ let today = daysOfTheWeek[time.getDay()].toLowerCase()
 
 var arrToDisplay = []
 
-$(document).ready(function(){
+$(document).ready(async function(){
     $.ajax({
         url:'../php/loadDailySchedual.php',
         type:'POST',
-        success:function(response){
+        async: false,
+        cache: false,
+        timeout: 30000,
+        success:await function(response){
             let data = JSON.parse(response)
             currentCoursesArray = data
             displayArrayInTable(data)
             addToSecondTable(data)
+        }
+    })
+    $.ajax({
+        url:'../php/loadAllMajors.php',
+        type:'POST',
+        success: function(response){
+            let data = JSON.parse(response)
+            arrayOfFilteredCourses = (filterArray(data))
+
+            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+                addToCourses(arrayOfFilteredCourses[i])
+            }
+
         }
     })
 })
@@ -244,24 +261,6 @@ function getImgResource(teacherArr){
 // Return All Courses Of This Major
 
 
-
-$(document).ready(function(){
-    $.ajax({
-        url:'../php/loadAllMajors.php',
-        type:'POST',
-        success:function(response){
-            let data = JSON.parse(response)
-            console.log(data)
-            arrayOfFilteredCourses = (filterArray(data))
-
-            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
-                addToCourses(arrayOfFilteredCourses[i])
-            }
-
-        }
-    })
-})
-
 function addToCourses(course){
     let listOfObjectives = course[9].split('-')
     listOfCourses.innerHTML += `
@@ -279,12 +278,31 @@ function addToCourses(course){
                             </ul>
                         </div>
                         <div class="footer">
-                            <button class="apply-btn"><a href="../../CourseDetails/html/course_info.html" class="hrefHelper">Apply</a></button>
+                            <button class="apply-btn ${course[5]}"><a href="../../CourseDetails/html/course_info.html"
+                            class="hrefHelper">Apply</a></button>
                             <p>credits: ${course[2]}</p>
                         </div>
                     </div>
                 </div>
     `
+    let applyBtns = document.getElementsByClassName("apply-btn")
+
+    for(let i = 0 ; i < applyBtns.length; i++){
+        applyBtns[i].addEventListener('click',function(){
+            $.ajax({
+                url:'../php/sendCurrentCourse.php',
+                type:'POST',
+                data:{
+                    courseName:applyBtns[i].className.split(' ')[1],
+                    arrayOfFilteredCourses: arrayOfFilteredCourses
+                },
+                success:function(test){
+                    
+                }
+            })
+        })
+    }
+
 }
 
 
@@ -351,7 +369,7 @@ function filter(){
                         break;
                     case 2:
                         arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] < parseInt(hoursVal.slice(1,hoursVal.length)))
-                      break;
+                        break;
                     case 3:
                         arrAfterPressingFilter = arrAfterPressingFilter.filter(course => course[6] > parseInt(hoursVal.slice(1,hoursVal.length)))
                         break; 
@@ -407,3 +425,4 @@ for(let x = 0 ; x < arr.length ; x++){
         filter()
     })
 }
+

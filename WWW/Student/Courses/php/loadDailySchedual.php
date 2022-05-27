@@ -58,6 +58,7 @@ for($x = 0 ; $x < count($CoursesID) ; $x++){
         $result -> free_result();
     }
 }
+$_SESSION['coursesData'] = $arrayOfCoursesDetails;
 
 echo json_encode($arrayOfCoursesDetails);
 

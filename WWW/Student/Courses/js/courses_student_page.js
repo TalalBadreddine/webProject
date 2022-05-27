@@ -57,7 +57,8 @@ function test(){
 }
 
 const time = new Date()
-let today = daysOfTheWeek[time.getDay()].toLowerCase()
+let today = daysOfTheWeek[time.getDay() - 1].toLowerCase()
+
 
 var arrToDisplay = []
 

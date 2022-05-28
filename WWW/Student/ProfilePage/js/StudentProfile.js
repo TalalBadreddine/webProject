@@ -10,6 +10,8 @@ const emailSpan = document.getElementById("emailSpan")
 const phoneNumber = document.getElementById("phone")
 const phoneNumberSpan = document.getElementById("phoneSpan")
 
+const fileNumber = document.getElementById("fileNumber")
+
 let canEdit = false
 
 editBtn.addEventListener('click', toggleEdit)
@@ -171,3 +173,19 @@ function show(className){
        
     }
 }
+
+// Data base
+
+$(document).ready(function(){
+    
+    $.ajax({
+        url:'../php/loadOngoingCourses.php',
+        type:'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+            console.log(data)
+            
+            fileNumber.innerHTML = data['profileId']
+        }
+    })
+})

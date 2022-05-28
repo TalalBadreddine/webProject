@@ -95,7 +95,8 @@ function removeFromTable(id){
     document.getElementById('Course'+id).remove()
 }
 
-function drop(courseId){
+ function drop(courseId){
+
     $.ajax({
         url:'../php/dropCourse.php',
         type:'POST',
@@ -104,14 +105,51 @@ function drop(courseId){
         },
         success:function(response){
             if(response == "success"){
-                removeFromTable(courseId)
+            removeFromTable(courseId)
+
             }else{
                 alert(response)
             }
         }
     })
+    
+    $.ajax({
+        url:'../php/loadDailySchedual.php',
+        type:'POST',
+        async: false,
+        cache: false,
+        timeout: 30000,
+        success: function(response){
+            console.log
+            let data = JSON.parse(response)
+            currentCoursesArray = data
+            resetDailySchedual()
+            displayArrayInTable(data)
+            addToSecondTable(data)
+        }
+    })
+
+
+    $.ajax({
+        url:'../php/loadAllMajors.php',
+        type:'POST',
+        success: function(response){
+            resetCoursesList()
+            let data = JSON.parse(response)
+            arrayOfFilteredCourses = (filterArray(data))
+
+            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+                addToCourses(arrayOfFilteredCourses[i])
+            }
+
+        }
+    })
 }
 // areYouDropping(${arr[i][0]})
+
+function resetDailySchedual(){
+    tableRowWithData.innerHTML = ""
+}
 
 function addToSecondTable(arr){
     for(let i = 0 ; i < arr.length ; i++){
@@ -132,7 +170,7 @@ function displayArrayInTable(arr){
 
     let coursesForToday = arr.filter(course => course[11].toLowerCase().includes(today));
     coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
-    coursesForToday.push(["Test","6/8"], ["other Test", "16/20"], ["test3","16/20"],["test2", "6/12"])
+    coursesForToday.push(["Test","6/8"])
     coursesForToday = oraganizeAndSortArray(coursesForToday)
     arrToDisplay = coursesForToday
 

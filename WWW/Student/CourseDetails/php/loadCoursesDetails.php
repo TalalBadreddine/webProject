@@ -10,5 +10,6 @@ for($x = 0 ; $x < count($arrayOfCourses); $x++){
         $currentCourseData = $arrayOfCourses[$x];
     };
 }
+$_SESSION['currentCourseData'] = $currentCourseData;
 echo json_encode($currentCourseData);
 ?>

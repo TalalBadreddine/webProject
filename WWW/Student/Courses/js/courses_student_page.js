@@ -91,14 +91,36 @@ $(document).ready(async function(){
     })
 })
 
+function removeFromTable(id){
+    document.getElementById('Course'+id).remove()
+}
+
+function drop(courseId){
+    $.ajax({
+        url:'../php/dropCourse.php',
+        type:'POST',
+        data:{
+            courseId: courseId
+        },
+        success:function(response){
+            if(response == "success"){
+                removeFromTable(courseId)
+            }else{
+                alert(response)
+            }
+        }
+    })
+}
+// areYouDropping(${arr[i][0]})
+
 function addToSecondTable(arr){
     for(let i = 0 ; i < arr.length ; i++){
         secondTableBody.innerHTML += `
-        <tr>
-        <td><a href="../../CourseDetails/html/course_info.html">${arr[i][1]}</a></td>
+        <tr id=Course${arr[i][0]}>
+        <td>${arr[i][1]}</td>
         <td><a href="../../Teacher profile/html/teacher_profile_page.html">${firstLetterCapital(arr[i]["teacherInfo"][1]) + firstLetterCapital(arr[i]["teacherInfo"][2])}</a></td>
         <td>${arr[i][2]}</td>
-        <td>${arr[i][5]}</td>
+        <td><Button style="background:white" class="dropBtn" onclick="drop(${arr[i][0]})">Drop</Button></td>
         <td>${arr[i][8]}</td>
         <td>${arr[i][6]}</td>
     </tr>
@@ -313,9 +335,7 @@ var arrayOfFilteredCourses = []
 function filterArray(arr){
     for(let i = 0 ; i < arr.length ; i++){
         for(let j = 0 ; j < currentCoursesArray.length ; j++){
-            // console.log(arr)
-            // console.log(currentCoursesArray)
-            if(arr[i][1] == currentCoursesArray[j][1]){
+            if(arr[i][1] == currentCoursesArray[j][1] ||  inTheFuture(arr[i][15])){
                 arr.splice(i, 1);
 
 
@@ -325,6 +345,14 @@ function filterArray(arr){
     return arr
 }
 
+function inTheFuture(dummyDate){
+    let date = dummyDate.slice("-")
+
+    if(date[0] < time.getFullYear())return false
+    if(data[1] < time.getMonth())return false
+    if(date[2] < time.getDate()) return false
+    return true
+}
 function resetCoursesList(){
     listOfCourses.innerHTML = ""
 }

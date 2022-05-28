@@ -1,12 +1,5 @@
 
 let dictForWeekDays = {"sunday":"0", "monday":"1", "tuesday":"2", "wednesday":"3", "thursday":"4", "friday":"5", "saturday":"6"}
-// $(document).ready(function(){
-  
-// })
-
-var occur = []
-// Monday:8/10-Friday:12/16
-
 
 $(document).ready(function(){
   var calendarEl = document.getElementById('calendar');
@@ -58,9 +51,6 @@ $(document).ready(function(){
           })
         }
       }
-
-        // startTime: `${startTime}:00:00`,
-        // endTime: `${endTime}:00:00`,
 }})
 })
 

@@ -48,7 +48,8 @@ if($codeFromJs == $_SESSION['randomCode']){
             `Address`,
             `Birthdate`,
              `Gender`, 
-             `isApplying`
+             `isApplying`,
+             `AvailableCredits`
              )
              VALUES
               (
@@ -66,7 +67,8 @@ if($codeFromJs == $_SESSION['randomCode']){
                   '".$_SESSION['address']."',
                   '".$_SESSION['dateOfBirth']."',
                   '".$_SESSION['gender']."',
-                   1 )
+                   1 ,
+                   16)
                    ";
 
     if ($conn->query($sql) === TRUE) {

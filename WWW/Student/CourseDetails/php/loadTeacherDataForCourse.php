@@ -36,4 +36,5 @@ if($result = $conn->query($sql)){
     echo json_encode($result->fetch_row());
 }
 
+
 ?>

@@ -2,7 +2,8 @@
 
 require '../../../extension/makeConnection.php';
 // require '../../../extension/extensions.php';
-
+session_start();
+session_destroy();
 
 function cleanItUp($dummy){
 

@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @media screen and (max-width: 1000px) {
     .container {
@@ -209,4 +209,30 @@ input{
 .back-btn:hover{
     color: rgb(88, 88, 88);
     font-weight: bold;
+}
+
+.hiddenDiv{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    z-index: -1;
+    top:30%;
+    left: 37.5%;
+    width: 25%;
+    height: 25%;
+    opacity: 0;
+    /* display: block; */
+}
+
+#popUpBtn{
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color:red;
+    color: white;
+    padding: 0.5rem 1rem;
 }

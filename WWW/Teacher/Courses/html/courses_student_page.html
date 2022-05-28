@@ -21,7 +21,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <link href="../css/courses_student_page.css" rel="stylesheet">
-    <link rel="icon" href="../../../../../../Desktop/tobefavicon.ico" type="image/x-icon">
+    <link rel="icon" href="#" type="image/x-icon">
 
     <script type="text/javascript"></script>
     <title>My Courses</title>
@@ -31,11 +31,12 @@
     <!-- header & navbar -->
     <header class="bigHeader">
         <nav class="navbar navbar-expand-lg header-nav fixed-top">
-            <a class="navbar-brand" href="#" style="color:white;font-weight: bolder;margin-left: 1rem;"><img
-                    src="Logo.png" alt="web Uni Logo" id="logo" style="width:52px; height: 50px;"></a>
+            <a class="navbar-brand" href="#" style="color:white;font-weight: bolder;margin-left: 2rem;"><img
+                    src="../../../../Resorces/Student/logo/logo.png" alt="LOGO" width="52px" height="50px"
+                    id="logoImg"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="fas fa-bars" id="iconResponsive"></i></span>
+                <span><i class="fas fa-bars"></i></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
@@ -71,36 +72,11 @@
     <main>
         <!--Hidden in pop UP-->
         <div class="popUpPageView" id="hiddenPopUp">
-            <div class="hiddenPopUp" style="cursor: pointer;"><i id="close1" class="fas fa-times-circle"
-                    onclick="test()"></i>
+            <div class="hiddenPopUp" style="cursor: pointer;"><i class="fas fa-times-circle" onclick="test()"></i>
                 <h3>Details</h3>
+                <div id="hiddenPopUpId">
 
-                <div class="timeIntervalDiv">
-                    <label for="startDate" class="form-label">From:</label>
-                    <input type="time" id="startDate" min="08:00" max="20:00">
                 </div>
-                <div class="timeIntervalDiv">
-                    <label for="endDate" class="form-label">To:</label>
-                    <input type="time" id="endDate" min="08:00" max="20:00">
-                </div>
-                <!-- <span class="timeSpan">testing</span> -->
-                <div class="form-group">
-                    <label for="comment">More Info</label>
-                    <textarea class="TextAreaOfDetails form-control Textarea" rows="8" cols="25" id="comment">
-                    Chemistry: 
-                    Building 3, Floor 2
-                    Room 205 :-number of seats: 25
-                            -number of vacant seats: 9
-                            
-                    is the agenda for the meeting:
-                    Syllabus
-                    Introduction to chapter 1
-                    -Atom
-                    -Periodic table
-                    -Atomic bond
-                    </textarea>
-                </div>
-                <button type="button" class="editButtonForTime btn btn-success mt-1" id="EditButton">Save</button>
             </div>
         </div>
 
@@ -108,118 +84,36 @@
             <div class="table-one">
                 <table class="schedual-table">
                     <thead>
-                        <tr>
-                            <th class="leftOne">6:00</th>
-                            <th>8:00</th>
-                            <th>10:00</th>
-                            <th>12:00</th>
-                            <th>14:00</th>
-                            <th>16:00</th>
-                            <th>18:00</th>
-                            <th>20:00</th>
-                            <th class="rightOne">22:00</th>
+                        <tr class="tableHeader">
+                            <th class="leftOne" style="text-align: left;">6:00</th>
+                            <th style="text-align: left;min-width: 80px">8:00</th>
+                            <th style="text-align: left;min-width: 80px">10:00</th>
+                            <th style="text-align: left;min-width: 80px">12:00</th>
+                            <th style="text-align: left;min-width: 80px">14:00</th>
+                            <th style="text-align: left;min-width: 80px">16:00</th>
+                            <th style="text-align: left;min-width: 80px">18:00</th>
+                            <th style="text-align: left;min-width: 80px">20:00</th>
+                            <th class="rightOne" style="text-align: left;">22:00</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3">
-                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp')"
-                                    style="background-color: #F3F0FF;border: 0.5px solid #8369FF;">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual">
-                                        <h3>coding</h3>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                            <td colspan="3"></td>
-                            <td colspan="3">
-                                <div class="card-of-schedual"
-                                    style="background-color: #E6F3FF; border: 0.5px solid #80BFFC;"
-                                    onclick="showDiv('hiddenPopUp')">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual1">
-                                        <h3>coding</h3>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"></td>
-                            <td colspan="3">
-                                <div class="card-of-schedual"
-                                    style="background-color: #FFEAF6; border: 00.5px solid #FC2EA1;"
-                                    onclick="showDiv('hiddenPopUp')">
-                                    <span><i class="ri-code-view"></i></span>
-                                    <div class="title-of-course-schedual">
-                                        <h3>Algerba I</h3>
-                                    </div>
-                                    <span><i class="ri-user-3-line"></i></span>
-                                </div>
-                            </td>
-                            <td colspan="3"></td>
-                        </tr>
+                    <tbody id="tableRowWithData">
                     </tbody>
                 </table>
-            </div>
-
-            <div class="table-two">
-                <div class="word">
-                    <h1>On</h1>
-                    <h1>G<span>oin</span>g</h1>
-                </div>
-                <div class="course-table">
-                    <table class="courses-table">
-                        <thead>
-                            <tr>
-                                <th class="coursesLeftOne">course</th>
-                                <th>credit</th>
-                                <th>semester</th>
-                                <th>language</th>
-                                <th class="coursesRightOne">hours</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="../../CourseDetails/html/course_info.html">coding</a></td>
-                                <td>3</td>
-                                <td>spring</td>
-                                <td>English</td>
-                                <td>300</td>
-                            </tr>
-                            <tr>
-                                <td><a href="../../CourseDetails/html/course_info.html">coding</a></td>
-                                <td>3</td>
-                                <td>spring</td>
-                                <td>English</td>
-                                <td>300</td>
-                            </tr>
-                            <tr>
-                                <td><a>coding</a></td>
-                                <td>3</td>
-                                <td>spring</td>
-                                <td>English</td>
-                                <td>300</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </section>
 
         <section class="two">
             <form action="">
                 <div>
-                    <label for="language">Language</label> <br>
-                    <select name="language" id="language-search-courses">
+                    <label for="language" >Language</label> <br>
+                    <select name="language" id="language-search-courses" class="filterSelect" style="background-color: white;border: 1px solid black;">
                         <option value="english">English</option>
                         <option value="french">French</option>
                     </select>
                 </div>
                 <div>
                     <label for="credits">Credits</label><br>
-                    <select name="credits" id="credits-search-courses">
+                    <select name="credits" id="credits-search-courses" class="filterSelect" style="background-color: white;border: 1px solid black;">
                         <option value="3">3</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
@@ -227,7 +121,7 @@
                 </div>
                 <div>
                     <label for="hours">Hours</label><br>
-                    <select name="hours" id="hours-search-courses">
+                    <select name="hours" id="hours-search-courses" class="filterSelect" style="background-color: white;border: 1px solid black;">
                         <option value="50">50</option>
                         <option value="300">300</option>
                         <option value="160">160</option>
@@ -258,8 +152,7 @@
 
         <section class="three" id="courses-cards">
             <div class="onGoingCourses">
-                <h2 class="coursesTitle">On G<span class="coursesTitleColor" style="color: #0B6D12;">oin</span>g
-                    Courses<span class="coursesTitleColor" style="color: #0B6D12;">:</span></h2>
+                <h2 class="coursesTitle">My Courses:</h2>
 
                 <div class="addRemoveCourses">
                     <button style="background-color: #fbfbfb;" id="addCourse"> <i id="addicon"
@@ -268,55 +161,100 @@
                             class="fa-solid fa-circle-minus fa-3x " style="color: red;"></i></button>
                 </div>
 
+                <!--   `DailyNote`, `AboutCourse`, `startDate`, `endDate`)-->
+
                 <!--Hidden in pop UP-->
-                <div class="addCoursePoPUp" id="Hidden_PopUp">
+                <div class="addCoursePoPUp" id="Hidden_PopUp" class="p-5">
 
-                    <i id="secondCloseButton" class="fas fa-times-circle" onclick="test2()"></i>
-
+                    <i id="secondCloseButton" class="fas fa-times-circle fa-2x" onclick="test2()"></i>
+                    <h2 class="text-center w-100 mb-4">Add Course</h2>
                     <div class="containerFlex">
-                        <div class="Hidden_PopUp" style="margin-top: -1rem; width: 65%;">
+                        <div class="Hidden_PopUp" style="margin-top: -1rem; width: 70%;">
                             <div class="form-group firstdiv">
                                 <label for="newComment1" style="margin-bottom: 0.3rem">
                                     <h5>About this Course</h5>
                                 </label>
-                                <textarea class="form-control Textarea" rows="10" cols="20"
-                                    id="newComment1">Materials are the physical foundations for the development of science and technology. The human civilizations are historically designated by the evolution of materials, such as the Stone Age, the Bronze Age and the Iron Age. Nowadays, materials science and technology support most of the industrial sectors, including aerospace, telecommunications, transportation, architecture, infrastructure and so on.</textarea>
+                                <textarea class="form-control Textarea" rows="10" cols="20" id="aboutThisCourse"></textarea>
                             </div>
 
                             <div class="form-group seconddiv">
                                 <label for="newComment2" style="margin-bottom: 0.3rem; margin-top: 0.8rem;">
                                     <h5>Syllabus</h5>
                                 </label>
-                                <textarea class="form-control Textarea" rows="8" cols="20" id="newComment2">- Chapter 1: Introduction      
-- Chapter 2: Atoms and interatomic bonds
-- Chapter 3: Crystallography
-- Chapter 4: Crystalline Defects
-- Chapter 5: Properties of Materials
-- Chapter 6: Mechanical Properties 
-- Chapter 7: Multi-Material Applications</textarea>
+                                <input class="form-control input-group" type="text" id="objectives"></input>
+                                <input type="button" class="btn btn-success mt-1 mb-1" value="Insert Objective"
+                                    id="insertObjective">
+                                <div id="listOfObjectives"></div>
                             </div>
                         </div>
-                        <div class="inputDiv" style="width:40%; max-height: 40vh;">
+                        <div class="inputDiv" style="width:65%; height: auto;">
                             <div class="input-group mb-3 input-group-sm">
-                                <span class="input-group-text" >Title</span>
-                                <input id="title" type="text" class="form-control" placeholder="Add title for the course">
+                                <span class="input-group-text">Title</span>
+                                <input id="title" type="text" class="form-control inputForm"
+                                    placeholder="Add title for the course">
                             </div>
                             <div class="input-group mb-3 input-group-sm">
-                                <span class="input-group-text">Semester</span>
-                                <input type="text" class="form-control" placeholder="First or second semester">
+                                <span class="input-group-text">Code</span>
+                                <input type="text" class="form-control inputForm"
+                                    placeholder="Course Code" id="code">
                             </div>
-                            <div class="input-group mb-3 input-group-sm">
-                                <span class="input-group-text">Language</span>
-                                <input type="text" class="form-control" placeholder="English, French">
+                            <div class="input-group mb-3 input-group-sm ms-0 flex-column">
+                                <h5>Language</h5>
+                                <div class="ms-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="english">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            English
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="french">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            French
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="input-group mb-3 input-group-sm">
-                                <span class="input-group-text">Credit</span>
-                                <input type="text" class="form-control" placeholder="Number of  credit of this course">
+                            <div class="form-outline">
+                                <label class="form-label" for="typeNumber">Credits</label> <input type="number"
+                                    id="credits" class="form-control" />
                             </div>
+                            <hr>
+                            <div>
+                                <label class="form-label" for="typeNumber">Fees</label> <input type="number" id="fees"
+                                    class="form-control" />
+                            </div>
+                            <div>
+                                <label class="form-label" for="typeNumber">Number Of Exams</label> <input type="number"
+                                    id="nbOfExams" class="form-control" />
+                            </div>
+                            <div>
+                                <label class="form-label" for="typeNumber">Hours</label> <input type="number" id="hours"
+                                    class="form-control mb-3" />
+                                <h5>Daily Timing</h5>
+                                <p><input type="checkbox" id="checkBoxMonday"> Monday from <input type="time" id="startTimeMonday"> to <input type="time" id="endTimeMonday"></p>
+                                <p><input type="checkbox" id="checkBoxTuesday"> Tuesday from <input type="time" id="startTimeTuesday"> to <input type="time" id="endTimeTuesday"></p>
+                                <p><input type="checkbox" id="checkBoxWednesday"> Wednesday from <input type="time" id="startTimeWednesday"> to <input type="time" id="endTimeWednesday"></p>
+                                <p><input type="checkbox" id="checkBoxThursday"> Thursday from <input type="time" id="startTimeThursday"> to <input type="time" id="endTimeThursday"></p>
+                                <p><input type="checkbox" id="checkBoxFriday"> Friday from <input type="time" id="startTimeFriday"> to <input type="time" id="endTimeFriday"></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex ms-5">
+                                <div>
+                                    <h6>Starting date</h6>
+                                    <input type="time" id="startingTime">
+                                </div>
+                                <br>
+                                <div class="ms-5">
+                                    <h6>Ending Date</h6>
+                                    <input type="time" id="endingTime">
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="newEditButton">
-                        <button type="button" class="btn btn-success" id="newEditButton">Add</button>
+                        <button type="button" class="btn btn-success" id="newEditButton">Add Course</button>
                     </div>
                 </div>
 
@@ -469,6 +407,7 @@
             </div>
         </section>
     </main>
+    <script src="../../../../Resorces/Jquery/jquery.js"></script>
     <script src="../js/courses_student_page.js"></script>
 </body>
 

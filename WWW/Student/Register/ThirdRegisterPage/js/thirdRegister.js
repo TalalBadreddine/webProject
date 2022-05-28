@@ -1,4 +1,9 @@
-const emailLabel = document.getElementById("exampleInputEmail1")
+const emailLabel = document.getElementById("codeForEmail")
+const submitBtn = document.getElementById("submitBtn")
+const emailSpan = document.getElementById("emailHelp")
+const doneButton = document.getElementById("doneButton")
+const hiddenContainer = document.getElementById("hiddenContainer")
+const doneBtnInHiddenDiv = document.getElementById("doneBtn")
 
 function goBigger(bigger, smaller){
     var getBigger = document.getElementById(bigger)
@@ -68,7 +73,7 @@ window.onload = function() {
           new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
-    // INJECT CSS
+    // add css
     var css = document.createElement("style");
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
@@ -76,10 +81,71 @@ window.onload = function() {
     document.body.appendChild(css);
 };
 
-function validateEmail(){
-    if(emailLabel.value == "letMePass"){
-        return true
-    }
-
-    return false
+function showEmailError(message){
+    emailHelp.style.display = "block"
+    emailHelp.innerHTML = message
+    emailHelp.style.color = "red"
 }
+
+emailLabel.addEventListener('keyup', function(){
+    if(emailLabel.value == ""){
+        emailHelp.style.display = "block"
+        emailHelp.innerHTML = "Don't share the code with anyone"
+        emailHelp.style.color = "gray"
+    }else{
+        emailHelp.style.display = "none"
+
+    }
+})
+
+function showDiv(){
+    hiddenContainer.classList.add("active")
+    hiddenContainer.style.opacity  = 1
+}
+
+doneBtnInHiddenDiv.addEventListener('click', function(){
+    hiddenContainer.classList.remove('active')
+    hiddenContainer.classList.add("hide")
+    hiddenContainer.style.opacity  = 0
+
+})
+
+
+submitBtn.addEventListener('click', function(){
+    
+    let emailCode = emailLabel.value.trim()
+    
+    $.ajax({
+        url:"../php/validateAndCreateUser.php",
+        type: 'POST',
+        data:{
+            emailCode: emailCode
+        },
+        success:function(response){
+            if(response == "exist"){
+
+                alert("User Already Exist, you will be redirected")
+
+                setTimeout(function(){
+
+                     window.location.href = "../../../LandingPage/Html/LandingPage.html"
+
+                }, 4000)
+
+            }else if(response == "wrong"){
+
+                showEmailError("Wrong Code")
+
+            }else{
+                showDiv()
+                
+                setTimeout(function(){
+
+                    window.location.href = "../../../LandingPage/Html/LandingPage.html"
+
+               }, 7000)
+
+            }
+        }
+    })
+})

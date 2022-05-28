@@ -1,138 +1,188 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
-@media screen and (max-width: 650px) {
-    body {
-        width: 100vw;
-        height: 100vh;
-        display: flex ;
-        flex-direction: column ;
-    }
-
-   body aside {
-        width: 100% !important;
-        
-    } 
-    body aside header #logo{
-        margin-bottom:0.8rem !important ;
-    }
-
-    .white-part {
-        width: 100%;
-       
-    }
-    input{
-        max-width: 15rem !important;
-    }
-    
-    select{
-        max-width: 15rem !important;
-    }
-    .Register_Button{
-        max-width: 15rem !important;
-    }
-    form{
-        margin-left: 20% !important;
-    }
-}
-
-* {
+/* reset */
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    /* font-family: 'Poppins', sans-serif !important; */
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FBFBFB;
+}
+
+.allPageContainer{
     width: 100vw;
     height: 100vh;
     display: flex;
 }
 
-aside {
-    width: 18% !important;
-    height: 135% !important;
+header{
+    margin-bottom: 7rem;
+}
+
+
+aside{
+    height: 100%;
+    width: 25%;
     background-color: #0B6D12;
-    text-align: center;
-    /* min-width: min-content !important;*/
-} 
-
-.white-part {
-    width: 82%;
-    background-color: #FFFFFF
+    padding: 3rem;
+    align-items: center;
+    color: white;
 }
 
-.back-btn {
+.quote-container{
+   max-width: 98% ;
+}
+
+.quote-mark{
+    margin-bottom: 1rem;
+}
+
+.quote-mark > i{
+    font-size: 2rem;             
+    color: #00DAF7;
+}
+
+.quote-paragraph{
+    font-weight: 300 ;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    margin-bottom: .7rem;
+}
+
+.author-name-of-quote{
     position: relative;
-    font-size: .8rem;
-    color: #8692A6 !important;
-    outline: none !important;
-    border: none !important; 
-    background: transparent !important;
-    display: flex;
-    align-items: center; 
-    transition: all .25s ease-in;
-    display:inline-block !important;  
-    text-decoration: none !important;
-    margin-left: 0.8rem !important;
-}
-
-.back-btn span i {
-    font-size: 1.5rem;
-    /* display: inline-block !important; */
-    /* text-decoration: none !important; */
-    position: absolute !important;
-    margin-top: -8px !important; 
-    margin-left: -1.2rem !important;
-}
-
-button {
-    cursor: pointer;
-}
-
-.title-registration {
-    margin-top: 1rem;
-}
-
-p {
-    color: #8692A6 !important;
 
 }
 
-.back-btn:hover {
-    transform: translateX(-10px);
-
+.author-name-of-quote span i{
+    color: #08AD36;
+    font-size: 1rem;
+    display: inline;
+    margin-left: 10px;
+    top: .3rem;
+    left: 3.5rem;
 }
 
-hr {
-    border: 1px solid rgba(101, 104, 109, 0.05) !important;
-    margin-top: -1rem !important;
-    opacity: 0.05 !important;
+.signUpForm{
+    width: 100%;
+    background-color: red;
 }
 
-.optional {
-    border-color: #8692A6 !important;
-}
 
-.optional:hover {
-    box-shadow: 0px 4px 10px #0B6D12 !important;
-}
-.Register_Button{
-    width: 80% !important;
-}
-.Register_Button:hover{
-    background-color: #0B6D12 !important;
-    border-color: #0B6D12 !important;
-}
+/* Top Side Of Page */
 
-.coreInfo{
-    margin-top: 4%;
-}
-
-.backBtn{
-    border: none;
+.backButton{
     background-color: white;
+    border: none;
+    color: gray;
 }
 
-.backBtn:hover{
-    font-weight: bolder;
+
+.backButton:hover{
+    color: rgb(88, 88, 88);
+    font-weight: bold;
 }
+
+
+/* Small Screen */
+
+@media screen and (max-width:900px) {
+    
+    .allPageContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside{
+        width: 100vw;
+        text-align: center;
+    }
+
+    .backButton{
+        margin-left: -1rem;
+    }
+
+}
+.submitDiv{
+    margin-left: 30%;
+}
+
+.submitDiv button{
+    background-color: #0B6D12;
+}
+
+span{
+    font-size: 0.8rem;
+    color: red;
+    position: absolute;
+    z-index: 3;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+/* Animation */
+
+#confirmPasswordActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#passwordActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#firstNameActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#lastNameActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#emailActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#programActive{
+    border: 1px #ff0000 solid;
+    
+    animation: blink 1s;
+    animation-iteration-count: 2;
+}
+
+#universityActive{
+    background-color: white;
+    border: 1px #ff0000 solid !important;
+    
+    animation: blink 1s !important;
+    animation-iteration-count: 2 !important;
+}
+
+#university, #program{
+    min-height: 2.5rem !important;
+    background-color: white !important;
+    border: 0.2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+/* .usiversityLabel , .programLabel{
+    margin-bottom: -.7rem !important;
+} */
+
+@keyframes blink { 50% { border-color:#fff ; }  }

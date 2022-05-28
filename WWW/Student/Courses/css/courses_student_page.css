@@ -142,15 +142,15 @@ td{
 
 .card-of-schedual{
     cursor: pointer;
-    background-color: rgba(94, 211, 247,0.2);
+    /* background-color: rgba(94, 211, 247,0.2); */
     border: 1px solid var(--primary-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 15px;
     padding: 1rem 0;
-    width: 80%;
-    margin: auto;
+    width: 100%;
+    /* margin: auto; */
     text-align: center;
 }
 
@@ -401,6 +401,7 @@ button{
     margin-top: 20%;
     background-color: white;
     padding: 1rem;
+    padding-bottom: 2rem;
 
 }
 
@@ -493,4 +494,24 @@ label.star:before {
 #language-search-courses,#credits-search-courses,#hours-search-courses{
     background-color: white !important;
     padding: 0.5rem;
+}
+
+select{
+    border: 1px solid rgba(0, 0, 0, 0.371) !important;
+}
+
+.tableHeader{
+    text-align: left !important;
+    min-width: 100px !;
+}
+
+#creditsLabel,#hoursLabel{
+    border: 0.7px solid rgb(0, 0, 0) ;
+    height: 44px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.dropBtn:hover{
+    text-decoration: underline;
 }

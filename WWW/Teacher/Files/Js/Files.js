@@ -14,12 +14,13 @@ function move(p1, p2){
 
 var count = 0 ;
 
+var countAndfileLocation = {};
+
 document.getElementById('examsCheat').addEventListener('click', function(){
   window.location.href = ("../Html/studentTable.html")
 })
 
 function getCurrentCourseSettings(p1){
-    count = 0;
     var element = document.getElementById(p1)
     let allCourses = document.getElementsByClassName("scrollerElement")
 
@@ -47,7 +48,6 @@ function getCurrentCourseSettings(p1){
         courseName: element.innerHTML
       },
       success:function(response){
-        console.log(fromCourseNameToId)
         let data = JSON.parse(response)
         console.log(data)
         let filesHtml = ''
@@ -70,37 +70,31 @@ function getCurrentCourseSettings(p1){
                 class="date">${date.getDate()} ${monthNames[date.getMonth()]}</span></li>
                 </div>
               `
-              count++;
-        }
-
-        filesUlDiv.innerHTML = filesHtml
+            
+        
 
         filesUlDiv = document.getElementById("files")
         fileDivs = document.getElementsByClassName("filesRow")
+        filesUlDiv.innerHTML = filesHtml
+
         for (let i = 0; i < fileDivs.length; i++) {
 
+          let currentPath = `${fromCourseNameToId[CourseName.innerHTML]}/${fileDivs[i].className.split(',')[1].trim()}`
+          countAndfileLocation[count] = currentPath
+
           fileDivs[i].addEventListener('contextmenu',function(){
-            let currentPath = `${fromCourseNameToId[CourseName.innerHTML]}/${fileDivs[i].className.split(',')[1].trim()}`
             window.open(`../../../../../../webProjectFiles/Courses/${currentPath}`)
           })
 
           // show the button
            fileDivs[i].addEventListener('dblclick', function() {
             showingDeleteBtn(fileDivs[i].id)
-          });
+          });}
+          count++;
 }
-        
-      }
-    })
-
-
+}})
 }
-{/* <div class="filesRow 3" id="row 3">
-<li class="fileItems item list-group-item" id="filesItem3"><a href="#"></a><i class="pdfIcon fas fa-file-alt"></i><span class="fileName">file3.pdf</span><span class="deleteBtnSpan 3"><button class= "deleteBtn" onclick="deleteMe('3')">delete</button></span><span
-    class="date">5 Feb</span></li>
-</div> */}
 
-// Long click function
 // Now its a double click
 
 var pressTimer;
@@ -129,6 +123,7 @@ function showingDeleteBtn(p1){
   let arrOfClass = p1.split(" ")
   let currentDivId = p1[p1.length - 1]
   let hiddenSpan = document.getElementsByClassName(`deleteBtnSpan ${currentDivId}`)[0]
+  
 
   if(hiddenSpan.style.display == "block"){
     hiddenSpan.style.display = "none"
@@ -200,7 +195,18 @@ function addFilesToTable(){
 
 function deleteMe(p1){
   let divToDeleteName = `row ${p1}`
-  document.getElementById(divToDeleteName).style.display = "none"
+
+  $.ajax({
+    url:'../php/deleteFile.php',
+    type:'POST',
+    data:{
+      path:countAndfileLocation[p1]
+    },
+    success:function(response){
+      document.getElementById(divToDeleteName).style.display = "none"
+      console.log(response)
+    }
+  })
 }
 
 // load All Courses From DB 

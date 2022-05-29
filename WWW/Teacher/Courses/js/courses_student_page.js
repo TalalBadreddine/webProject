@@ -37,34 +37,199 @@ const title = document.getElementById("title")
 const listOfObjectives = document.getElementById("listOfObjectives")
 const aboutThisCourse = document.getElementById("aboutThisCourse")
 
+const startingDate =document.getElementById("startingTime")
+const endingDate = document.getElementById("endingTime")
+
+const addNewChange = document.getElementById("newEditButton");
+
+var cardDiv = document.getElementsByClassName("card-of-course");
+
+
+
 // Variables to add to data Base
 
-var description
-var sylabus
 
 
 var winX = null;
 var winY = null;
 
-function addCourse(){
 
-    
-}
+var description
+var allObjectives = []
+var timing = []
+var language = []
+
+addNewChange.addEventListener('click', function(){
+    validateAboutThisCourse()
+})
 
 function validateAboutThisCourse(){
-    
-    if(aboutThisCourse.innerHTML.split(' ').length < 50){
-        alert("Description must be at least 50 word")
-        return false
+
+    // objectives
+    let objectives = listOfObjectives.innerHTML.split('</li>')
+    for(let i = 0; i < objectives.length ; i++){
+       let currentObjective = (objectives[i].split('>')[1])
+       if(currentObjective != undefined){
+        allObjectives.push(currentObjective)
+       }
     }
 
+
+    // timing need join
+    if(checkBoxMonday.checked){
+        let currentTiming = 'Monday:'+startTimeMonday.value+'/'+endTimeMonday.value
+        timing.push(currentTiming)
+    }
+
+    if(checkBoxTuesday.checked){
+        let currentTiming = 'Tuesday:'+startTimeTuesday.value+'/'+endTimeTuesday.value
+        timing.push(currentTiming)
+    }
+    
+    if(checkBoxWednesday.checked){
+        let currentTiming = 'Wednesday:'+startTimeWednesday.value+'/'+endTimeWednesday.value
+        timing.push(currentTiming)
+    }
+
+    if(checkBoxThursday.checked){
+        let currentTiming = 'Thursday:'+startTimeThursday.value+'/'+endTimeThursday.value
+        timing.push(currentTiming)
+    }
+
+    if(checkBoxFriday.checked){
+        let currentTiming = 'Friday:'+startTimeFriday.value+'/'+endTimeFriday.value
+        timing.push(currentTiming)
+    }
+    
+    // language need Split
+    if(french.checked){
+        language.push("French")
+    }
+
+    if(english.checked){
+        language.push("English")
+    }
+    
+    // if(aboutThisCourse.innerHTML.split(' ').length < 50){
+    //     alert("Description must be at least 50 word")
+    //     return false
+    // }
+
     description = aboutThisCourse.innerHTML
-    return true
+    
+    $.ajax({
+        url: '../php/sendCourseToDB.php',
+        type: 'POST',
+        data:{
+            AboutCourse: aboutThisCourse.value,
+            Description: allObjectives.join('-'),
+            CourseName: title.value,
+            CourseCode: code.value,
+            Language: language.join('-'),
+            Credits: credits.value,
+            Fees: fees.value,
+            NumberOfExams: nbOfExams.value,
+            Hours: hours.value,
+            Timing: timing.join('-'),
+            startDate: startingDate.value,
+            endDate: endingDate.value
+
+        },
+        success:function(response){
+            console.log(response)
+
+            containerDiv.innerHTML += `<div class="card-of-course">
+            <div class="header">
+                ${title.value}
+            </div>
+            <div class="body-card">
+                <div class="description">
+                    <h5>you'll learn how to:</h5>
+                    <ul>
+                        <li>${allObjectives[0]}</li>
+                        <li>${allObjectives[1]}</li>
+                        <li>${allObjectives[2]}</li>
+                    </ul>
+                </div>
+                <div class="footer" id="firstfooter">
+                    <button class="apply-btn"><a id="firstCardButtonlink" href="../../CourseDetails/html/course_info.html"
+                            class="hrefHelper">Edit</a></button>
+                    <p>credits: ${credits.value}</p>
+                </div>
+            </div>
+        </div> `
+
+        let applyBtns = document.getElementsByClassName("apply-btn")
+
+        for(let i = 0 ; i < applyBtns.length; i++){
+            applyBtns[i].addEventListener('click',function(){
+                $.ajax({
+                    url:'../php/sendCurrentCourse.php',
+                    type:'POST',
+                    data:{
+                        currentCourseData :{
+                            AboutCourse: aboutThisCourse.value,
+                            Description: allObjectives.join('-'),
+                            CourseName: title.value,
+                            CourseCode: code.value,
+                            Language: language.join('-'),
+                            Credits: credits.value,
+                            Fees: fees.value,
+                            NumberOfExams: nbOfExams.value,
+                            Hours: hours.value,
+                            Timing: timing.join('-'),
+                            startDate: startingDate.value,
+                            endDate: endingDate.value
+                        }
+                    },
+                    success:function(test){
+                        
+                    }
+                })
+            })
+        }
+        }
+    })
+    test2()
 }
 
-// function validateSylabus(){
+function emptyFields(){
+    aboutThisCourse.value = ""
+    listOfObjectives.innerHTML = ""
+    title.value = ""
+    code.value = ""
+    french.checked = false
+    english.checked = false
+    credits.value = ""
+    fees.value = ""
+    nbOfExams.value = ""
+    hours.value = ""
 
-// }
+    checkBoxMonday.checked = false
+    startTimeMonday.value = ""
+    endTimeMonday.value = ""
+
+    startingDate.value = ""
+    endingDate.value = ""
+    objective.value = ""
+
+    checkBoxTuesday.checked = false
+    startTimeTuesday.value = ""
+    endTimeTuesday.value = ""
+
+    checkBoxWednesday.checked = false
+    startTimeWednesday.value = ""
+    endTimeWednesday.value = ""
+
+    checkBoxThursday.checked = false
+    startTimeThursday.value = ""
+    endTimeThursday.value = ""
+
+    checkBoxFriday.checked = false
+    startTimeFriday.value = ""
+    endTimeFriday.value = ""
+
+}
 
 function showDiv(p1,message) {
     var elementToShow = document.getElementById(p1)
@@ -80,6 +245,7 @@ function showDiv(p1,message) {
 }
 
 function test() {
+
     var elementToClose = document.getElementById("hiddenPopUp")
     elementToClose.style.display = 'none'
     winX = null;
@@ -136,17 +302,18 @@ function addCourse(p2) {
     viewPopUp.style.display = 'block';
 }
 
-const newEditButton = document.getElementsByClassName("description")
-addCourseButton.addEventListener("click", function () {
-    SaveNewCourse("Hidden_PopUp")
-})
+// const newEditButton = document.getElementsByClassName("description")
+// addCourseButton.addEventListener("click", function () {
+//     SaveNewCourse("Hidden_PopUp")
+// })
 
 const EditButtons = document.getElementsByClassName("apply-btn");
 const removeButton = document.getElementById("removeButton");
+var currentBool = false
 
 removeButton.addEventListener("click", remove);
 
-var currentBool = false
+
 
 function remove() {
     currentBool = ! currentBool
@@ -164,55 +331,103 @@ function remove() {
     }
 
 }
-const cardDiv = document.getElementsByClassName("card-of-course");
 
-for (let j = 0; j < EditButtons.length; j++) {
-    EditButtons[j].addEventListener("click", function () {
-        if (EditButtons[j].innerHTML == "Remove")
-            cardDiv[j].style.display = 'none';
-    })
+function refreshRemovingCourse(){
+    for (let j = 0; j < EditButtons.length; j++) {
+        EditButtons[j].addEventListener("click", function () {
+            if (currentBool){
+
+                $.ajax({
+                    url:'../php/sendCurrentCourse.php',
+                    type:'POST',
+                    data:{
+                        courseId:EditButtons[j].id
+                    },
+                    success:function(test){
+                        console.log(JSON.parse(test))
+                    }
+                })
+
+                cardDiv[j].style.display = 'none';
+
+            }
+
+        })
+    }
+
 }
+
+// let applyBtns = document.getElementsByClassName("apply-btn")
+    
+// for(let i = 0 ; i < applyBtns.length; i++){
+//     applyBtns[i].addEventListener('click',function(){
+//         $.ajax({
+//             url:'../php/sendCurrentCourse.php',
+//             type:'POST',
+//             data:{
+//                 currentCourseData :{
+//                     AboutCourse: aboutThisCourse.value,
+//                     Description: allObjectives.join('-'),
+//                     CourseName: title.value,
+//                     CourseCode: code.value,
+//                     Language: language.join('-'),
+//                     Credits: credits.value,
+//                     Fees: fees.value,
+//                     NumberOfExams: nbOfExams.value,
+//                     Hours: hours.value,
+//                     Timing: timing.join('-'),
+//                     startDate: startingDate.value,
+//                     endDate: endingDate.value
+//                 }
+//             },
+//             success:function(test){
+//                 alert
+//             }
+//         })
+//     })
+
+// }
 
 
 
 
 function test2() {
     const cancelPopUp = document.getElementById("Hidden_PopUp");
+    emptyFields()
     cancelPopUp.style.display = 'none';
 }
-const addNewChange = document.getElementById("newEditButton");
-addNewChange.addEventListener("click", function () {
-    let textArea = document.getElementById("newComment2").innerHTML;
-    let array = textArea.split("\n");
-    let Objective = [];
-    for (let i = 0; i < 3; i++) {
-        let currentObjective = array[i].split(":")[1]
-        Objective[i] = currentObjective;
-    }
+// addNewChange.addEventListener("click", function () {
+//     let textArea = document.getElementById("newComment2").innerHTML;
+//     let array = textArea.split("\n");
+//     let Objective = [];
+//     for (let i = 0; i < 3; i++) {
+//         let currentObjective = array[i].split(":")[1]
+//         Objective[i] = currentObjective;
+//     }
     
-    containerDiv.innerHTML += `<div class="card-of-course">
-    <div class="header">
-        ${title.value}
-    </div>
-    <div class="body-card">
-        <div class="description">
-            <h5>you'll learn how to:</h5>
-            <ul>
-                <li>${Objective[0]}</li>
-                <li>${Objective[1]}</li>
-                <li>${Objective[2]}</li>
-            </ul>
-        </div>
-        <div class="footer" id="firstfooter">
-            <button class="apply-btn"><a id="firstCardButtonlink" href="../../CourseDetails/html/course_info.html"
-                    class="hrefHelper">Edit</a></button>
-            <p>credits: 3</p>
-        </div>
-    </div>
-</div> `
-    test2()
+//     containerDiv.innerHTML += `<div class="card-of-course">
+//     <div class="header">
+//         ${title.value}
+//     </div>
+//     <div class="body-card">
+//         <div class="description">
+//             <h5>you'll learn how to:</h5>
+//             <ul>
+//                 <li>${Objective[0]}</li>
+//                 <li>${Objective[1]}</li>
+//                 <li>${Objective[2]}</li>
+//             </ul>
+//         </div>
+//         <div class="footer" id="firstfooter">
+//             <button class="apply-btn"><a id="firstCardButtonlink" href="../../CourseDetails/html/course_info.html"
+//                     class="hrefHelper">Edit</a></button>
+//             <p>credits: 3</p>
+//         </div>
+//     </div>
+// </div> `
+//     test2()
 
-})
+// })
 
 // var boolean = false;
 
@@ -253,8 +468,8 @@ addNewChange.addEventListener("click", function () {
 // Daily Schedual
 
 const time = new Date()
-const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-let today = daysOfTheWeek[time.getDay() - 1].toLowerCase()
+const daysOfTheWeek = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+let today = daysOfTheWeek[time.getDay()].toLowerCase()
 
 $(document).ready(function(){
     $.ajax({
@@ -378,3 +593,40 @@ function sortArrayByTiming(arr){
 function firstArrIsBigger(arr1, arr2){
     return parseInt(arr1[1].split('/')[0]) > parseInt(arr2[1].split('/')[0])
 }
+
+// load All Courses in Db 
+
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/loadAllCourses.php',
+        type:'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+
+            for(let i = 0 ;i < data.length; i++){
+                containerDiv.innerHTML += `<div class="card-of-course">
+                <div class="header">
+                    ${data[i]["CourseName"]}
+                </div>
+                <div class="body-card">
+                    <div class="description">
+                        <h5>you'll learn how to:</h5>
+                        <ul>
+                            <li>${data[i]["Description"].split('-')[0]}</li>
+                            <li>${data[i]["Description"].split('-')[1]}</li>
+                            <li>${data[i]["Description"].split('-')[2]}</li>
+                        </ul>
+                    </div>
+                    <div class="footer" id="firstfooter">
+                        <button class="apply-btn" id='${data[i]['CourseID']}'><a id="firstCardButtonlink" href="../../CourseDetails/html/course_info.html"
+                                class="hrefHelper">Edit</a></button>
+                        <p>credits: ${data[i]["Credits"]}</p>
+                    </div>
+                </div>
+            </div> `
+            }
+            cardDiv = document.getElementsByClassName("card-of-course");
+            refreshRemovingCourse()
+        }
+    })
+})

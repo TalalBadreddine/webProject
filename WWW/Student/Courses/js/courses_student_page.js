@@ -30,7 +30,7 @@ function getRating(){
     return 0
 }
 
-const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const daysOfTheWeek = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 function showDiv(p1,message){
     var elementToShow = document.getElementById(p1)
@@ -57,7 +57,7 @@ function test(){
 }
 
 const time = new Date()
-let today = daysOfTheWeek[time.getDay() - 1].toLowerCase()
+let today = (daysOfTheWeek[time.getDay()]).toLowerCase()
 
 
 var arrToDisplay = []
@@ -113,37 +113,37 @@ function removeFromTable(id){
         }
     })
     
-    $.ajax({
-        url:'../php/loadDailySchedual.php',
-        type:'POST',
-        async: false,
-        cache: false,
-        timeout: 30000,
-        success: function(response){
-            console.log
-            let data = JSON.parse(response)
-            currentCoursesArray = data
-            resetDailySchedual()
-            displayArrayInTable(data)
-            addToSecondTable(data)
-        }
-    })
+    // $.ajax({
+    //     url:'../php/loadDailySchedual.php',
+    //     type:'POST',
+    //     async: false,
+    //     cache: false,
+    //     timeout: 30000,
+    //     success: function(response){
+    //         console.log
+    //         let data = JSON.parse(response)
+    //         currentCoursesArray = data
+    //         resetDailySchedual()
+    //         displayArrayInTable(data)
+    //         addToSecondTable(data)
+    //     }
+    // })
 
 
-    $.ajax({
-        url:'../php/loadAllMajors.php',
-        type:'POST',
-        success: function(response){
-            resetCoursesList()
-            let data = JSON.parse(response)
-            arrayOfFilteredCourses = (filterArray(data))
+    // $.ajax({
+    //     url:'../php/loadAllMajors.php',
+    //     type:'POST',
+    //     success: function(response){
+    //         resetCoursesList()
+    //         let data = JSON.parse(response)
+    //         arrayOfFilteredCourses = (filterArray(data))
 
-            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
-                addToCourses(arrayOfFilteredCourses[i])
-            }
+    //         for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+    //             addToCourses(arrayOfFilteredCourses[i])
+    //         }
 
-        }
-    })
+    //     }
+    // })
 }
 // areYouDropping(${arr[i][0]})
 

@@ -72,7 +72,7 @@ function getCurrentCourseSettings(p1){
               `
             
         
-
+              count++;
         filesUlDiv = document.getElementById("files")
         fileDivs = document.getElementsByClassName("filesRow")
         for (let i = 0; i < fileDivs.length; i++) {
@@ -88,7 +88,7 @@ function getCurrentCourseSettings(p1){
            fileDivs[i].addEventListener('dblclick', function() {
             showingDeleteBtn(fileDivs[i].id)
           });}
-          count++;
+         
 }
 
 filesUlDiv.innerHTML = filesHtml
@@ -159,12 +159,14 @@ const addCourseBtn = document.getElementById("addCourse")
 
 const addingToTableBtn = document.getElementById("submitAddition")
 
-addCourseBtn.addEventListener('click', uploadClicked)
+addCourseBtn.addEventListener('click', function(){
+  files.click()
+})
 
+files.addEventListener('change', uploadFiles)
 addingToTableBtn.addEventListener('click', addFilesToTable)
 
 var allFiles = []
-var form_data = new FormData()
 var numberOfFile = 0;
 
 var filesIcons={
@@ -173,16 +175,44 @@ var filesIcons={
   'mp4':'fas fa-video',
 }
 
-function uploadClicked(){
+function uploadFiles(){
+  if(files.value != " "){
+    let fileArr = files.value.split("\\")
+    let fileName = fileArr[fileArr.length - 1];
 
-    files.click()
-    if(files.value != " "){
-      form_data.append(numberOfFile,$('#FileUpload1').prop('files')[0])
-      allFiles.push(files.value)
-      numberOfFile++;
+    filesUlDiv.innerHTML  +=  `<div class ='filesRow ${count}' id = 'row ${count}'> <li class='fileItems item list-group-item' id='filesItem1'  data-long-press-delay='500'><a href='#'></a><i class='pdfIcon fas fa-file-alt'></i><span class='fileName'>${fileName}</span><span class='deleteBtnSpan ${count}'><button class='deleteBtn' onclick='deleteMe(${count})' >delete</button></span><span class='date'>${date.getDate()} ${monthNames[date.getMonth()]}</span></li></div>`
+    
+    let form_data = new FormData()
+
+    form_data.append(numberOfFile,$('#FileUpload1').prop('files')[0])
+
+    $.ajax({
+      url:'../php/addFile.php',
+      type:'POST',
+      dataType: 'text', 
+      contentType: false,
+      processData: false,
+      data: form_data,
+      success:function(response){
+        alert(response)
+      }
+    })
+    
+    count++
+    let refreshClassElement = document.getElementsByClassName("filesRow")
+
+    for (let i = 0; i < refreshClassElement.length; i++) {
+
+      if(typeof(refreshClassElement[i]) != "undefined"){
+        refreshClassElement[i].addEventListener('dblclick', function() {
+          showingDeleteBtn(refreshClassElement[i].id)
+        });
+      }
     }
-
+    
+ }
 }
+
 
 var date = new Date();
 const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -198,17 +228,7 @@ function addFilesToTable(){
 
         filesUlDiv.innerHTML  +=  `<div class ='filesRow ${count}' id = 'row ${count}'> <li class='fileItems item list-group-item' id='filesItem1'  data-long-press-delay='500'><a href='#'></a><i class='pdfIcon fas fa-file-alt'></i><span class='fileName'>${fileName}</span><span class='deleteBtnSpan ${count}'><button class='deleteBtn' onclick='deleteMe(${count})' >delete</button></span><span class='date'>${date.getDate()} ${monthNames[date.getMonth()]}</span></li></div>`
 
-        $.ajax({
-          url:'../php/addFile.php',
-          type:'POST',
-          dataType: 'text', 
-          contentType: false,
-          processData: false,
-          data: form_data,
-          success:function(response){
-            alert(response)
-          }
-        })
+
     }
 
     let refreshClassElement = document.getElementsByClassName("filesRow")
@@ -226,12 +246,13 @@ function addFilesToTable(){
 
 function deleteMe(p1){
   let divToDeleteName = `row ${p1}`
-
+  console.log(p1)
+  console.log(countAndfileLocation[parseInt(p1)+1])
   $.ajax({
     url:'../php/deleteFile.php',
     type:'POST',
     data:{
-      path:countAndfileLocation[p1]
+      path:countAndfileLocation[parseInt(p1)+1]
     },
     success:function(response){
       document.getElementById(divToDeleteName).style.display = "none"

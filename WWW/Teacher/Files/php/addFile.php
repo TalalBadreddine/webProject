@@ -2,18 +2,12 @@
 
 session_start();
 
-echo $_SESSION['currentCourseFileID'];
-// for($x = 0 ; $x < count($courses); $x++ ){
+$currenCourseFileId =  $_SESSION['currentCourseFileID'];
 
-//     if($courses[$x]['CourseName'] == $currentCourseName){
-//         $currentCourseData = $courses[$x];
-//         $path = '../../../../../../webProjectFiles/Courses/'.$currentCourseData["CourseID"];
-//         // $files = scandir($path);
-//         $files = array_diff(scandir($path), array('.', '..','.DS_Store'));
+foreach( $_FILES as $file ){
+    $fileName = $file['name'];
+    move_uploaded_file($file['tmp_name'], '../../../../../../webProjectFiles/Courses/'.$currenCourseFileId.'/'.$fileName);
+    chmod('../../../../../../webProjectFiles/Courses/'.$currenCourseFileId.'/'.$fileName, 077);
 
-//         echo json_encode($files);
-//         break;
-//     }
-// }
-
+}
 ?>

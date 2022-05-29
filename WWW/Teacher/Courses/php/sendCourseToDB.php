@@ -2,7 +2,6 @@
 
 require '../../../extension/makeConnection.php';
 session_start();
-var_dump($_SESSION);
 
 
 $CourseName = $_POST['CourseName'];
@@ -63,7 +62,12 @@ if ($conn->query($sql) === TRUE) {
       $sql = "INSERT INTO `ManageMajorAndCourses`(`MajorId`, `CourseId`) VALUES ('$majorId','$last_id') ";
 
       if($conn->query($sql) == TRUE){
-        echo "success";
+
+        if (!file_exists('../../../../../../webProjectFiles/Courses/'.$last_id.'/')) {
+          mkdir('../../../../../../webProjectFiles/Courses/'.$last_id.'/', 0777, true);
+      }
+
+        echo json_encode($CourseName);
       }
 
     }

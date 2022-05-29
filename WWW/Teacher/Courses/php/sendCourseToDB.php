@@ -59,7 +59,13 @@ if ($conn->query($sql) === TRUE) {
     $sql = "INSERT INTO `ManageTeachersAndCourses`(`TeacherId`, `CourseId`) VALUES ('$teacherID','$last_id')";
 
     if($conn->query($sql) == TRUE){
-      echo "success";
+     
+      $sql = "INSERT INTO `ManageMajorAndCourses`(`MajorId`, `CourseId`) VALUES ('$majorId','$last_id') ";
+
+      if($conn->query($sql) == TRUE){
+        echo "success";
+      }
+
     }
 
   } else {

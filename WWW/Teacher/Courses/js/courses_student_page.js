@@ -335,21 +335,30 @@ function remove() {
 function refreshRemovingCourse(){
     for (let j = 0; j < EditButtons.length; j++) {
         EditButtons[j].addEventListener("click", function () {
-            if (currentBool){
 
+            $.ajax({
+                url:'../php/sendCurrentCourse.php',
+                type:'POST',
+                data:{
+                    courseId:EditButtons[j].id
+                },
+                success:function(test){
+                }
+            })
+
+            if (currentBool){
                 $.ajax({
-                    url:'../php/sendCurrentCourse.php',
+                    url:'../php/deleteCurrentCourse.php',
                     type:'POST',
-                    data:{
-                        courseId:EditButtons[j].id
-                    },
-                    success:function(test){
-                        console.log(JSON.parse(test))
+                    success:function(response){
+                        console.log(response)
                     }
                 })
-
+                
                 cardDiv[j].style.display = 'none';
 
+            }else{
+                window.location.href = '../../CourseDetails/html/course_info.html'
             }
 
         })

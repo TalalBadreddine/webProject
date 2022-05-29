@@ -75,8 +75,6 @@ function getCurrentCourseSettings(p1){
 
         filesUlDiv = document.getElementById("files")
         fileDivs = document.getElementsByClassName("filesRow")
-        filesUlDiv.innerHTML = filesHtml
-
         for (let i = 0; i < fileDivs.length; i++) {
 
           let currentPath = `${fromCourseNameToId[CourseName.innerHTML]}/${fileDivs[i].className.split(',')[1].trim()}`
@@ -92,7 +90,26 @@ function getCurrentCourseSettings(p1){
           });}
           count++;
 }
+
+filesUlDiv.innerHTML = filesHtml
+filesUlDiv = document.getElementById("files")
+fileDivs = document.getElementsByClassName("filesRow")
+for (let i = 0; i < fileDivs.length; i++) {
+
+  let currentPath = `${fromCourseNameToId[CourseName.innerHTML]}/${fileDivs[i].className.split(',')[1].trim()}`
+  countAndfileLocation[count] = currentPath
+
+  fileDivs[i].addEventListener('contextmenu',function(){
+    window.open(`../../../../../../webProjectFiles/Courses/${currentPath}`)
+  })
+
+  // show the button
+   fileDivs[i].addEventListener('dblclick', function() {
+    showingDeleteBtn(fileDivs[i].id)
+  });}
+
 }})
+
 }
 
 // Now its a double click
@@ -147,6 +164,8 @@ addCourseBtn.addEventListener('click', uploadClicked)
 addingToTableBtn.addEventListener('click', addFilesToTable)
 
 var allFiles = []
+var form_data = new FormData()
+var numberOfFile = 0;
 
 var filesIcons={
   'png':'fas fa-image',
@@ -158,8 +177,9 @@ function uploadClicked(){
 
     files.click()
     if(files.value != " "){
+      form_data.append(numberOfFile,$('#FileUpload1').prop('files')[0])
       allFiles.push(files.value)
-      console.log(allFiles)
+      numberOfFile++;
     }
 
 }
@@ -168,16 +188,27 @@ var date = new Date();
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
-var startNumber = 1;
 function addFilesToTable(){
     allFiles.push(files.value)
 
     for(let i = 1 ; i < allFiles.length ; i++){
+       count++;
         let fileArr = allFiles[i].split("\\")
         let fileName = fileArr[fileArr.length - 1];
 
-        filesUlDiv.innerHTML  +=  `<div class ='filesRow ${startNumber+3}' id = 'row ${startNumber+3}'> <li class='fileItems item list-group-item' id='filesItem1'  data-long-press-delay='500'><a href='#'></a><i class='pdfIcon fas fa-file-alt'></i><span class='fileName'>${fileName}</span><span class='deleteBtnSpan ${startNumber + 3}'><button class='deleteBtn' onclick='deleteMe(${startNumber+3})' >delete</button></span><span class='date'>${date.getDate()} ${monthNames[date.getMonth()]}</span></li></div>`
-        startNumber++
+        filesUlDiv.innerHTML  +=  `<div class ='filesRow ${count}' id = 'row ${count}'> <li class='fileItems item list-group-item' id='filesItem1'  data-long-press-delay='500'><a href='#'></a><i class='pdfIcon fas fa-file-alt'></i><span class='fileName'>${fileName}</span><span class='deleteBtnSpan ${count}'><button class='deleteBtn' onclick='deleteMe(${count})' >delete</button></span><span class='date'>${date.getDate()} ${monthNames[date.getMonth()]}</span></li></div>`
+
+        $.ajax({
+          url:'../php/addFile.php',
+          type:'POST',
+          dataType: 'text', 
+          contentType: false,
+          processData: false,
+          data: form_data,
+          success:function(response){
+            alert(response)
+          }
+        })
     }
 
     let refreshClassElement = document.getElementsByClassName("filesRow")

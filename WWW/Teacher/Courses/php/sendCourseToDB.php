@@ -63,8 +63,8 @@ if ($conn->query($sql) === TRUE) {
 
       if($conn->query($sql) == TRUE){
 
-          // for($x = 0 ; $x < $NumberOfExams ; $x++){
-          //   $sql = "INSERT INTO `Exam`(`ExamName`) VALUES ([value-1],[value-2])"
+          // for($x = 1 ; $x < $NumberOfExams + 1 ; $x++){
+          //   $sql = "INSERT INTO `Exam`(`ExamName`) VALUES ([value-1],[value-2])";
           // }
 
         if (!file_exists('../../../../../../webProjectFiles/Courses/'.$last_id.'/')) {

@@ -1,6 +1,8 @@
 const scroller = document.getElementById("scroller")
 const titleFolder = document.getElementById("titleFolder")
 const filesContainer = document.getElementById("filesContainer")
+const gradesTable = document.getElementById("gradesTable")
+const average = document.getElementById("average")
 
 var count = 0;
 
@@ -81,8 +83,49 @@ function changBackGround(p1){
             window.open(`../../../../../../webProjectFiles/Courses/${currentCourse[0]}/${data[currentId]}`)
             })
         }
-    }
+        
+    }}),
+
+    $.ajax({
+        url:'../php/loadAllGrades.php',
+        type:'POST',
+        data:{
+            courseId:currentCourse[0]
+        },
+        success:function(response){
+            let data = JSON.parse(response)
+            gradesTable.innerHTML = " "
+            let sum = 0
+            let nbOfExams = 0
+            for(let i = 0; i < data.length ; i++){
+
+                if(data[i] != 'not found'){
+                    sum += parseInt(data[i])
+                    nbOfExams++;
+                }
+
+                gradesTable.innerHTML += `
+                <tr>
+                <td class="examName">Exam${i+1}:</td>
+                <td>${data[i]} / 100</td>
+              </tr>
+                `
+            }
+            
+            if(!isNaN(sum/nbOfExams)){
+
+                average.innerHTML = `${sum/nbOfExams}/100`
+
+            }else{
+
+                average.innerHTML = "No Grades Yet"
+            }
+            
+
+        }
     })
+
+
 
 }
 

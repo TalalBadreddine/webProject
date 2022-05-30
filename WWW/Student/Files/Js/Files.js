@@ -113,8 +113,8 @@ function changBackGround(p1){
             }
             
             if(!isNaN(sum/nbOfExams)){
-
-                average.innerHTML = `${sum/nbOfExams}/100`
+                let grades = Math.round(sum/nbOfExams * 10) / 10
+                average.innerHTML = `${grades}/100`
 
             }else{
 

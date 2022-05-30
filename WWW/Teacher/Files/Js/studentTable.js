@@ -4,58 +4,59 @@ let selectAllCheckbox;
 let averageContainer;
 let passingGrade = 50;
 let students = [
-  {
-      "name": "Puckett Reed",
-      "grade": "10.32"
-    },
-    {
-      "name": "Hodges Hebert",
-      "grade": "13.55"
-    },
-    {
-      "name": "Sexton Sparks",
-      "grade": "56.72"
-    },
-    {
-      "name": "Roxie Hubbard",
-      "grade": "9.29"
-    },
-    {
-      "name": "Millie Olson",
-      "grade": "93.79"
-    },
-    {
-      "name": "Roberts Wooten",
-      "grade": "10.17"
-    },
-    {
-      "name": "Ortega Frazier",
-      "grade": "84.66"
-    },
-    {
-      "name": "Tammi Mooney",
-      "grade": "78.8"
-    },
-    {
-      "name": "Mabel Macias",
-      "grade": "46.04"
-    },
-    {
-      "name": "Mariana Hanson",
-      "grade": "84.05"
-    },
-    {
-      "name": "Keller Roberson",
-      "grade": "92.3"
-    },
-    {
-      "name": "Medina Mercado",
-      "grade": "38.97"
-    }
+  // {
+  //     "name": "Puckett Reed",
+  //     "grade": "10.32"
+  //   },
+  //   {
+  //     "name": "Hodges Hebert",
+  //     "grade": "13.55"
+  //   },
+  //   {
+  //     "name": "Sexton Sparks",
+  //     "grade": "56.72"
+  //   },
+  //   {
+  //     "name": "Roxie Hubbard",
+  //     "grade": "9.29"
+  //   },
+  //   {
+  //     "name": "Millie Olson",
+  //     "grade": "93.79"
+  //   },
+  //   {
+  //     "name": "Roberts Wooten",
+  //     "grade": "10.17"
+  //   },
+  //   {
+  //     "name": "Ortega Frazier",
+  //     "grade": "84.66"
+  //   },
+  //   {
+  //     "name": "Tammi Mooney",
+  //     "grade": "78.8"
+  //   },
+  //   {
+  //     "name": "Mabel Macias",
+  //     "grade": "46.04"
+  //   },
+  //   {
+  //     "name": "Mariana Hanson",
+  //     "grade": "84.05"
+  //   },
+  //   {
+  //     "name": "Keller Roberson",
+  //     "grade": "92.3"
+  //   },
+  //   {
+  //     "name": "Medina Mercado",
+  //     "grade": "38.97"
+  //   }
 ];
 
 document.getElementById('exitBtn').addEventListener('click', function(){
-  history.back()
+  setGrades()
+  window.location.href = '../Html/Files.html';
 })
 
 const validators = [
@@ -78,17 +79,18 @@ const validators = [
     return true;
   }
 ]
-
+var currentClassToADD =''
 function addRow(student) {
   tbody.append(studentRowTemplate(student));
 }
 
 function studentRowTemplate(student) {
   const gradeClass = (parseFloat(student.grade) > passingGrade) ? 'grade-pass' : 'grade-fail';
+  currentClassToADD = ` gradeValue ,${student.studentId}`
   return `<tr>
-      <td class="checkbox-col"><input class="form-control row-checkbox" type="checkbox" /></td>
+      <td class="checkbox"><input class="form-check-input row-checkbox" type="checkbox" /></td>
       <td class="name-col"><span class="editable" data-field="name">${student.name}</span></td>
-      <td class="grade-col ${gradeClass}"><span class="editable" data-field="grade">${student.grade}</span></td>
+      <td class="grade-col ${gradeClass}"><span class="editable gradeValue ,${student.studentId}" data-field="grade">${student.grade}</span></td>
       <td class="options-col"><i class="fas fa-minus-circle delete-row-btn"></i></td>
     </tr>`;
 }
@@ -204,7 +206,7 @@ $(function() {
     const newInput = $(`<input type="${inputType}" id="editable-input" class="form-control" value="${student[field]}" />`);
     
     const generateSpan = function(data) {
-      return `<span class="editable" data-field="${field}">${data}</span>`
+      return `<span class="editable${currentClassToADD}" data-field="${field}">${data}</span>`
     }
 
     const td = $(this).parent();
@@ -316,3 +318,54 @@ $(function() {
     checkRowSelectedStatus();
   });
 });
+
+// Load DB Name of Students 
+
+$(document).ready(function(){
+  $.ajax({
+    url:'../php/loadAllStudentsGrades.php',
+    type:'POST',
+    success:function(response){
+      let data = JSON.parse(response)
+      console.log(data)
+      for(let i = 0 ;i < data.length; i++){
+        let currentGrader = data[i][1];
+        if(currentGrader == null){
+          currentGrader = 5
+        }
+
+        let currentStudent = {
+          "name":data[i][0],
+          "grade":data[i][1],
+          "studentId":data[i][2]
+        }
+
+        addStudent(currentStudent)
+      }
+    }
+  })
+})
+
+function setGrades(){
+  let allGrades = document.getElementsByClassName('gradeValue')
+ 
+
+  for(let i = 0 ; i < allGrades.length; i++){
+    let studentId = allGrades[i].className.split(',')[1]
+    let grade = allGrades[i].innerHTML
+      $.ajax({
+        url:'../php/changeStudentGrade.php',
+        type:'POST',
+        async:false,
+        data:{
+
+          studentId:studentId,
+          gradeValue:grade
+
+        },success:function(response){
+        }
+      })
+
+
+  }
+}

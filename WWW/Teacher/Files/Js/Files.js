@@ -1,5 +1,6 @@
 const scroller = document.getElementById("scroller")
 const CourseName = document.getElementById("CourseName")
+const gradesTable = document.getElementById("gradesTable")
 
 
 function move(p1, p2){
@@ -16,9 +17,10 @@ var count = 0 ;
 
 var countAndfileLocation = {};
 
-document.getElementById('examsCheat').addEventListener('click', function(){
-  window.location.href = ("../Html/studentTable.html")
-})
+// document.getElementById('examsCheat').addEventListener('click', function(){
+// })
+
+// numberOfExamsForCourse
 
 function getCurrentCourseSettings(p1){
     var element = document.getElementById(p1)
@@ -34,6 +36,36 @@ function getCurrentCourseSettings(p1){
     }
 
     element.style.fontWeight = "bolder"
+    let numberOfExams = numberOfExamsForCourse[element.innerHTML]
+    console.log(gradesTable)
+
+    gradesTable.innerHTML= ""
+    
+    for(let i = 0 ; i < numberOfExams ; i++){
+      gradesTable.innerHTML += `<tr><td class="examName ${i+1}">Exam${i+1}:</td></tr>`
+
+    }
+
+    let exams = document.getElementsByClassName("examName")
+    for(let i = 0 ; i < exams.length ; i++){
+      exams[i].addEventListener('click',function(){
+        $.ajax({
+          url:"../php/currentExamData.php",
+          type:'POST',
+          data:{
+            currentExamData:{
+              courseName:element.innerHTML,
+              currentExam: i+1,
+            }
+          },success:function(response){
+          }
+        })
+        window.location.href = ("../Html/studentTable.html")
+      })
+    }
+
+
+
 
     var scrollerPos = scroller
     var valueOfScroll = element.offsetLeft
@@ -262,6 +294,7 @@ function deleteMe(p1){
 }
 
 // load All Courses From DB 
+var numberOfExamsForCourse = {}
 var fromCourseNameToId = {}
 
 $(document).ready(function(){
@@ -271,8 +304,10 @@ $(document).ready(function(){
     success:function(response){
 
       let allCourses = JSON.parse(response)
+
     
       for(let i= 0 ; i < allCourses.length ; i++){
+        numberOfExamsForCourse[allCourses[i]["CourseName"]] = allCourses[i]['NumberOfExams']
         fromCourseNameToId[allCourses[i]["CourseName"]] = allCourses[i]["CourseID"]
         addToScroller(allCourses[i])
       }

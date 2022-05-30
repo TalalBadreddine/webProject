@@ -3,6 +3,8 @@ session_start();
 
 $courses = $_SESSION['teacherCourses'];
 $currentCourseName = $_POST['courseName'];
+$_SESSION['currentCourseFile'] = $currentCourseName;
+
 
 for($x = 0 ; $x < count($courses); $x++ ){
 

@@ -63,6 +63,10 @@ if ($conn->query($sql) === TRUE) {
 
       if($conn->query($sql) == TRUE){
 
+          // for($x = 0 ; $x < $NumberOfExams ; $x++){
+          //   $sql = "INSERT INTO `Exam`(`ExamName`) VALUES ([value-1],[value-2])"
+          // }
+
         if (!file_exists('../../../../../../webProjectFiles/Courses/'.$last_id.'/')) {
           mkdir('../../../../../../webProjectFiles/Courses/'.$last_id.'/', 0777, true);
       }

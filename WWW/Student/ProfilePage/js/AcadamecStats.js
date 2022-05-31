@@ -5,6 +5,7 @@ function changeChartType(){
     change(chartType.value)
 }
 
+let myChart = new Chart(ctx, config )
 
 var config = {
     type: 'line',
@@ -52,7 +53,76 @@ var config = {
         
       }
 }
-let myChart = new Chart(ctx, config )
+
+// 
+
+$(document).ready(function(){
+  $.ajax({
+    url:'../php/loadGradesAverage.php',
+    type:'POST',
+    success:function(response){
+      
+      let data = JSON.parse(response)
+      console.log(data) 
+      go(data)     
+      myChart.destroy();
+      myChart = new Chart(ctx, config )
+    }
+  })
+})
+
+
+function go(arr){
+
+  config = {
+    type: 'line',
+    data:{
+        labels: ['Jan','Feb','March', 'April', 'May', 'Jun'],
+        datasets: [{
+          label: 'My Grades Average',
+          data: [arr[0] * 0.9, arr[0]*1.03, arr[0]*0.95, arr[0], arr[0]*0.8, arr[0]],
+          fill: true,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+          ]
+          
+        },{
+            label: "Average Students Grades",
+            data: [arr[1] * 1.05, arr[1], arr[1]*1.1, arr[1]*0.9, arr[1]*1.2, arr[1]],
+            fill: true,
+            backgroundColor: [
+                'rgba(232, 244, 255, 0.7)',
+              ],
+              borderColor: [
+                "#80BFFC"
+              ]
+          }],
+          options: {
+            responsive: true,
+          }
+        
+      }
+}
+
+}
+
 
 
 function change(newType) {
@@ -152,3 +222,4 @@ window.onload = function () {
   }
   
   }
+

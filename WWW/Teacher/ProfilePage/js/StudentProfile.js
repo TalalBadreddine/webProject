@@ -172,3 +172,18 @@ function show(className){
        
     }
 }
+
+// Profile
+
+$(document).ready(function(){
+    $.ajax({
+      url:'../php/manageProfilePhoto.php',
+      type:'POST',
+      success:function(response){
+        let path = `../../../../../../webProjectFiles/Teacher/${response}/personalPhoto.png`
+
+        document.getElementById('bigPP').innerHTML = `<img src=${path} width='52px' height='50px' style="border-radius:50%">`
+        document.getElementById('smallPP').innerHTML = `<img src=${path} width='152px' height='146px' style="border-radius:50%" alt="user image" class="userImg">`
+      }
+  })
+})

@@ -52,7 +52,7 @@
 
         </ul>
         <ul class="navbar-nav ms-auto">
-          <a class="nav-link" href="../../ProfilePage/html/courses.html"><span class="element"><i class="fas fa-user-circle fa-2x"></i></span></a>
+          <a class="nav-link" href="../../ProfilePage/html/courses.html" id="personalPhoto"></a>
         </ul>
       </div>
     </nav>
@@ -65,7 +65,7 @@
             class="fa-solid fa-circle-arrow-left"></i></button>
 
         <div class="scroller" id="scroller">
-          <span class="scrollerElement" id="scrollerElement1" onclick="changBackGround('scrollerElement1')">M2250</span>
+          <!-- <span class="scrollerElement" id="scrollerElement1" onclick="changBackGround('scrollerElement1')">M2250</span>
           <span class="scrollerElement" id="scrollerElement2" onclick="changBackGround('scrollerElement2')">M2251</span>
           <span class="scrollerElement" id="scrollerElement3" onclick="changBackGround('scrollerElement3')">M2252</span>
           <span class="scrollerElement" id="scrollerElement4" onclick="changBackGround('scrollerElement4')">M2253</span>
@@ -75,7 +75,7 @@
           <span class="scrollerElement" id="scrollerElement8" onclick="changBackGround('scrollerElement8')">M2257</span>
           <span class="scrollerElement" id="scrollerElement9" onclick="changBackGround('scrollerElement9')">M2258</span>
           <span class="scrollerElement" id="scrollerElement10"
-            onclick="changBackGround('scrollerElement10')">M2259</span>
+            onclick="changBackGround('scrollerElement10')">M2259</span> -->
         </div>
         <button onclick="move('scroller', 'right')"><i class="fa-solid fa-circle-arrow-right"></i></button>
 
@@ -89,8 +89,8 @@
     <div class="underTheScroller">
       <div class="filesInfo" style="display: flex;">
         <div class="testing col-lg-4">
-          <p class="filesPath"> Documents > General > <span style="">Algebra I</span></p>
-          <h2>Algebra I</h2>
+          <p class="filesPath"> Documents > General > <span></span></p>
+          <h2 id="CourseName"></h2>
           <hr>
           <div style="display: flex;">
             <div class="coursesContact mt-lg-3">
@@ -114,7 +114,7 @@
             <button style="background-color: white;border: none;"> <i class="fa-solid fa-circle-plus fa-2x"
               style="color: green;" id="addCourse"></i></button>
               <input type="file" id="FileUpload1" style="display: none" />
-      <button style="background-color: white;border: none;"><i class="fa-solid fa-flag-checkered fa-2x"
+      <button style="background-color: white;border: none; display: none;"><i class="fa-solid fa-flag-checkered fa-2x"
               style="color: green;" id="submitAddition"></i></button>
           </div>
 
@@ -126,22 +126,6 @@
           <hr style="margin-top: 0px;">
           <div class="">
             <ul class="files list-group ms-sm-0" id="files">
-
-              <div class="filesRow 1" id="row 1">
-                <li class="fileItems item list-group-item" id="filesItem1" data-long-press-delay="500"><a href="#"></a><i class="pdfIcon fas fa-file-alt"></i><span class="fileName">file1.pdf</span><span class="deleteBtnSpan 1"><button class= "deleteBtn" onclick="deleteMe('1')">delete</button></span><span
-                    class="date">5 Feb</span></li>
-              </div>
-
-              <div class="filesRow 2" id="row 2">
-                <li class="fileItems item list-group-item" id="filesItem2"><a href="#"></a><i class="pdfIcon fas fa-file-alt"></i><span class="fileName">file2.pdf</span><span class="deleteBtnSpan 2"><button class= "deleteBtn" onclick="deleteMe('2')">delete</button></span><span
-                    class="date">5 Feb</span></li>
-              </div>
-
-              <div class="filesRow 3" id="row 3">
-                <li class="fileItems item list-group-item" id="filesItem3"><a href="#"></a><i class="pdfIcon fas fa-file-alt"></i><span class="fileName">file3.pdf</span><span class="deleteBtnSpan 3"><button class= "deleteBtn" onclick="deleteMe('3')">delete</button></span><span
-                    class="date">5 Feb</span></li>
-              </div>
-
             </ul>
           </div>
         </div>
@@ -155,24 +139,7 @@
           <p class="examsHead">Exams</p>
           <div class="examsGrades">
 
-            <table class="gradesTable">
-              <tr>
-                <td class="examName" id="examsCheat">Exam1:</td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td class="examName 2">Exam2:</td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td class="examName 3">Midterm:</td>
-                <td>30%</td>
-              </tr>
-              <tr>
-                <td class="examName 4">Final:</td>
-                <td>40%</td>
-              </tr>
-
+            <table class="gradesTable" id="gradesTable">
             </table>
 
           </div>
@@ -195,14 +162,14 @@
           </div>
         </div>
         <div class="averageGrades">
-          <p>Average Grade : 77/100</p>
+          <p>Average Grade : <span id="averageGrades"></span></p>
         </div>
       </div>
     </div>
 
   </div>
 
-
+  <script src="../../../../Resorces/Jquery/jquery.js"></script>
   <script src="../Js/Files.js"></script>
 </body>
 

@@ -305,7 +305,9 @@ button{
 .card-of-course{
     display: block;
     max-width: 26%;
-    max-height: 20rem;
+    min-width: 26%;
+    max-height: 22rem;
+    min-height: 22rem;
     background-color: white;
     box-shadow: 0 5px 25px rgba(1, 1, 1, 15%);
     border-radius: 15px;
@@ -328,7 +330,7 @@ button{
 }
 
 .body-card{
-    padding: 2rem;
+    padding: 1rem 2rem;
 }
 
 .body-card li{
@@ -336,7 +338,9 @@ button{
 }
 
 .description{
-    margin-bottom: 1rem;
+    max-height: 160px;
+    min-height: 160px;
+    margin-bottom: .5rem;
 }
 
 .footer{

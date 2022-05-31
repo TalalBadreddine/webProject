@@ -28,20 +28,6 @@ for($x = 0 ; $x < count($arrayOfCoursesId); $x++){
 
           array_push($arrayOfCourses,$row);
 
-          // // Getting Teacher assosiated this course
-          // $courseID = $row[0];
-          // $teacherSql = "SELECT * FROM `ManageTeachersAndCourses` WHERE `CourseId` = '$courseID' ";
-          // $teacherSqlResponse = $conn->query($teacherSql);
-          // $teacherID = ($teacherSqlResponse->fetch_row())[0];
-          
-
-          // // Getting teacher Data 
-          // $sqlForTeacherData = "SELECT * FROM `Teacher` WHERE `TeacherID` = '$teacherID' ";
-          // $teacherDataSqlResponse = $conn->query($sqlForTeacherData);
-          // $teacherData = ($teacherDataSqlResponse->fetch_row());
-          // $currentCourse['teacherData'] = $teacherData;
-
-          // array_push($arrayOfCourses, $currentArray);
         }
         $result -> free_result();
     }

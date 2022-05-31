@@ -30,7 +30,7 @@ function getRating(){
     return 0
 }
 
-const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const daysOfTheWeek = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 function showDiv(p1,message){
     var elementToShow = document.getElementById(p1)
@@ -57,7 +57,7 @@ function test(){
 }
 
 const time = new Date()
-let today = daysOfTheWeek[time.getDay() - 1].toLowerCase()
+let today = (daysOfTheWeek[time.getDay()]).toLowerCase()
 
 
 var arrToDisplay = []
@@ -100,6 +100,7 @@ function removeFromTable(id){
     $.ajax({
         url:'../php/dropCourse.php',
         type:'POST',
+        async:false,
         data:{
             courseId: courseId
         },
@@ -112,7 +113,6 @@ function removeFromTable(id){
             }
         }
     })
-    
     $.ajax({
         url:'../php/loadDailySchedual.php',
         type:'POST',
@@ -120,22 +120,20 @@ function removeFromTable(id){
         cache: false,
         timeout: 30000,
         success: function(response){
-            console.log
             let data = JSON.parse(response)
             currentCoursesArray = data
-            resetDailySchedual()
+            secondTableBody.innerHTML = ""
+            tableRowWithData.innerHTML = ""
             displayArrayInTable(data)
             addToSecondTable(data)
         }
-    })
-
-
+    }),
     $.ajax({
         url:'../php/loadAllMajors.php',
         type:'POST',
         success: function(response){
-            resetCoursesList()
             let data = JSON.parse(response)
+            listOfCourses.innerHTML = ""
             arrayOfFilteredCourses = (filterArray(data))
 
             for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
@@ -144,8 +142,9 @@ function removeFromTable(id){
 
         }
     })
+    
 }
-// areYouDropping(${arr[i][0]})
+
 
 function resetDailySchedual(){
     tableRowWithData.innerHTML = ""
@@ -170,7 +169,7 @@ function displayArrayInTable(arr){
 
     let coursesForToday = arr.filter(course => course[11].toLowerCase().includes(today));
     coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
-    coursesForToday.push(["Test","6/8"])
+    // coursesForToday.push(["Test","6/8"])
     coursesForToday = oraganizeAndSortArray(coursesForToday)
     arrToDisplay = coursesForToday
 
@@ -493,3 +492,14 @@ for(let x = 0 ; x < arr.length ; x++){
     })
 }
 
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/manageProfilePhoto.php',
+        type:'POST',
+        success:function(response){
+  
+            let pp = document.getElementById('personalPhoto')
+            pp.innerHTML = `<img src='../../../../../../webProjectFiles/Student/${response}/personalPhoto.png' width='52px' height='50px' style="border-radius:50%">`
+        }
+    })
+  })

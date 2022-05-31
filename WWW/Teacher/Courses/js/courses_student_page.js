@@ -231,13 +231,13 @@ function emptyFields(){
 
 }
 
-function showDiv(p1,message) {
+function showDiv(p1,arr) {
     var elementToShow = document.getElementById(p1)
-
+    let data = arr.split(',')
 
     elementToShow.style.display = "block"
     elementToShow.style.position = "fixed"
-    hiddenPopUpId.innerHTML = message
+    hiddenPopUpId.innerHTML = `<p contentEditable="true" id="hiddenPopUpValue" class="hiddenPopUpClass ,${data[0]}">${data[3]}</p>`
 
     winX = window.scrollX;
     winY = window.scrollY;
@@ -245,6 +245,30 @@ function showDiv(p1,message) {
 }
 
 function test() {
+
+    let valueOfPopUp = document.getElementById("hiddenPopUpValue")
+    let courseName = document.getElementsByClassName("hiddenPopUpClass")[0].className.split(',')[1]
+
+    $.ajax({
+        url:'../php/saveDailyNote.php',
+        type:'POST',
+        data:{
+            note: valueOfPopUp.innerHTML,
+            courseName: courseName
+        },success:function(response){
+            console.log(response)
+        }
+    }),
+    $.ajax({
+        url:'../php/loadDailyCourses.php',
+        type:'POST',
+        success:function(test){
+            tableRowWithData.innerHTML = ""
+            let data = JSON.parse(test)
+            console.log(data)
+            displayArrayInTable(data)
+        }
+    })
 
     var elementToClose = document.getElementById("hiddenPopUp")
     elementToClose.style.display = 'none'
@@ -364,7 +388,7 @@ function displayArrayInTable(arr){
     coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
     coursesForToday = oraganizeAndSortArray(coursesForToday)
     arrToDisplay = coursesForToday
-
+    
     inserIntoTable(arrToDisplay)
 
 }
@@ -414,7 +438,7 @@ function inserIntoTable(arr){
         html += `
                             
                             <td colspan="${duration/2}">
-                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp',${arr[i][13]})"
+                                <div class="card-of-schedual" onclick="showDiv('hiddenPopUp','${arr}')"
                                     style="${arrayOfStyles[i%3]}">
                                     <span><i class="${arrayOfIcons[i%4]}"></i></span>
                                     <div class="title-of-course-schedual">

@@ -100,6 +100,7 @@ function removeFromTable(id){
     $.ajax({
         url:'../php/dropCourse.php',
         type:'POST',
+        async:false,
         data:{
             courseId: courseId
         },
@@ -112,40 +113,38 @@ function removeFromTable(id){
             }
         }
     })
+    $.ajax({
+        url:'../php/loadDailySchedual.php',
+        type:'POST',
+        async: false,
+        cache: false,
+        timeout: 30000,
+        success: function(response){
+            let data = JSON.parse(response)
+            currentCoursesArray = data
+            secondTableBody.innerHTML = ""
+            tableRowWithData.innerHTML = ""
+            displayArrayInTable(data)
+            addToSecondTable(data)
+        }
+    }),
+    $.ajax({
+        url:'../php/loadAllMajors.php',
+        type:'POST',
+        success: function(response){
+            let data = JSON.parse(response)
+            listOfCourses.innerHTML = ""
+            arrayOfFilteredCourses = (filterArray(data))
+
+            for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
+                addToCourses(arrayOfFilteredCourses[i])
+            }
+
+        }
+    })
     
-    // $.ajax({
-    //     url:'../php/loadDailySchedual.php',
-    //     type:'POST',
-    //     async: false,
-    //     cache: false,
-    //     timeout: 30000,
-    //     success: function(response){
-    //         console.log
-    //         let data = JSON.parse(response)
-    //         currentCoursesArray = data
-    //         resetDailySchedual()
-    //         displayArrayInTable(data)
-    //         addToSecondTable(data)
-    //     }
-    // })
-
-
-    // $.ajax({
-    //     url:'../php/loadAllMajors.php',
-    //     type:'POST',
-    //     success: function(response){
-    //         resetCoursesList()
-    //         let data = JSON.parse(response)
-    //         arrayOfFilteredCourses = (filterArray(data))
-
-    //         for(let i = 0; i < arrayOfFilteredCourses.length ; i++){
-    //             addToCourses(arrayOfFilteredCourses[i])
-    //         }
-
-    //     }
-    // })
 }
-// areYouDropping(${arr[i][0]})
+
 
 function resetDailySchedual(){
     tableRowWithData.innerHTML = ""
@@ -170,7 +169,7 @@ function displayArrayInTable(arr){
 
     let coursesForToday = arr.filter(course => course[11].toLowerCase().includes(today));
     coursesForToday = coursesForToday.map(course => [course[1],course[11].toLowerCase(), course['teacherInfo'], course[13]])
-    coursesForToday.push(["Test","6/8"])
+    // coursesForToday.push(["Test","6/8"])
     coursesForToday = oraganizeAndSortArray(coursesForToday)
     arrToDisplay = coursesForToday
 

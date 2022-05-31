@@ -15,11 +15,19 @@ if ($conn->query($sql) === TRUE) {
 
   for($x = 1 ; $x < $nbOfExams + 1 ; $x++){
 
+    // $result = $mysqli->query("SELECT * FROM `Grades` WHERE `StudentID` =  '$studentId' AND `CourseId` = '$courseId' AND `MajorId` = '$studentMajor' ");
+
+    // if($result->num_rows == 0) {
+      
     $sql = "INSERT INTO `Grades`(`StudentID`, `CourseId`, `ExamNumber`, `MajorId`) VALUES ('$studentId','$courseId','$x','$studentMajor') ";
 
     if($conn->query($sql)){
 
     }
+
+//  } else{
+//    echo "exist";
+//  }
 
   }
     echo "success";

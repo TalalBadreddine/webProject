@@ -77,27 +77,27 @@ function validateAboutThisCourse(){
 
     // timing need join
     if(checkBoxMonday.checked){
-        let currentTiming = 'Monday:'+startTimeMonday.value+'/'+endTimeMonday.value
+        let currentTiming = 'Monday:'+startTimeMonday.value.split(':')[0] +'/' + endTimeMonday.value.split(':')[0]
         timing.push(currentTiming)
     }
 
     if(checkBoxTuesday.checked){
-        let currentTiming = 'Tuesday:'+startTimeTuesday.value+'/'+endTimeTuesday.value
+        let currentTiming = 'Tuesday:'+startTimeTuesday.value.split(':')[0] +'/' + endTimeTuesday.value.split(':')[0]
         timing.push(currentTiming)
     }
     
     if(checkBoxWednesday.checked){
-        let currentTiming = 'Wednesday:'+startTimeWednesday.value+'/'+endTimeWednesday.value
+        let currentTiming = 'Wednesday:'+startTimeWednesday.value.split(':')[0]+'/' + endTimeWednesday.value.split(':')[0]
         timing.push(currentTiming)
     }
 
     if(checkBoxThursday.checked){
-        let currentTiming = 'Thursday:'+startTimeThursday.value+'/'+endTimeThursday.value
+        let currentTiming = 'Thursday:'+startTimeThursday.value.split(':')[0]+'/'+endTimeThursday.value.split(':')[0]
         timing.push(currentTiming)
     }
 
     if(checkBoxFriday.checked){
-        let currentTiming = 'Friday:'+startTimeFriday.value+'/'+endTimeFriday.value
+        let currentTiming = 'Friday:'+startTimeFriday.value.split(':')[0]+'/'+endTimeFriday.value.split(':')[0]
         timing.push(currentTiming)
     }
     
@@ -526,6 +526,18 @@ $(document).ready(function(){
             }
             cardDiv = document.getElementsByClassName("card-of-course");
             refreshRemovingCourse()
+        }
+    })
+})
+
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/manageProfilePhoto.php',
+        type:'POST',
+        success:function(response){
+
+            let pp = document.getElementById('personalPhoto')
+            pp.innerHTML = `<img src='../../../../../../webProjectFiles/Teacher/${response}/personalPhoto.png' width='52px' height='50px' style="border-radius:50%">`
         }
     })
 })

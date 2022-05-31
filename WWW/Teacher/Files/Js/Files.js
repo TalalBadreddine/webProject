@@ -1,6 +1,7 @@
 const scroller = document.getElementById("scroller")
 const CourseName = document.getElementById("CourseName")
 const gradesTable = document.getElementById("gradesTable")
+const averageGrades =document.getElementById("averageGrades")
 
 
 function move(p1, p2){
@@ -25,19 +26,19 @@ var countAndfileLocation = {};
 function getCurrentCourseSettings(p1){
     var element = document.getElementById(p1)
     let allCourses = document.getElementsByClassName("scrollerElement")
+    
 
-    for(var i = 1; i < allCourses.length ; i++){
-        var targetId = "scrollerElement" + i
-        var elementToUnbold = document.getElementById(targetId)
+    for(var i = 0; i < allCourses.length ; i++){
+        var targetClass = "scrollerElement " + i
+        var elementToUnbold = document.getElementsByClassName(targetClass)[0]
         if(elementToUnbold != undefined){
          
           elementToUnbold.style.fontWeight = "normal";
         }
     }
-
+    
     element.style.fontWeight = "bolder"
     let numberOfExams = numberOfExamsForCourse[element.innerHTML]
-    console.log(gradesTable)
 
     gradesTable.innerHTML= ""
     
@@ -64,15 +65,13 @@ function getCurrentCourseSettings(p1){
       })
     }
 
-
-
-
     var scrollerPos = scroller
     var valueOfScroll = element.offsetLeft
 
     scrollerPos.scrollLeft = valueOfScroll - scrollerPos.clientWidth - scrollerPos.clientWidth/4 
     CourseName.innerHTML = element.innerHTML
 
+    // Files
     $.ajax({
       url:'../php/loadAllFiles.php',
       type:'POST',
@@ -141,6 +140,30 @@ for (let i = 0; i < fileDivs.length; i++) {
   });}
 
 }})
+
+    // Average
+    $.ajax({
+      url:'../php/getAverageGrades.php',
+      type:'POST',
+      success:function(response){
+        let data = JSON.parse((response))
+        
+        let sum = 0
+        let count = 0
+
+        for(let i = 0 ;i < data.length ; i++){
+
+          if(!isNaN(parseInt(data[i]))){
+            sum += parseInt(data[i])
+            count++
+          }
+
+          averageGrades.innerHTML =  count != 0 ?`${Math.round(sum/count * 10) / 10}/100` : 'No Grades Yet'
+
+        }
+
+      }
+    })
 
 }
 
@@ -315,6 +338,21 @@ $(document).ready(function(){
   })
 })
 
+var numberOfCourses = 0
+
 function addToScroller(arr){
-  scroller.innerHTML += `<span class="scrollerElement" id="scrollerElement${arr["CourseID"]}" onclick="getCurrentCourseSettings('scrollerElement${arr["CourseID"]}')">${arr["CourseName"]}</span>`
+  scroller.innerHTML += `<span class="scrollerElement ${numberOfCourses}" id="scrollerElement${arr["CourseID"]}" onclick="getCurrentCourseSettings('scrollerElement${arr["CourseID"]}')">${arr["CourseName"]}</span>`
+  numberOfCourses++;
 }
+
+$(document).ready(function(){
+  $.ajax({
+      url:'../php/manageProfilePhoto.php',
+      type:'POST',
+      success:function(response){
+
+          let pp = document.getElementById('personalPhoto')
+          pp.innerHTML = `<img src='../../../../../../webProjectFiles/Teacher/${response}/personalPhoto.png' width='52px' height='50px' style="border-radius:50%">`
+      }
+  })
+})

@@ -54,23 +54,14 @@ $(document).ready(function(){
 }})
 })
 
-// function turnIntoEvent(arr){
-//   let weeklyTiming = arr[11].split('-')
+$(document).ready(function(){
+  $.ajax({
+      url:'../php/manageProfilePhoto.php',
+      type:'POST',
+      success:function(response){
 
-//   for(let i = 0 ; i < weeklyTiming.length ; i++){
-//     let dailyTiming = weeklyTiming[i].split(':')
-//     let day = dictForWeekDays[dailyTiming[0].toLowerCase()]
-//     let startTime = dailyTiming[1].split('/')[0]
-//     let endTime = dailyTiming[1].split('/')[1]
-    
-//     let currentEvent = {
-//       title: arr[1],
-//       daysofWeek: [day],
-//       startTime: startTime+":00:00",
-//       endTime: endTime+":00:00",
-//       endRecur: "2022-07-25"
-//     }
-
-//     return(currentEvent)
-//   }
-// }
+          let pp = document.getElementById('personalPhoto')
+          pp.innerHTML = `<img src='../../../../../../webProjectFiles/Student/${response}/personalPhoto.png' width='52px' height='50px' style="border-radius:50%">`
+      }
+  })
+})

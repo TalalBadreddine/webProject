@@ -492,3 +492,15 @@ for(let x = 0 ; x < arr.length ; x++){
         filter()
     })
 }
+
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/manageProfilePhoto.php',
+        type:'POST',
+        success:function(response){
+  
+            let pp = document.getElementById('personalPhoto')
+            pp.innerHTML = `<img src='../../../../../../webProjectFiles/Student/${response}/personalPhoto.png' width='52px' height='50px' style="border-radius:50%">`
+        }
+    })
+  })

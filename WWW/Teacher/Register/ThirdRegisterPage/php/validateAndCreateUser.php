@@ -22,7 +22,7 @@ if($codeFromJs == $_SESSION['randomCode']){
     $majorId = $_SESSION['majorId'];
 
 
-    $sqlForExistance = "SELECT COUNT(*) FROM Student WHERE `FirstName` = '$fn' AND `LastName` = '$ln' AND `MiddleName` = '$mn' AND `email` = '$email' AND `MajorID` = '$majorId' ";
+    $sqlForExistance = "SELECT COUNT(*) FROM Teacher WHERE `FirstName` = '$fn' AND `LastName` = '$ln' AND `MiddleName` = '$mn' AND `email` = '$email' AND `MajorID` = '$majorId' ";
 
     $result = $conn->query($sqlForExistance);
 
@@ -33,7 +33,7 @@ if($codeFromJs == $_SESSION['randomCode']){
 
     if($row["COUNT(*)"] == 0){
         
-    $sql = "INSERT INTO `Student`
+    $sql = "INSERT INTO `Teacher`
     (`profileId`,
      `FirstName`,
      `LastName`,

@@ -21,7 +21,6 @@ if ($conn->query($sql) === TRUE) {
             $sql = "DELETE  FROM `Course` WHERE `CourseID` = '$currentCourseId'";
 
             if($conn->query($sql) == TRUE){
-
                 if (file_exists('../../../../../../webProjectFiles/Courses/'.$currentCourseId.'/')) {
                     rmdir('../../../../../../webProjectFiles/Courses/'.$currentCourseId.'/');
                 }

@@ -13,7 +13,8 @@ $arrayOfCoursesId = array();
 
 if ($result = $conn->query($sql)) {
     while ($row = $result -> fetch_row()) {
-      array_push($arrayOfCoursesId,$row[1]);
+      array_push($arrayOfCoursesId,$row[0]);
+      // var_dump($row[0]);
     }
     $result -> free_result();
 }

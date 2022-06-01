@@ -249,7 +249,6 @@ function uploadFiles(){
       processData: false,
       data: form_data,
       success:function(response){
-        alert(response)
       }
     })
     

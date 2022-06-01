@@ -18,12 +18,17 @@ $(".logOutLi").on('click', function(){
     window.location.href = '../../../Student/Sign-In/Html/sign_up.html'
 })
 
+var students
+var teachers
+var applyNum = 0
 
 const teacherHeader = document.getElementById("teacherHeader")
 const teacherRuler = document.getElementById("teacherRuler")
 
 const studentHeader = document.getElementById("studentHeader")
 const studentRuler = document.getElementById("studentRuler")
+
+const requestTable = document.getElementById("requestTable")
 
 $('#teacherHeader').on('click', function(){
     let horizontalLine = document.getElementById("teacherRuler")
@@ -39,7 +44,64 @@ $('#teacherHeader').on('click', function(){
     this.style.color = "#421453"
     this.style.fontWeight = "bolder"
 
+    show(teachers,"TeacherID")
+    addOnCLick()
+
 })
+
+function show(arr,typeID){
+    requestTable.innerHTML = `            <tr class="header">
+    <td>App Number</td>
+    <td class="name">Name</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="addmission">Addmission Date</td>
+</tr>`
+
+    for(let i = 0 ; i < arr.length ; i++){
+        let currentUser = arr[i]
+        let name = currentUser['FirstName'] + ' ' + currentUser['LastName']
+        let appNumber = parseInt(currentUser[typeID]) + applyNum + 100230
+        let applyingDate = currentUser['admissionDate']
+        console.log(appNumber)
+
+        requestTable.innerHTML += `    
+        <tr class="tableRow ${applyNum} , ${typeID} , ${currentUser[typeID]}" id="row${applyNum}">
+        <td>${appNumber}</td>
+        <td>${name}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="addmission">${applyingDate}</td>
+        </tr>
+        `
+        applyNum++
+    }
+
+
+
+}
+
+
 
 $('#studentHeader').on('click', function(){
     let horizontalLine = document.getElementById("studentRuler")
@@ -54,6 +116,8 @@ $('#studentHeader').on('click', function(){
 
     this.style.color = "#421453"
     this.style.fontWeight = "bolder"
+    show(students,"StudentID")
+    addOnCLick()
 
 })
 
@@ -79,14 +143,19 @@ document.getElementsByClassName('exitButton')[0].addEventListener('click', funct
     showDiv('hiddenDiv',false)
 })
 
-var rowsInTable = document.getElementsByClassName("tableRow")
-var lastRowClicked = [];
-for(let i = 0 ; i < rowsInTable.length ; i++){
-    rowsInTable[i].addEventListener('click', function(){
-        showDiv('hiddenDiv',true)
-        lastRowClicked.push(rowsInTable[i].id)
-    })
+function addOnCLick(){
+    var rowsInTable = document.getElementsByClassName("tableRow")
+    var lastRowClicked = [];
+    for(let i = 0 ; i < rowsInTable.length ; i++){
+        rowsInTable[i].addEventListener('click', function(){
+            let infoToAdd = rowsInTable.className
+            console.log(infoToAdd)
+            showDiv('hiddenDiv',true)
+            lastRowClicked.push(rowsInTable[i].id)
+        })
+    }
 }
+
 
 function showId(){
    document.getElementById(lastRowClicked[lastRowClicked.length - 1]).style.display = "none"
@@ -108,4 +177,20 @@ function retract(){
 
 document.getElementById('retract').addEventListener('click', function(){
     retract()
+})
+
+$(document).ready(function(){
+    $.ajax({
+        url:'../php/loadAllRequest.php',
+        type:'POST',
+        success:function(response){
+            let data = JSON.parse(response)
+
+            students = data[0]
+            teachers = data[1]
+
+            show(students,"StudentID")
+
+        }
+    })
 })

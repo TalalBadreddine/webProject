@@ -210,6 +210,7 @@ function validate(){
         $.ajax({
             url:"../php/studentInfoPart1.php",
             type: 'POST',
+            async:false,
             data:{
                 firstName: fn.value,
                 lastName: ln.value,
@@ -261,6 +262,7 @@ university.addEventListener("change", function(){
          },
          success:function(result){
             let data = JSON.parse(result)
+            program.innerHTML = `<option selected disabled value="">Choose...</option> `
             for(let i = 0 ; i < data.length; i++){
                 addMajor(data[i]);
             }

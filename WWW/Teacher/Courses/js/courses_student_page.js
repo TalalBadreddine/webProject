@@ -120,6 +120,7 @@ function validateAboutThisCourse(){
     $.ajax({
         url: '../php/sendCourseToDB.php',
         type: 'POST',
+        async:false,
         data:{
             AboutCourse: aboutThisCourse.value,
             Description: allObjectives.join('-'),
@@ -166,6 +167,7 @@ function validateAboutThisCourse(){
                 $.ajax({
                     url:'../php/sendCurrentCourse.php',
                     type:'POST',
+                    async:false,
                     data:{
                         currentCourseData :{
                             AboutCourse: aboutThisCourse.value,
@@ -188,7 +190,20 @@ function validateAboutThisCourse(){
                 })
             })
         }
+
+        $.ajax({
+            url:'../php/loadDailyCourses.php',
+            type:'POST',
+            async:false,
+            success:function(test){
+                tableRowWithData.innerHTML = ""
+                let data = JSON.parse(test)
+                displayArrayInTable(data)
+            }
+        })
+
         }
+        
     })
     test2()
 }
@@ -285,6 +300,7 @@ insertObjective.addEventListener('click',function(){
         return
     }
     listOfObjectives.innerHTML += `<li contentEditable="true">${objective.value}</li>`
+    objective.value = ""
 
 })
 
@@ -342,8 +358,19 @@ function refreshRemovingCourse(){
                 $.ajax({
                     url:'../php/deleteCurrentCourse.php',
                     type:'POST',
+                    async:false,
                     success:function(response){
                         console.log(response)
+                    }
+                }),
+                $.ajax({
+                    url:'../php/loadDailyCourses.php',
+                    type:'POST',
+                    success:function(test){
+                        tableRowWithData.innerHTML = ""
+                        let data = JSON.parse(test)
+                        console.log(data)
+                        displayArrayInTable(data)
                     }
                 })
                 
@@ -374,6 +401,7 @@ $(document).ready(function(){
     $.ajax({
         url:'../php/loadDailyCourses.php',
         type:'POST',
+        async:false,
         success:function(test){
             let data = JSON.parse(test)
             console.log(data)
@@ -500,6 +528,7 @@ $(document).ready(function(){
         url:'../php/loadAllCourses.php',
         type:'POST',
         success:function(response){
+            console.log(response)
             let data = JSON.parse(response)
 
             for(let i = 0 ;i < data.length; i++){

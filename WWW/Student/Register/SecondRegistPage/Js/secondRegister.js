@@ -23,6 +23,7 @@ $(document).ready(function(){
         url: '../php/getBranches.php',
         type: 'POST',
         success:function(response){
+            console.log(response)
             branchesArr = JSON.parse(response)
             for(let i = 0 ; i <branchesArr.length ; i++){
                 addBranch(branchesArr[i]['BranchName']);

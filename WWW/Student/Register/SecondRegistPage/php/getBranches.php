@@ -4,12 +4,12 @@ require '../../../../extension/extensions.php';
 
 session_start();
 
-if(empty($_SESSION['fn'])){
+// if(empty($_SESSION['fn'])){
     
-    http_response_code(404);
-    die();
+//     http_response_code(404);
+//     die();
 
-}else{
+// }else{
 
     $targetMajor = $_SESSION['program'];
     $branches = $_SESSION['branches'];
@@ -28,6 +28,6 @@ if(empty($_SESSION['fn'])){
     }
     
     echo json_encode($arr);
-}
+
 
 ?>

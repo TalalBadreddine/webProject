@@ -211,15 +211,23 @@ nav ul li div { position: relative; }
  }
 
  table{
-	 width: 60% !important;
+	 width:max-content;
 	 margin-left: 17%;
-	 min-height: 500px;
-	 max-height: 500px;	
 	 border-collapse: collapse;
 	 border: 3px solid #F0DBF8;
 	 overflow-y: scroll;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 15px;
+
+ }
+
+
+ #requestTable{
+	display: block;
+    height: 800px;
+    overflow-y: scroll;
+    max-height: 300px;
+    min-height: 500px;
  }
  
  table td{
@@ -233,6 +241,7 @@ nav ul li div { position: relative; }
 
  tr{
 	 height:  10%;
+	 width: 500px !important;
  }
  .header td{
 	 font-weight: bolder;
@@ -245,8 +254,8 @@ nav ul li div { position: relative; }
  }
 
  .addmission{
-	 padding-left: 65%;
- }
+	 margin-left: 30%;
+ } 
 
  .hiddenDiv{
 	 position: fixed;
@@ -317,4 +326,8 @@ h4{
 	margin-left: 17%;
 	margin-bottom: 1%;
 	cursor: pointer;
+}
+
+.name{
+	margin-left: -30%;
 }

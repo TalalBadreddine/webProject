@@ -210,6 +210,7 @@ function validate(){
         $.ajax({
             url:"../php/studentInfoPart1.php",
             type: 'POST',
+            async:false,
             data:{
                 firstName: fn.value,
                 lastName: ln.value,

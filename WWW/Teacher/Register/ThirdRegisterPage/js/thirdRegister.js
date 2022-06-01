@@ -141,9 +141,9 @@ submitBtn.addEventListener('click', function(){
                 
                 setTimeout(function(){
 
-                    window.location.href = "../../../LandingPage/Html/LandingPage.html"
+                    // window.location.href = "../../../../Student/LandingPage/Html/LandingPage.html"
 
-               }, 7000)
+               }, 4000)
 
             }
         }

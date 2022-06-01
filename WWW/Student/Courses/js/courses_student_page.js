@@ -220,7 +220,7 @@ function inserIntoTable(arr){
             imgsource = `<img src= ${getImgResource(arr[i][2])} width='70px' height='70px' style="border-radius: 50%;">`
             drName = firstLetterCapital(arr[i][2][1]) + firstLetterCapital(arr[i][2][2])
         }
-       
+      
         html += `
                             
                             <td colspan="${duration/2}">
@@ -246,7 +246,7 @@ function inserIntoTable(arr){
 // Check For Coflict
 var arrofConfilcted = []
 function thereIsConflict(arr){
-    
+
     let end = arr[0][1].split('/')[1]
 
     for(let i = 1 ; i < arr.length ; i++){
